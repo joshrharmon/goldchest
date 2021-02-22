@@ -1,5 +1,5 @@
 # GoldChest
-Repository dedicated to Team Lightning's product "GameSalez".
+Repository dedicated to Team Lightning's product "GoldChest".
 
 **Team Members:**
 - Christopher Perez (Project Manager, Tester)
