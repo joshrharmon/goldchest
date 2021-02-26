@@ -1,7 +1,6 @@
 htmlcov
 node_modules
 __pycache__
-frontend/node_modules
 frontend/migrations/__pycache__
 frontend/static/frontend/main.js
 frontend/__pycache__
