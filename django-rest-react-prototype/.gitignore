@@ -1,1 +1,10 @@
 htmlcov
+node_modules
+__pycache__
+frontend/node_modules
+frontend/migrations/__pycache__
+frontend/static/frontend/main.js
+frontend/__pycache__
+django_react/__pycache__
+leads/__pycache__
+leads/migrations/__pycache__
