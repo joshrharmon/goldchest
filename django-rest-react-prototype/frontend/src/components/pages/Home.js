@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
+import {CategoryGrid} from "../CategoryGrid";
+import {BestDealsGrid} from "../BestDealsGrid";
 
 //In javascript you dont need to specify folders in this server
 // just write name of nameofhtml to find href
@@ -10,7 +12,8 @@ export class Home extends Component {
         return (
 
 <div>
-    <h1>hello welcome to the home react component. U navigated here using react router</h1>
+    <CategoryGrid/>
+    <BestDealsGrid/>
 </div>
 
 

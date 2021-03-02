@@ -3,7 +3,8 @@ import { render } from "react-dom";
 import {Navbar} from "./Navbar";
 import {Home} from "./pages/Home";
 import {Signin} from "./pages/Signin";
-
+import {Footer} from "./Footer";
+import {CategoryGrid} from "./CategoryGrid";
 //import react router
 //Import react router
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
@@ -52,7 +53,9 @@ class App extends Component {
             <Route path="/" exact component={Home}/>
             <Route path="/signin" component={Signin}/>
 
-         
+
+
+            <Footer/>
     <ul>
         {this.state.data.map(contact => {
           return (
@@ -62,6 +65,7 @@ class App extends Component {
           );
         })}
     </ul>
+
         </div>
         </Router>
 

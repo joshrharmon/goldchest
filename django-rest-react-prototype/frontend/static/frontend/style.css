@@ -1,35 +1,9 @@
-/*.nav-item-padding {
-    padding: 0px 10px;
-    font-size: 20px;
-    text-decoration: none;
-}
-
- Change the color of links on hover background, not text
-.navbar a:hover {
-    color: #ddd !important;
-    text-decoration: none;
-}
-
-color of selected nav item that you are on
-a {
-    color: #000000;
-    text-decoration: none;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-}
-
-
-.nav-link a:hover {
-    color: black !important;
-    text-decoration: none;
-}
-*/
-
+/* Menu area styles (navigation bar) */
 .menu-area{
     width: 100%;
     overflow: auto;
-    background-color: dimgray;
-
+    background-color: #2f2f2f;
+    font-family: Avenir;
 }
 
 .menu-area ul {
@@ -44,32 +18,145 @@ a {
 
 }
 
+
+
 .menu-area ul li a{
-    width: 120px;
+    width: 110px;
     display: block;
     padding: 15px;
-    color: white;
+    color: #b9b9b9;
     text-decoration: none;
-    font-family: Arial;
-    font-size: 20px;
+    font-family: Avenir;
+    font-size: 18px;
     text-align: center;
 
 }
 
 .menu-area ul li a:hover{
-  color: black;
+  color: white;
 
 }
 
 #search-bar
 {
-    width: 450px;
+    width: 390px;
     padding: 5px;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
-    border-radius: 25px
+    border-radius: 25px;
     border: none;
-    font-size: 18px;
+    font-size: 14px;
     text-align: center;
     margin: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Category Grid styles */
+.product-grid{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.product-grid:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.image{
+    position: relative;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(67, 68, 68, 0.7);
+}
+.image:hover .overlay{
+    opacity: 1;
+}
+.detail{
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+a.btn.buy{
+    background-color: transparent;
+    color: #434444;
+    border-radius: 0;
+    border: 1px solid #434444;
+    width: 100%;
+    margin-top: 20px;
+}
+.buy:hover{
+    background-color: #434444;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+/* Best Deals Grid */
+.column {
+    float: left;
+    font-size: 18px;
+    font-family: Avenir;
+    text-align: center;
+}
+
+
+.best-deals-grid ul li a{
+    width: 300px;
+    display: block;
+    padding: 15px;
+    color: #b9b9b9;
+    text-decoration: none;
+    font-family: Avenir;
+    font-size: 18px;
+    text-align: center;
+
+}
+
+.best-deals-grid{
+    width: 100%;
+    overflow: auto;
+    font-family: Avenir;
+    align-content: center;
+}
+
+.best-deals-grid ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+.best-deals-grid ul li{
+    float: left;
+
+}
+
+.best-deals-grid ul li a:hover{
+    color: black;
+
 }
