@@ -10,8 +10,21 @@ Activate your virtual environment and run
 <br/>
 <br/>
 
+To build the frontend, navigate to the frontend directory run
+```npm install && npm run dev```
+
+<br/>
+
 Once that is done, with your environment activated, run
 ```python manage.py runserver```
 
-if you want to make changes to the front end, simply go to the frontend folder and open your terminal in that folder and write ```npm run dev``` this command should be written each time you make changes to the frontend code to updated changes
-*Note: if this command does not work for you, try installing npm/babel/webpack/react in the root folder of the project
+<br/>
+
+Any time changes are made to the server, navigate to frontend directory and run
+```npm run dev```
+
+<br/>
+
+Note: if you are encountering problems with installing the build, try deleting
+frontend/node_modules and do
+```npm install && npm run dev```
