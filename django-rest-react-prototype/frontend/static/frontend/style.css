@@ -1,0 +1,75 @@
+/*.nav-item-padding {
+    padding: 0px 10px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+ Change the color of links on hover background, not text
+.navbar a:hover {
+    color: #ddd !important;
+    text-decoration: none;
+}
+
+color of selected nav item that you are on
+a {
+    color: #000000;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+
+.nav-link a:hover {
+    color: black !important;
+    text-decoration: none;
+}
+*/
+
+.menu-area{
+    width: 100%;
+    overflow: auto;
+    background-color: dimgray;
+
+}
+
+.menu-area ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+.menu-area ul li{
+    float: left;
+
+}
+
+.menu-area ul li a{
+    width: 120px;
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    font-family: Arial;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+.menu-area ul li a:hover{
+  color: black;
+
+}
+
+#search-bar
+{
+    width: 450px;
+    padding: 5px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    margin: 15px;
+}
