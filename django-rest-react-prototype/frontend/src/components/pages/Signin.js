@@ -10,7 +10,7 @@ export class Signin extends Component {
         return (
 
             <div>
-                <h1>hello welcome to the SIGNIN react component. U navigated here using react router</h1>
+                <h1> hello welcome to the SIGNIN react component. U navigated here using react router</h1>
             </div>
 
 
