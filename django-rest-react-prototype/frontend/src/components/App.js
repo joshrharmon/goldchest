@@ -2,15 +2,12 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import {Navbar} from "./Navbar";
 import {Home} from "./pages/Home";
-import {Signin} from "./pages/Signin";
+import {Login} from "./pages/Login";
 
 //import react router
 //Import react router
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {Link} from "react-router-dom";
-
-
-
 
 class App extends Component {
   constructor(props) {
@@ -44,28 +41,19 @@ class App extends Component {
 
   render() {
     return (
-        <Router>
+      <Router>
         <div>
 
 
-            <Navbar/>
-            <Route path="/" exact component={Home}/>
-            <Route path="/signin" component={Signin}/>
+          <Navbar/>
+          <Route path="/" exact component={Home}/>
+          <Route path="/login" component={Login}/>
 
-         
-    <ul>
-        {this.state.data.map(contact => {
-          return (
-            <li key={contact.id}>
-              {contact.name} - {contact.email}
-            </li>
-          );
-        })}
-    </ul>
+
         </div>
-        </Router>
+      </Router>
 
-        
+
 
     );
   }

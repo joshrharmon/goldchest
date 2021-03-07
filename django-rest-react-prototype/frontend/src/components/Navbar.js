@@ -34,7 +34,7 @@ export class Navbar extends Component {
     <ul>
 
         <li><Link className="nav-link" to="/">Home</Link></li>
-        <li><Link className="nav-link" to="/signin">Sign in</Link></li>
+        <li><Link className="nav-link" to="/login">Log in</Link></li>
 
         <li><input type="text" name="" id="search-bar" placeholder="Search product or category..."/></li>
 

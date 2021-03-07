@@ -40,11 +40,13 @@ INSTALLED_APPS = [
     'leads.apps.LeadsConfig', # activate new app
     'rest_framework',
     'frontend', # enable frontend app
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -122,8 +124,25 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# REST_FRAMEWORK = {
+REST_FRAMEWORK = {
 #   'DEFAULT_RENDERER_CLASSES': (
 #     'rest_framework.renderers.JSONRenderer',
-#   )
-# }
+#   ),
+
+  'DEFAULT_PERMISSION_CLASSES': (
+    'rest_framework.permissions.IsAuthenticated',
+  ),
+  'DEFAULT_AUTHENTICATION_CLASSES': (
+    'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.BasicAuthentication',
+  ),
+}
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)
+
+JWT_AUTH = {
+  'JWT_RESPONSE_PAYLOAD_HANDLER': 'django_react.utils.my_jwt_response_handler'
+}
