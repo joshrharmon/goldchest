@@ -56,20 +56,11 @@ class App extends Component {
 
 
             <Footer/>
-    <ul>
-        {this.state.data.map(contact => {
-          return (
-            <li key={contact.id}>
-              {contact.name} - {contact.email}
-            </li>
-          );
-        })}
-    </ul>
 
         </div>
         </Router>
 
-        
+
 
     );
   }
