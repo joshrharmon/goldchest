@@ -2,306 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a70feda1-7d09-4dae-9013-e20cb3ae2f3d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/code-frame/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/code-frame/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/compat-data/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/compat-data/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/core/node_modules/source-map/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/core/node_modules/source-map/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/generator/node_modules/source-map/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/generator/node_modules/source-map/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/generator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/generator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-annotate-as-pure/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-annotate-as-pure/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-builder-binary-assignment-operator-visitor/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-builder-binary-assignment-operator-visitor/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-compilation-targets/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-compilation-targets/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-create-class-features-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-create-class-features-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-create-regexp-features-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-create-regexp-features-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-define-polyfill-provider/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-define-polyfill-provider/node_modules/semver/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-define-polyfill-provider/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-define-polyfill-provider/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-explode-assignable-expression/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-explode-assignable-expression/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-function-name/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-function-name/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-get-function-arity/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-get-function-arity/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-hoist-variables/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-hoist-variables/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-member-expression-to-functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-member-expression-to-functions/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-module-imports/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-module-imports/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-module-transforms/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-module-transforms/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-optimise-call-expression/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-optimise-call-expression/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-plugin-utils/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-plugin-utils/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-remap-async-to-generator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-remap-async-to-generator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-replace-supers/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-replace-supers/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-simple-access/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-simple-access/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-skip-transparent-expression-wrappers/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-skip-transparent-expression-wrappers/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-split-export-declaration/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-split-export-declaration/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-validator-identifier/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-validator-identifier/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-validator-option/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-validator-option/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-wrap-function/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helper-wrap-function/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helpers/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/helpers/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/highlight/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/highlight/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/parser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-async-generator-functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-async-generator-functions/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-class-properties/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-class-properties/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-dynamic-import/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-dynamic-import/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-export-namespace-from/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-export-namespace-from/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-json-strings/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-json-strings/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-logical-assignment-operators/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-logical-assignment-operators/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-numeric-separator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-numeric-separator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-object-rest-spread/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-object-rest-spread/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-optional-catch-binding/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-optional-catch-binding/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-optional-chaining/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-optional-chaining/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-private-methods/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-private-methods/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-unicode-property-regex/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-proposal-unicode-property-regex/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-async-generators/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-async-generators/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-class-properties/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-class-properties/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-dynamic-import/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-dynamic-import/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-export-namespace-from/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-export-namespace-from/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-json-strings/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-json-strings/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-jsx/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-jsx/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-logical-assignment-operators/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-logical-assignment-operators/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-nullish-coalescing-operator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-nullish-coalescing-operator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-numeric-separator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-numeric-separator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-object-rest-spread/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-object-rest-spread/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-optional-catch-binding/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-optional-catch-binding/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-optional-chaining/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-optional-chaining/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-top-level-await/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-syntax-top-level-await/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-arrow-functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-arrow-functions/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-async-to-generator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-async-to-generator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-block-scoped-functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-block-scoped-functions/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-block-scoping/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-block-scoping/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-classes/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-classes/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-computed-properties/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-computed-properties/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-destructuring/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-destructuring/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-dotall-regex/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-dotall-regex/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-duplicate-keys/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-duplicate-keys/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-exponentiation-operator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-exponentiation-operator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-for-of/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-for-of/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-function-name/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-function-name/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-literals/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-literals/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-member-expression-literals/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-member-expression-literals/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-modules-amd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-modules-amd/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-modules-commonjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-modules-commonjs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-modules-systemjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-modules-systemjs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-modules-umd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-modules-umd/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-named-capturing-groups-regex/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-named-capturing-groups-regex/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-new-target/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-new-target/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-object-super/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-object-super/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-parameters/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-parameters/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-property-literals/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-property-literals/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-react-display-name/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-react-display-name/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-react-jsx-development/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-react-jsx-development/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-react-jsx/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-react-jsx/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-react-pure-annotations/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-react-pure-annotations/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-regenerator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-regenerator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-reserved-words/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-reserved-words/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-shorthand-properties/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-shorthand-properties/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-spread/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-spread/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-sticky-regex/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-sticky-regex/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-template-literals/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-template-literals/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-typeof-symbol/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-typeof-symbol/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-unicode-escapes/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-unicode-escapes/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-unicode-regex/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/plugin-transform-unicode-regex/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/preset-modules/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/preset-modules/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/runtime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/runtime/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/template/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/template/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/traverse/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/traverse/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@babel/types/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@discoveryjs/json-ext/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@discoveryjs/json-ext/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/ast/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/ast/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/floating-point-hex-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/floating-point-hex-parser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/helper-api-error/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/helper-api-error/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/helper-buffer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/helper-buffer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/helper-numbers/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/helper-numbers/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/helper-wasm-bytecode/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/helper-wasm-bytecode/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/helper-wasm-section/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/helper-wasm-section/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/ieee754/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/ieee754/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/leb128/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/leb128/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/utf8/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/utf8/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/wasm-edit/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/wasm-edit/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/wasm-gen/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/wasm-gen/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/wasm-opt/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/wasm-opt/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/wasm-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/wasm-parser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/wast-printer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webassemblyjs/wast-printer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webpack-cli/configtest/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webpack-cli/configtest/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webpack-cli/info/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webpack-cli/info/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webpack-cli/serve/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@webpack-cli/serve/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@xtuc/ieee754/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@xtuc/ieee754/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@xtuc/long/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/@xtuc/long/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/acorn/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/acorn/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/ajv-keywords/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/ajv-keywords/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/ajv/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/ajv/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/ansi-colors/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/ansi-colors/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/ansi-styles/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/ansi-styles/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-loader/node_modules/schema-utils/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-loader/node_modules/schema-utils/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-plugin-dynamic-import-node/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-plugin-dynamic-import-node/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-plugin-polyfill-corejs2/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-plugin-polyfill-corejs2/node_modules/semver/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-plugin-polyfill-corejs2/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-plugin-polyfill-corejs2/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-plugin-polyfill-corejs3/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-plugin-polyfill-corejs3/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-plugin-polyfill-regenerator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/babel-plugin-polyfill-regenerator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/big.js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/big.js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/browserslist/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/browserslist/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/buffer-from/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/buffer-from/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/call-bind/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/call-bind/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/caniuse-lite/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/caniuse-lite/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/chalk/node_modules/has-flag/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/chalk/node_modules/has-flag/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/chalk/node_modules/supports-color/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/chalk/node_modules/supports-color/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/chalk/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/chalk/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/chrome-trace-event/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/chrome-trace-event/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/clone-deep/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/clone-deep/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/color-convert/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/color-convert/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/color-name/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/color-name/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/colorette/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/colorette/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/commander/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/commander/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/commondir/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/commondir/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/convert-source-map/node_modules/safe-buffer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/convert-source-map/node_modules/safe-buffer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/convert-source-map/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/convert-source-map/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/core-js-compat/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/core-js-compat/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/cross-spawn/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/cross-spawn/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/debug/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/debug/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/define-properties/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/define-properties/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/electron-to-chromium/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/electron-to-chromium/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/emojis-list/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/emojis-list/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/enhanced-resolve/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/enhanced-resolve/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/enquirer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/enquirer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/envinfo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/envinfo/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/es-module-lexer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/es-module-lexer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/escalade/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/escalade/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/escape-string-regexp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/escape-string-regexp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/eslint-scope/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/eslint-scope/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/esrecurse/node_modules/estraverse/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/esrecurse/node_modules/estraverse/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/esrecurse/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/esrecurse/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/estraverse/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/estraverse/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/esutils/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/esutils/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/History.md" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/History.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/events.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/tests/events-once.js" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/tests/events-once.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/tests/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/events/tests/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/execa/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/execa/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/fast-deep-equal/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/fast-deep-equal/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/fast-json-stable-stringify/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/fast-json-stable-stringify/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/fastest-levenshtein/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/fastest-levenshtein/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/find-cache-dir/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/find-cache-dir/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/find-up/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/find-up/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/function-bind/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/function-bind/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/gensync/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/gensync/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/get-intrinsic/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/get-intrinsic/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/get-stream/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/get-stream/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/glob-to-regexp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/glob-to-regexp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/globals/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/globals/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/graceful-fs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/graceful-fs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/has-flag/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/has-flag/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/has-symbols/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/has-symbols/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/has/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/has/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/history/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/history/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/hoist-non-react-statics/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/hoist-non-react-statics/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/human-signals/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/human-signals/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/import-local/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/import-local/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/interpret/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/interpret/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/is-core-module/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/is-core-module/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/is-plain-object/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/is-plain-object/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/is-stream/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/is-stream/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/isarray/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/isarray/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/isexe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/isexe/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/isobject/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/isobject/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/jest-worker/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/jest-worker/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/js-tokens/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/js-tokens/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/jsesc/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/jsesc/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/json-parse-better-errors/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/json-parse-better-errors/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/json-schema-traverse/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/json-schema-traverse/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/json5/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/json5/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/kind-of/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/kind-of/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/loader-runner/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/loader-runner/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/loader-utils/node_modules/json5/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/loader-utils/node_modules/json5/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/loader-utils/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/loader-utils/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/locate-path/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/locate-path/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/lodash.debounce/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/lodash.debounce/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/lodash/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/lodash/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/loose-envify/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/loose-envify/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/make-dir/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/make-dir/node_modules/semver/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/make-dir/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/make-dir/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/merge-stream/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/merge-stream/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/mime-db/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/mime-db/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/mime-types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/mime-types/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/mimic-fn/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/mimic-fn/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/mini-create-react-context/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/mini-create-react-context/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/minimist/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/minimist/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/ms/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/ms/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/neo-async/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/neo-async/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/node-releases/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/node-releases/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/npm-run-path/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/npm-run-path/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/object-assign/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/object-assign/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/object-keys/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/object-keys/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/object.assign/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/object.assign/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/onetime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/onetime/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/p-limit/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/p-limit/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/p-locate/node_modules/p-limit/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/p-locate/node_modules/p-limit/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/p-locate/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/p-locate/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/p-try/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/p-try/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/path-exists/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/path-exists/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/path-key/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/path-key/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/path-parse/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/path-parse/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/path-to-regexp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/path-to-regexp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/pkg-dir/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/pkg-dir/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/prop-types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/prop-types/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/punycode/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/punycode/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/randombytes/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/randombytes/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/react-is/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/react-is/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/react-router/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/react-router/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/rechoir/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/rechoir/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regenerate-unicode-properties/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regenerate-unicode-properties/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regenerate/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regenerate/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regenerator-runtime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regenerator-runtime/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regenerator-transform/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regenerator-transform/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regexpu-core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regexpu-core/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regjsgen/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regjsgen/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regjsparser/node_modules/jsesc/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regjsparser/node_modules/jsesc/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regjsparser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/regjsparser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/resolve-cwd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/resolve-cwd/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/resolve-from/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/resolve-from/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/resolve-pathname/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/resolve-pathname/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/resolve/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/resolve/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/safe-buffer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/safe-buffer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/scheduler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/scheduler/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/schema-utils/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/schema-utils/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/semver/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/serialize-javascript/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/serialize-javascript/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/shallow-clone/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/shallow-clone/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/shebang-command/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/shebang-command/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/shebang-regex/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/shebang-regex/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/signal-exit/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/signal-exit/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/source-list-map/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/source-list-map/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/source-map-support/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/source-map-support/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/source-map/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/source-map/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/strip-final-newline/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/strip-final-newline/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/supports-color/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/supports-color/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/tapable/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/tapable/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/terser-webpack-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/terser-webpack-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/terser/node_modules/source-map/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/terser/node_modules/source-map/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/terser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/terser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/tiny-invariant/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/tiny-invariant/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/tiny-warning/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/tiny-warning/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/to-fast-properties/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/to-fast-properties/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/tslib/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/tslib/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/unicode-canonical-property-names-ecmascript/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/unicode-canonical-property-names-ecmascript/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/unicode-match-property-ecmascript/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/unicode-match-property-ecmascript/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/unicode-match-property-value-ecmascript/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/unicode-match-property-value-ecmascript/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/unicode-property-aliases-ecmascript/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/unicode-property-aliases-ecmascript/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/uri-js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/uri-js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/v8-compile-cache/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/v8-compile-cache/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/value-equal/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/value-equal/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/watchpack/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/watchpack/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/webpack-cli/node_modules/commander/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/webpack-cli/node_modules/commander/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/webpack-merge/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/webpack-merge/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/webpack-sources/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/webpack-sources/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/which/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/which/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/wildcard/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/wildcard/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/yocto-queue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/node_modules/yocto-queue/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/pages/Signin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/templates/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/templates/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/style.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -320,34 +24,34 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="1" />
+          <entry key="css" value="2" />
           <entry key="html" value="5" />
-          <entry key="js" value="9" />
+          <entry key="js" value="13" />
           <entry key="json" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="1" />
+          <entry key="CSS" value="2" />
           <entry key="HTML" value="5" />
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="9" />
+          <entry key="JavaScript" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="496" />
+          <entry key="css" value="812" />
           <entry key="html" value="200" />
-          <entry key="js" value="514" />
+          <entry key="js" value="1623" />
           <entry key="json" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="496" />
+          <entry key="CSS" value="812" />
           <entry key="HTML" value="200" />
           <entry key="JSON" value="33" />
-          <entry key="JavaScript" value="514" />
+          <entry key="JavaScript" value="1623" />
         </counts>
       </usages-collector>
     </session>
@@ -357,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+            <state relative-caret-position="810">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -367,30 +71,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/templates/frontend/index.html">
+        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/pages/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/Navbar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+            <state relative-caret-position="210">
+              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -399,42 +83,73 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/webpack.config.js">
+        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/templates/frontend/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/index.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+            <state relative-caret-position="270">
+              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="122" column="24" lean-forward="true" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/Navbar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="22" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/Footer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/CategoryGrid.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/BestDealsGrid.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="95" column="30" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/pages/Signin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="255">
+              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -448,12 +163,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Django Re</find>
+      <find>fluid</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/django-rest-react-prototype</dir>
@@ -471,9 +188,14 @@
         <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/webpack.config.js" />
         <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/templates/frontend/index.html" />
         <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/index.html" />
-        <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/Navbar.js" />
-        <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/style.css" />
         <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/pages/Signin.js" />
+        <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/Navbar.js" />
+        <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/App.js" />
+        <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/pages/Home.js" />
+        <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/Footer.js" />
+        <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/style.css" />
+        <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/CategoryGrid.js" />
+        <option value="$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/BestDealsGrid.js" />
       </list>
     </option>
   </component>
@@ -862,21 +584,6 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="goldchest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="goldchest" type="462c0819:PsiDirectoryNode" />
-              <item name="django-rest-react-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="goldchest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="goldchest" type="462c0819:PsiDirectoryNode" />
-              <item name="django-rest-react-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -889,7 +596,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614702939168" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614721336075" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -925,12 +632,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614689224522</updated>
-      <workItem from="1614689226305" duration="9629000" />
+      <workItem from="1614689226305" duration="18192000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9629000" />
+    <option name="totallyTimeSpent" value="18192000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -950,14 +657,14 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49910232" visible="true" weight="0.24964234" />
-      <window_info id="Structure" order="1" sideWeight="0.50089765" side_tool="true" visible="true" weight="0.24964234" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49879518" visible="true" weight="0.24964234" />
+      <window_info id="Structure" order="1" sideWeight="0.50120485" side_tool="true" visible="true" weight="0.24964234" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" weight="0.32891566" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -981,18 +688,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/pages/Home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/web/dist/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1005,16 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1022,12 +707,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/main.js">
+    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -1045,44 +728,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/templates/frontend/index.html">
+    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/Navbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+        <state>
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/style.css">
+    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+        <state relative-caret-position="810">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/pages/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/pages/Signin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="255">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/Navbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/templates/frontend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/Footer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/CategoryGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/src/components/BestDealsGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="95" column="30" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-rest-react-prototype/frontend/static/frontend/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="122" column="24" lean-forward="true" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
         </state>
       </provider>
     </entry>

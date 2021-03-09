@@ -9,34 +9,16 @@ export class Navbar extends Component {
     render() {
         return (
 
-/*<nav className="navbar navbar-expand-md navbar-light bg-">
-    <div>
-
-        <div className="collpase navbar-collapse" id="navbarResponsive">
-            <ul className="navbar-nav ml-auto">
-                <li className="nav-item active nav-item-padding">
-                    <Link className="nav-link" to="/">Home</Link>
-                </li>
-
-                <li className="nav-item active nav-item-padding">
-                    <Link className="nav-link" to="/signin">Sign in</Link>
-                </li>
-
-            </ul>
-        </div>
-
-    </div>
-</nav>*/
-
-
 
 <div className="menu-area">
     <ul>
 
         <li><Link className="nav-link" to="/">Home</Link></li>
+
         <li><Link className="nav-link" to="/signin">Sign in</Link></li>
 
-        <li><input type="text" name="" id="search-bar" placeholder="Search product or category..."/></li>
+
+        <li><input type="text" name="" id="search-bar" placeholder="Search product or category . . . "/></li>
 
 </ul>
 </div>
