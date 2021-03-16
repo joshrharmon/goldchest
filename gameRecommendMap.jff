@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>fa</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="0" name="ac">
+			<x>1413.0</x>
+			<y>109.0</y>
+			<label>Action</label>
+		</state>
+		<state id="1" name="ind">
+			<x>399.0</x>
+			<y>156.0</y>
+			<label>Indie</label>
+		</state>
+		<state id="2" name="ad">
+			<x>721.0</x>
+			<y>23.0</y>
+			<label>Adventure</label>
+		</state>
+		<state id="3" name="rpg">
+			<x>219.0</x>
+			<y>665.0</y>
+			<label>RPG</label>
+		</state>
+		<state id="4" name="hor">
+			<x>1083.0</x>
+			<y>917.0</y>
+			<label>Horror</label>
+		</state>
+		<state id="5" name="mys">
+			<x>721.0</x>
+			<y>917.0</y>
+			<label>Mystery</label>
+		</state>
+		<state id="6" name="sim">
+			<x>86.0</x>
+			<y>468.0</y>
+			<label>Simulation</label>
+		</state>
+		<state id="7" name="sp">
+			<x>1639.0</x>
+			<y>270.0</y>
+			<label>Sports</label>
+		</state>
+		<state id="8" name="ra">
+			<x>1639.0</x>
+			<y>669.0</y>
+			<label>Racing</label>
+		</state>
+		<state id="9" name="sh">
+			<x>1719.0</x>
+			<y>468.0</y>
+			<label>Shooter</label>
+		</state>
+		<state id="10" name="str">
+			<x>391.0</x>
+			<y>827.0</y>
+			<label>Strategy</label>
+		</state>
+		<state id="11" name="fi">
+			<x>1413.0</x>
+			<y>827.0</y>
+			<label>Fighting</label>
+		</state>
+		<state id="12" name="re">
+			<x>1083.0</x>
+			<y>23.0</y>
+			<label>Retro</label>
+		</state>
+		<state id="13" name="ani">
+			<x>165.0</x>
+			<y>270.0</y>
+			<label>Anime</label>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>6</from>
+			<to>9</to>
+			<read>Likes Shooter</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>12</to>
+			<read>Likes Retro</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>3</to>
+			<read>Likes RPG</read>
+		</transition>
+		<transition>
+			<from>9</from>
+			<to>0</to>
+			<read>Likes Action</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>2</to>
+			<read>Likes Adventure</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>1</to>
+			<read>Likes Indie</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>7</to>
+			<read>Likes Sports</read>
+		</transition>
+		<transition>
+			<from>9</from>
+			<to>11</to>
+			<read>Likes Fighting</read>
+		</transition>
+		<transition>
+			<from>12</from>
+			<to>2</to>
+			<read>Likes Adventure</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>4</to>
+			<read>Likes Horror</read>
+		</transition>
+		<transition>
+			<from>13</from>
+			<to>3</to>
+			<read>Likes RPG</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>10</to>
+			<read>Likes Strategy</read>
+		</transition>
+		<transition>
+			<from>7</from>
+			<to>8</to>
+			<read>Likes Racing</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>11</to>
+			<read>Likes Fighting</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>3</to>
+			<read>Likes RPG</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>2</to>
+			<read>Likes Adventure</read>
+		</transition>
+		<transition>
+			<from>11</from>
+			<to>7</to>
+			<read>Likes Sports</read>
+		</transition>
+		<transition>
+			<from>12</from>
+			<to>1</to>
+			<read>Likes Indie</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>13</to>
+			<read>Likes Anime</read>
+		</transition>
+		<transition>
+			<from>10</from>
+			<to>3</to>
+			<read>Likes RPG</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>7</to>
+			<read>Likes Sports</read>
+		</transition>
+		<transition>
+			<from>7</from>
+			<to>0</to>
+			<read>Likes Action</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>6</to>
+			<read>Likes Simulation</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>11</to>
+			<read>Likes Fighting</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>11</to>
+			<read>Likes Fighting</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>12</to>
+			<read>Likes Retro</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read>Likes Adventure</read>
+		</transition>
+		<transition>
+			<from>13</from>
+			<to>1</to>
+			<read>Likes Indie</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>7</to>
+			<read>Likes Sports</read>
+		</transition>
+		<transition>
+			<from>11</from>
+			<to>0</to>
+			<read>Likes Action</read>
+		</transition>
+		<transition>
+			<from>10</from>
+			<to>5</to>
+			<read>Likes Mystery</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>5</to>
+			<read>Likes Mystery</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>13</to>
+			<read>Likes Anime</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>6</to>
+			<read>Likes Simulation</read>
+		</transition>
+		<transition>
+			<from>11</from>
+			<to>9</to>
+			<read>Likes Shooter</read>
+		</transition>
+	</automaton>
+</structure>
