@@ -8,7 +8,10 @@ export class BestDealsGrid extends Component
     render()
     {
         return(
+
             <div>
+
+
                 <div className="container-fluid padding">
                     <div className="row welcome text-center">
                         <div className="col-12">

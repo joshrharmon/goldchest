@@ -1,7 +1,11 @@
 import React, {Component} from "react";
-import { Link } from "react-router-dom";
+import {Link, Route} from "react-router-dom";
 import {CategoryGrid} from "../CategoryGrid";
 import {BestDealsGrid} from "../BestDealsGrid";
+
+
+import {BrowserRouter as Router} from "react-router-dom";
+
 
 //In javascript you dont need to specify folders in this server
 // just write name of nameofhtml to find href
@@ -12,9 +16,13 @@ export class Home extends Component {
         return (
 
 <div>
-    <CategoryGrid/>
+
+
+
     <BestDealsGrid/>
+
 </div>
+
 
 
         )

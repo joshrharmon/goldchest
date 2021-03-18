@@ -129,7 +129,7 @@ a.btn.buy{
     width: 300px;
     display: block;
     padding: 15px;
-    color: #b9b9b9;
+    color: black;
     text-decoration: none;
     font-family: Avenir;
     font-size: 18px;
@@ -156,7 +156,83 @@ a.btn.buy{
 
 }
 
-.best-deals-grid ul li a:hover{
-    color: black;
+.best-deals-grid ul li a:hover
+{
+    color: #b9b9b9;
 
 }
+
+
+
+/* Ordered list for category pages*/
+.category *
+{
+    margin: 0 auto;
+    padding: 0 auto;
+
+}
+
+.category div {
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.category ul {
+    list-style-type: none;
+    width: 500px;
+
+}
+
+.category h3 {
+    font: bold 20px/1.5 Avenir;
+}
+
+.category li img {
+    float: left;
+    margin: 0 15px 0 0;
+}
+
+.category li p {
+    font: 200 12px/1.5 Avenir, Avenir, serif;
+}
+
+.category li {
+    padding: 10px;
+    overflow: auto;
+    border-radius: 10px;
+}
+
+.category li:hover {
+    background: #eee;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
