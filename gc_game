@@ -3,11 +3,11 @@ DROP TABLE IF EXISTS `gc_game`;
 CREATE TABLE `gc_game`(
     `gameID` nt NOT NULL AUTO_INCREMENT,
     `gameTitle` varchar(255) NOT NULL,
-    `ATH` float(6) NOT NULL,        /*ALL TIME HIGH*/
-    `ATL` float(6) NOT NULL,        /*ALL TIME LOW*/
-    `monthHigh` float(6) NOT NULL,
-    `monthLow`  float(6) NOT NULL,
-    `currentPrice` float(6) NOT NULL,
-    `priceflux` float(4) NOT NULL,  /*PERCENTAGE CHANGE IN PRICE OVER THE MONTH*/
+    `ATH` float NOT NULL,        /*ALL TIME HIGH*/
+    `ATL` float NOT NULL,        /*ALL TIME LOW*/
+    `monthHigh` float NOT NULL,
+    `monthLow`  float NOT NULL,
+    `currentPrice` float NOT NULL,
+    `priceflux` float NOT NULL,  /*PERCENTAGE CHANGE IN PRICE OVER THE MONTH*/
     PRIMARY KEY(`gameID`)
 )
