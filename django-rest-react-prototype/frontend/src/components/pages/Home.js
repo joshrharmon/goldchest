@@ -18,8 +18,10 @@ export class Home extends Component {
 <div>
 
 
-
+    <CategoryGrid/>
     <BestDealsGrid/>
+
+
 
 </div>
 

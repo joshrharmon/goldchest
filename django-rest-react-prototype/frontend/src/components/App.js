@@ -63,7 +63,6 @@ class App extends Component {
 
 
             <Navbar/>
-            <CategoryGrid/>
             <Route path="/" exact component={Home}/>
             <Route path="/signin" component={Signin}/>
             <Route path="/sports" component={Sports}/>

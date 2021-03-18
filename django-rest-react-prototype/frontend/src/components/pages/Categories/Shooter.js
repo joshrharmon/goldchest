@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
+import {CategoryGrid} from "../../CategoryGrid";
 
 
 
@@ -10,6 +11,9 @@ export class Shooter extends Component {
 
 
             <div>
+
+                <CategoryGrid/>
+
                 <div className="container-fluid padding">
                     <div className="row welcome text-center">
                         <div className="col-12">
