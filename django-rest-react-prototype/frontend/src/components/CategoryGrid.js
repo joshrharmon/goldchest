@@ -7,6 +7,8 @@ export class CategoryGrid extends Component
     {
         return(
             <div>
+
+
                 <div className="container-fluid padding">
                     <div className="row welcome text-center">
                         <div className="col-12">
@@ -25,110 +27,59 @@ export class CategoryGrid extends Component
 
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Sports Games</Link></li>
+                            <li>  <Link className="row" to="/sports"> <i className="fas fa-football-ball"></i> Sports Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Adventure Games</Link></li>
+                            <li><Link className="row" to="/adventure"> <i className="fas fa-mountain"></i> Adventure Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Action Games</Link></li>
+                            <li><Link className="row" to="/action"> <i className="fas fa-running"></i> Action Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Strategy Games</Link></li>
+                            <li><Link className="row" to="/strategy"> <i className="fas fa-chess"></i> Strategy Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Childrens Games</Link></li>
+                            <li><Link className="row" to="/childrens"> <i className="fas fa-baby-carriage"></i> Childrens Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Sports Games</Link></li>
+                            <li><Link className="row" to="/horror"> <i className="fas fa-baseball"></i> Horror Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Sports Games</Link></li>
+                            <li><Link className="row" to="/racing"> <i className="fas fa-car"></i> Racing Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Sports Games</Link></li>
+                            <li><Link className="row" to="/shooter"> <i className="fas fa-baseball"></i> Shooter Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Childrens Games</Link></li>
+                            <li><Link className="row" to="/anime"> <i className="fas fa-baseball"></i> Anime Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Sports Games</Link></li>
+                            <li><Link className="row" to="/rpg"> <i className="fas fa-baseball"></i> RPG Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Sports Games</Link></li>
+                            <li><Link className="row" to="/mystery"> <i className="fas fa-baseball"></i> Mystery Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/signin"> <i className="fas fa-baseball"></i> Sports Games</Link></li>
+                            <li><Link className="row" to="/puzzle"> <i className="fas fa-puzzle-piece"></i> Puzzle Games</Link></li>
                         </div>
-
 
 
                     </ul>
 
 
 
-                    {/* <div className="row">
-                        <div className="column" >
-                            <p>Cat 1</p>
-                        </div>
-                        <div className="column">
-                            <p Some text..</p>
-                        </div>
-                        <div className="column" >
-                            <h2>Sports Games</h2>
-                            <p>Some text..</p>
-                        </div>
-                        <div className="column" >
-                            <h2>Sports Games</h2>
-                            <p>Some text..</p>
-                        </div>
-                        <div className="column" >
-                            <h2>Sports Games</h2>
-                            <p>Some text..</p>
-                        </div>
-                        <div className="column" >
-                            <h2>Sports Games</h2>
-                            <p>Some text..</p>
-                        </div>
-                        <div className="column" >
-                            <h2>Sports Games</h2>
-                            <p>Some text..</p>
-                        </div>
-                        <div className="column" >
-                            <h2>Sports Games</h2>
-                            <p>Some text..</p>
-                        </div>
-                        <div className="column" >
-                            <h2>Sports Games</h2>
-                            <p>Some text..</p>
-                        </div>
-                        <div className="column" >
-                            <h2>Sports Games</h2>
-                            <p>Some text..</p>
-                        </div>
-                        <div className="column" >
-                            <h2>Sports Games</h2>
-                            <p>Some text..</p>
-                        </div>
-                    </div>
-*/}
-
                 </div>
-
-
-
-
 
             </div>
 

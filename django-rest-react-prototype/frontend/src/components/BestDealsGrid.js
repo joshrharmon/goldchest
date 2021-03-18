@@ -8,7 +8,10 @@ export class BestDealsGrid extends Component
     render()
     {
         return(
+
             <div>
+
+
                 <div className="container-fluid padding">
                     <div className="row welcome text-center">
                         <div className="col-12">
@@ -26,6 +29,8 @@ export class BestDealsGrid extends Component
 
 
                     <div className="col-md-4 product-grid">
+
+
                         <div className="image">
                             <a href="#">
                                 {/*<img src="images/sparklingwater.jpg" alt="description of picture" className="w-100"/>*/}                                <div className="overlay">
@@ -36,6 +41,8 @@ export class BestDealsGrid extends Component
                         <h5 className="text-center">Cyberpunk</h5>
                         <h5 className="text-center">Price: $50</h5>
                         <a href="#" className="btn buy">VIEW DETAILS</a>
+
+
                     </div>
 
 
