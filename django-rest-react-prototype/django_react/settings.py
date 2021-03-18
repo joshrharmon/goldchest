@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'leads.apps.LeadsConfig', # activate new app
     'rest_framework',
     'frontend', # enable frontend app
+    'django_openid_auth',
+    'django_steam_api',
+    'django_steam',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +130,23 @@ STATIC_URL = '/static/'
 #     'rest_framework.renderers.JSONRenderer',
 #   )
 # }
+
+AUTHENTICATION_BACKENDS = (
+    'django_openid_auth.auth.OpenIDBackend',
+)
+
+LOGIN_URL = 'http://localhost:8000/openid/login/'
+OPENID_CREATE_USERS = True
+STEAM_API_KEY = 'B1C3A57FCE4FD0CBECBF1EE80507A691'
+
+# recommended
+OPENID_SSO_SERVER_URL = 'http://steamcommunity.com/openid'
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+
+# optional
+OPENID_UPDATE_DETAILS_FROM_SREG = True
+ALLOWED_EXTERNAL_OPENID_REDIRECT_DOMAINS = ['http://example.org']
+OPENID_STRICT_USERNAMES = False
+# see https://github.com/edx/django-openid-auth
+# and https://github.com/voblivion/django-steam-api

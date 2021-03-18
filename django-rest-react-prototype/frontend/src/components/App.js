@@ -79,6 +79,7 @@ class App extends Component {
             <Route path="/puzzle" component={Puzzle}/>
 
 
+
             <Footer/>
 
         </div>

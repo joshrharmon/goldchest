@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
   path('', include('leads.urls')),
   path('', include('frontend.urls')),
+  path(r'openid/', include('django_openid_auth.urls')),
 ]
