@@ -44,7 +44,6 @@ class App extends Component {
       <Router>
         <div>
 
-
           <Navbar/>
           <Route path="/" exact component={Home}/>
           <Route path="/login" component={Login}/>

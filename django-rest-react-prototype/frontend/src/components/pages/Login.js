@@ -1,9 +1,11 @@
 import React, {Component} from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import Nav from './Nav';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
+import {Home} from "./Home";
 
 export class Login extends Component {
   constructor(props) {
@@ -81,12 +83,14 @@ export class Login extends Component {
   };
 
   render() {
+    let path = window.location.pathname;
     let form;
-    switch (this.state.displayed_form) {
-      case 'login':
+    // switch (this.state.displayed_form) {
+    switch (path) {
+      case '/login':
         form = <LoginForm handle_login={this.handle_login} />;
         break;
-      case 'signup':
+      case '/signup':
         form = <SignupForm handle_signup={this.handle_signup} />;
         break;
       default:
@@ -106,6 +110,7 @@ export class Login extends Component {
             ? `Hello, ${this.state.username}`
             : 'Please Log In'}
         </h3>
+        <Route path="/" exact component={Home}/>
       </div>
     );
   }
