@@ -53,6 +53,10 @@ class App extends Component {
             <Route path="/" exact component={Home}/>
             <Route path="/signin" component={Signin}/>
 
+            <a href="/openid/login">
+              <img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png" width="180" height="35" border="0"></img>
+            </a>
+
 
 
             <Footer/>
