@@ -12,7 +12,7 @@ export class Signin extends Component {
 
 
 
-                <a href="https://store.steampowered.com/%22%7D%3E"> <img src="https://cdn.discordapp.com/attachments/745675669404385290/822209432648810526/sits_02.png"
+                <a href="/openid/login"> <img src="https://cdn.discordapp.com/attachments/745675669404385290/822209432648810526/sits_02.png"
                                                                      className="steamSignon" />
                 </a>
 

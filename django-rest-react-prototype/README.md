@@ -3,9 +3,9 @@
 Tutorial from https://www.valentinog.com/blog/drf/
 <br/>
 
-To run this, you will need a python environment with djangorestframework <br/>
+To run this, you will need a python environment <br/>
 Activate your virtual environment and run
-```pip install djangorestframework```
+```python -m pip install -r requirements.txt```
 
 <br/>
 <br/>
