@@ -121,6 +121,7 @@ def retrieveMeta(gameURL, dataType):
                     return "NSFW"
                 else:
                     continue
+            return "SFW"
         else:
             return "NSFW" if str(soup).lower().find("mature content description") > 0 else "SFW"
     elif dataType == "art":
