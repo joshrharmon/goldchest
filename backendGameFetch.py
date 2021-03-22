@@ -110,21 +110,24 @@ retrieveMeta - Multi-purpose function to retrieve specific info on a game.
 param gameURL: Direct link to Steam game
 param dataType: "art" to get direct link to cover art or "rating" to get SFW/NSFW status
 """
-def retrieveMeta(gameURL, dataType):
-    htmldata = requests.get(gameURL).content
+def retrieveMeta(gameURL, dataType, HTMLdata):
+    if dataType == "html":
+        return requests.get(gameURL).content
+    else:
+        htmldata = HTMLdata
     soup = BeautifulSoup(htmldata, 'html.parser')
-    if dataType == "rating":
+    if gameURL != None and dataType == "rating":
         if "bundle" in gameURL:
             gameBund = re.findall(r"http.*\d+", str(soup.find_all("a", class_="tab_item_overlay")))
             for game in gameBund:
-                if retrieveMeta(game, "rating") == "NSFW":
+                if retrieveMeta(game, "rating", HTMLdata) == "NSFW":
                     return "NSFW"
                 else:
                     continue
             return "SFW"
         else:
             return "NSFW" if str(soup).lower().find("mature content description") > 0 else "SFW"
-    elif dataType == "art":
+    elif gameURL != None and dataType == "art":
         if "bundle" in gameURL:
             return re.findall(r"http.*\d+", str(soup.find("img", class_="package_header")))
         else:
@@ -142,8 +145,9 @@ class Deals(Resource):
         args = parser.parse_args()
         rawData = currentDeals(API_KEY, args['num']).get('data').get('list')
         for game in rawData:
-            game["art"] = retrieveMeta(game["urls"]["buy"], "art")
-            game["rating"] = retrieveMeta(game["urls"]["buy"], "rating")
+            html = retrieveMeta(game["urls"]["buy"], "html", None)
+            game["art"] = retrieveMeta(game["urls"]["buy"], "art", html)
+            game["rating"] = retrieveMeta(game["urls"]["buy"], "rating", html)
         jsonData = json.dumps(rawData)
         jsonObj = json.loads(jsonData)
         return jsonObj, 200
@@ -161,12 +165,13 @@ class Lowest(Resource):
         rawData = gameLowest(API_KEY, args['games']).get('data')
         for game in rawData.items():
             gameData = game[1].get('list')[0]
-            gameData["art"] = retrieveMeta(gameData["url"], "art")
-            gameData["rating"] = retrieveMeta(gameData["url"], "rating")
+            html = retrieveMeta(gameData["url"], "html", None)
+            gameData["art"] = retrieveMeta(gameData["url"], "art", html)
+            gameData["rating"] = retrieveMeta(gameData["url"], "rating", html)
         jsonData = json.dumps(rawData)
         jsonObj = json.loads(jsonData)
         return jsonObj, 200
-        
+    
 api.add_resource(Deals, '/deals')
 api.add_resource(Lowest,'/lowest')
 app.run()
