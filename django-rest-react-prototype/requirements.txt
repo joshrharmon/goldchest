@@ -3,3 +3,4 @@ django-steam
 requests
 flask
 flask-RESTful
+bs4
