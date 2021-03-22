@@ -1,3 +1,5 @@
 djangorestframework
 django-steam
 requests
+flask
+flask-RESTful
