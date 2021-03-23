@@ -60,16 +60,19 @@
 
 
 
-/* Category Grid styles */
+/* Best Deals Grid styles */
 .product-grid{
     padding-bottom: 20px;
     padding-top: 20px;
+    font-family: Avenir;
 }
 .product-grid:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .image{
     position: relative;
+    width: 200px;
+    height: 120px;
 }
 .overlay{
     position: absolute;
@@ -116,7 +119,7 @@ a.btn.buy{
 
 
 
-/* Best Deals Grid */
+/* Category grid (dont mind its named best deals grid, pls change this when u have time)*/
 .column {
     float: left;
     font-size: 18px;

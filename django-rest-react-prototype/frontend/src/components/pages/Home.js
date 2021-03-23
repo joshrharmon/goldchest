@@ -6,85 +6,50 @@ import {BestDealsGrid} from "../BestDealsGrid";
 import {BrowserRouter as Router} from "react-router-dom";
 
 
-//In javascript you dont need to specify folders in this server
-// just write name of nameofhtml to find href
-
 //This is the Home component (aka startpage)
 export class Home extends Component {
 
-    thisFunctionShouldGetTheDataFromTheAPIOnTheServer()
+
+    constructor(props)
     {
-        //var responseFromServer = REPLACE_WITH_AJAX_REQUEST (== "{"data": "data"}")
-        //var parsedJsonData = JSON.parse(responseFromServer);(== {data: "data"})
-        /*
-   $.ajax({
-   url: url here, //localhost/getdata
-   dataType: "json",
-   success: function(data) {
-   return parsedJSON  //(JSON.parse(responseFromServer);(== {data: "data"}))
-   }.bind(this)
-});*/
-        var dumData = {
-            data: {
-                count: 6,
-                list: [
-                    {
-                        price_low:10.5,
-                        price_high: 15.0,
-                        title: "Cyberpunk",
-                        url: "https://store.steampowered.com/agecheck/app/1091500/"
-                    },
-                    {
-                        price_low:11.5,
-                        price_high: 17.0,
-                        title: "Assassins Creed",
-                        url: "https://store.steampowered.com/franchise/AC"
-                    },
-                    {
-                        price_low:11.5,
-                        price_high: 17.0,
-                        title: "Kingdom Come",
-                        url: "https://store.steampowered.com/agecheck/app/379430/"
-                    },
-                    {
-                        price_low:10.5,
-                        price_high: 15.0,
-                        title: "Cyberpunk",
-                        url: "https://store.steampowered.com/agecheck/app/1091500/"
-                    },
-                    {
-                        price_low:11.5,
-                        price_high: 17.0,
-                        title: "Assassins Creed",
-                        url: "https://store.steampowered.com/franchise/AC"
-                    },
-                    {
-                        price_low:11.5,
-                        price_high: 17.0,
-                        title: "Kingdom Come",
-                        url: "https://store.steampowered.com/agecheck/app/379430/"
-                    }
-
-                ],
-
-            }};
-        console.log(dumData);
-        console.log(JSON.stringify(dumData));
-        return dumData.data.list; //take top 6 best deals for our grid
+        super(props);
+        this.state = {
+            items: [],
+            isLoaded: false
+        }
     }
+
+    //AJAX Call Request to the Flask Server, get the API data so we
+    //can display it on the frontend
+    componentDidMount() {
+        fetch('http://localhost:5000/deals?num=6')
+            .then(res => res.json())
+            .then(json => {
+                this.setState({
+                    isLoaded: true,
+                    items: json,
+                })
+            });
+    }
+
 
         render()
         {
+            var {isLoaded, items} = this.state;
+            if (!isLoaded)
+            {
+                return <div> Data Is Loading...</div>
+            }
 
-            const bestDealsList = this.thisFunctionShouldGetTheDataFromTheAPIOnTheServer();
+            else {
+
             return (
 
             <div>
 
-
+                <h2>Data has been loaded</h2>
                 <CategoryGrid/>
-                <BestDealsGrid bestDealsList={bestDealsList}/>
-
+                <BestDealsGrid items={items}/>
 
 
             </div>
@@ -92,6 +57,7 @@ export class Home extends Component {
 
 
         )
+            }
     }
 
 }
