@@ -3,3 +3,5 @@ django-steam
 requests
 flask
 flask-RESTful
+djangorestframework-jwt
+django-cors-headers

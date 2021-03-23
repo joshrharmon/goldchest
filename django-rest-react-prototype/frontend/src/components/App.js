@@ -19,13 +19,15 @@ import {Puzzle} from "./pages/Categories/Puzzle";
 //Import navbar, sigin, home component/pages
 import {Navbar} from "./Navbar";
 import {Home} from "./pages/Home";
+
 import {Signin} from "./pages/Signin";
 import {Profile} from "./pages/Profile";
 import {Footer} from "./Footer";
 import {CategoryGrid} from "./CategoryGrid";
+import {Login} from "./pages/Login";
 
-
-
+//import react router
+//Import react router
 
 class App extends Component {
   constructor(props) {
@@ -59,9 +61,8 @@ class App extends Component {
 
   render() {
     return (
-        <Router>
+      <Router>
         <div>
-
 
             <Navbar/>
             <Route path="/" exact component={Home}/>
@@ -85,7 +86,7 @@ class App extends Component {
             <Footer/>
 
         </div>
-        </Router>
+      </Router>
 
 
 
