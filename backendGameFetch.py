@@ -64,6 +64,8 @@ return games: Properly formatted string to execute a multi-return API request
 def gameList(games):
     if "," in games:
         return games.replace(",","%2C")
+    if "/" in games:
+        return games.replace("/", "%2F")
     else:
         return games
         
@@ -84,8 +86,8 @@ param gameTitle: single, non-spaced game titles or multiple game titles separate
 def gameGET(apiKey, gameTitle):
     gameFormat = gameList(gameTitle)
     apiRequest = "https://api.isthereanydeal.com/v01/game/info/?key=" + apiKey + "&plains=" + gameFormat
-    apiStatus(requests.get(apiRequest))
-
+    return apiStatus(requests.get(apiRequest))
+    
 """
 gameLowest - Will return a game(s) lowest-ever price
 param apiKey: API key for making request
@@ -93,6 +95,27 @@ param gameTitle: single, non-spaced game titles or multiple game titles separate
     (e.g. dishonored OR amongus,dishonored,etc)
 """
 def gameLowest(apiKey, gameTitle):
+    gameFormat = gameList(gameTitle)
+    apiRequest = "https://api.isthereanydeal.com/v01/game/lowest/?key=" + apiKey + "&plains=" + gameFormat + "&region=us&country=US&shops=steam"
+    return apiStatus(requests.get(apiRequest))
+
+"""
+getPlains - Will return a game(s) "plain" titles based on ID
+param apiKey: API key for making request
+param ids: ids in the format of app/12345
+"""
+def getPlains(API_KEY, ids):
+    idFormat = gameList(ids)
+    apiRequest = "https://api.isthereanydeal.com/v01/game/plain/id/?key=" + API_KEY + "&shop=steam&ids=" + idFormat
+    plainsDict = requests.get(apiRequest).json()
+    return plainsDict.get('data').get(ids)
+
+"""
+gamePrices - Returns price data for games
+param apiKey: API key for making request
+param gameTitle: game to search for
+"""
+def gamePrices(apiKey, gameTitle):
     gameFormat = gameList(gameTitle)
     apiRequest = "https://api.isthereanydeal.com/v01/game/prices/?key=" + apiKey + "&plains=" + gameFormat + "&region=us&country=US&shops=steam"
     return apiStatus(requests.get(apiRequest))
@@ -107,12 +130,11 @@ def currentDeals(apiKey, numGames):
     gameOffset = 0
     JSONData = []
     while gamesFetched < numGames:
-        apiRequest = "https://api.isthereanydeal.com/v01/deals/list/?key=" + apiKey + "&offset=" + str(gameOffset) + "&limit=10&region=us&country=US&shops=steam"
+        apiRequest = "https://api.isthereanydeal.com/v01/deals/list/?key=" + apiKey + "&offset=" + str(gameOffset) + "&limit=10&region=us&country=US&shops=steam&sort="
         gameJSON = requests.get(apiRequest).json()
         gen = (game for game in gameJSON.get('data').get('list') if gamesFetched < numGames)
         for game in gen:
             if "bundle" in game["urls"]["buy"]:
-                gameOffset += 1
                 continue
             gameHTML = retrieveMeta(game["urls"]["buy"], "html", None)
             if retrieveMeta(game["urls"]["buy"], "rating", gameHTML) == "SFW":
@@ -121,7 +143,18 @@ def currentDeals(apiKey, numGames):
                 gamesFetched += 1
             gameOffset += 10
     return JSONData
-        
+
+"""
+gameOverview - General information about the game
+param apiKey: API key for making request
+param title: game to search for
+"""
+def gameOverview(apiKey, title):
+    titleFormat = gameList(title)
+    apiRequest = "https://api.isthereanydeal.com/v01/game/overview/?key=" + apiKey + "&region=us&country=US&shop=steam&allowed=steam&ids=" + str(title)
+    overJSON = requests.get(apiRequest).json()
+    return overJSON
+    
 """
 retrieveMeta - Multi-purpose function to retrieve specific info on a game.
 param gameURL: Direct link to Steam game
@@ -154,6 +187,34 @@ def retrieveMeta(gameURL, dataType, HTMLdata):
             return re.findall(r"http.*\d+", str(soup.find("img", class_="game_header_image_full")))
 
 """
+steamDeals - Returns numGames amount of Steam games in JSON
+param numGames: Amount of games to return
+return JSON: JSON response of games requested
+"""
+def steamDeals(numGames):
+    gamesFetched = 0
+    JSONData = []
+    steamFetch = "https://store.steampowered.com/search/?filter=topsellers"
+    soup = BeautifulSoup(requests.get(steamFetch).content)
+    gameData = re.findall(r"http.*\d+\"", str(soup.find_all("a", class_="search_result_row ds_collapse_flag")))
+    gameItems = numGames * 2
+    while gamesFetched < gameItems:
+        gameJSON = dict()
+        gameID = re.findall(r"app\/\d+|sub\/\d+", str(gameData[gamesFetched]))
+        gamePlain = getPlains(API_KEY, gameID[0])
+        gameInfo = gameGET(API_KEY, gamePlain).get('data').get(gamePlain)
+        gamePriceData = gamePrices(API_KEY, gamePlain).get('data').get(gamePlain).get('list')
+        gameJSON["title"] = gameInfo['title']
+        gameJSON["price_old"] = gamePriceData[0].get('price_old')
+        gameJSON["price_new"] = gamePriceData[0].get('price_new')
+        gameJSON["price_cut"] = gamePriceData[0].get('price_cut')
+        gameJSON["url"] = gamePriceData[0].get('url')
+        gameJSON["art"] = gameInfo['image']
+        JSONData.append(gameJSON)
+        gamesFetched += 2
+    return JSONData
+        
+"""
 Deals - Outward API call to give all relevant game data to front-end
 param num: Number of games to return
 return JSON, statuscode: The JSON response and status code
@@ -163,7 +224,7 @@ class Deals(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('num', required=True)
         args = parser.parse_args()
-        return json.loads(json.dumps(currentDeals(API_KEY, int(args['num'])))), 200
+        return json.loads(json.dumps(steamDeals(int(args['num'])))), 200
     
 """
 Lowest - Outward API call to give lowest price for list of games
@@ -183,7 +244,7 @@ class Lowest(Resource):
         jsonData = json.dumps(rawData)
         jsonObj = json.loads(jsonData)
         return jsonObj, 200
-
+    
 api.add_resource(Deals, '/deals')
 api.add_resource(Lowest,'/lowest')
 app.run()
