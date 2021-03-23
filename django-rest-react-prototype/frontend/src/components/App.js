@@ -20,6 +20,7 @@ import {Puzzle} from "./pages/Categories/Puzzle";
 import {Navbar} from "./Navbar";
 import {Home} from "./pages/Home";
 import {Signin} from "./pages/Signin";
+import {Profile} from "./pages/Profile";
 import {Footer} from "./Footer";
 import {CategoryGrid} from "./CategoryGrid";
 
@@ -37,23 +38,23 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("api/lead")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(data => {
-        this.setState(() => {
-          return {
-            data,
-            loaded: true
-          };
-        });
-      });
+    // fetch("api/lead")
+    //   .then(response => {
+    //     if (response.status > 400) {
+    //       return this.setState(() => {
+    //         return { placeholder: "Something went wrong!" };
+    //       });
+    //     }
+    //     return response.json();
+    //   })
+    //   .then(data => {
+    //     this.setState(() => {
+    //       return {
+    //         data,
+    //         loaded: true
+    //       };
+    //     });
+    //   });
   }
 
   render() {
@@ -77,6 +78,7 @@ class App extends Component {
             <Route path="/rpg" component={RPG}/>
             <Route path="/mystery" component={Mystery}/>
             <Route path="/puzzle" component={Puzzle}/>
+            <Route path="/accounts/profile" component={Profile}/>
 
 
 
