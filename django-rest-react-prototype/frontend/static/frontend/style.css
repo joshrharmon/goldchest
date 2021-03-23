@@ -1,9 +1,15 @@
+.body{
+    font-family: "Arial";
+}
+
+
+
 /* Menu area styles (navigation bar) */
 .menu-area{
     width: 100%;
     overflow: auto;
     background-color: #2f2f2f;
-    font-family: Avenir;
+    font-family: "Arial";
 }
 
 .menu-area ul {
@@ -26,7 +32,7 @@
     padding: 15px;
     color: #b9b9b9;
     text-decoration: none;
-    font-family: Avenir;
+    font-family: "Arial";
     font-size: 18px;
     text-align: center;
 
@@ -52,7 +58,12 @@
 
 
 
+.steam-signon{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 
+}
 
 
 
@@ -64,7 +75,7 @@
 .product-grid{
     padding-bottom: 20px;
     padding-top: 20px;
-    font-family: Avenir;
+    font-family: "Arial";
 }
 .product-grid:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -123,7 +134,7 @@ a.btn.buy{
 .column {
     float: left;
     font-size: 18px;
-    font-family: Avenir;
+    font-family: "Arial";
     text-align: center;
 }
 
@@ -134,7 +145,7 @@ a.btn.buy{
     padding: 15px;
     color: black;
     text-decoration: none;
-    font-family: Avenir;
+    font-family: "Arial";
     font-size: 18px;
     text-align: center;
 
@@ -143,7 +154,7 @@ a.btn.buy{
 .best-deals-grid{
     width: 100%;
     overflow: auto;
-    font-family: Avenir;
+    font-family: "Arial";
     align-content: center;
 }
 
@@ -187,7 +198,7 @@ a.btn.buy{
 }
 
 .category h3 {
-    font: bold 20px/1.5 Avenir;
+    font: bold 20px/1.5 "Arial";
 }
 
 .category li img {

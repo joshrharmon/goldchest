@@ -35,24 +35,25 @@ export class Home extends Component {
 
         render()
         {
+
             var {isLoaded, items} = this.state;
             if (!isLoaded)
             {
-                return <div> Data Is Loading...</div>
+                return<div> <CategoryGrid/> Data Is Loading...</div>
+
             }
 
             else {
 
             return (
 
-            <div>
 
-                <h2>Data has been loaded</h2>
+         <div>
+
                 <CategoryGrid/>
                 <BestDealsGrid items={items}/>
 
-
-            </div>
+         </div>
 
 
 
