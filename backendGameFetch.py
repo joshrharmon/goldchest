@@ -211,7 +211,6 @@ def steamDeals(numGames):
         gameJSON["url"] = gamePriceData[0].get('url')
         if gameInfo['image'] == None:
             gameHTML = retrieveMeta(gameJSON["url"], "html", None)
-            print(gameHTML)
             gameJSON["art"] = retrieveMeta(gameJSON["url"], "art", gameHTML)
         else:
             gameJSON["art"] = gameInfo['image']
