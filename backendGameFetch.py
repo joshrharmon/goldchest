@@ -1,6 +1,7 @@
 import requests
 import json
 import re
+import time
 
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
@@ -97,13 +98,29 @@ def gameLowest(apiKey, gameTitle):
     return apiStatus(requests.get(apiRequest))
 
 """
-currentDeals - Will return the numGames amount of games most recently on sale
+currentDeals - Will return the numGames amount of games most recently on sale that are SFW
 param apiKey: API key for making request
 param numGames: Number of games to return in list of deals
 """
 def currentDeals(apiKey, numGames):
-    apiRequest = "https://api.isthereanydeal.com/v01/deals/list/?key=" + apiKey + "&limit=" + str(numGames) + "&region=us&country=US&shops=steam"
-    return apiStatus(requests.get(apiRequest))
+    gamesFetched = -1
+    gameOffset = 0
+    JSONData = []
+    while gamesFetched < numGames:
+        apiRequest = "https://api.isthereanydeal.com/v01/deals/list/?key=" + apiKey + "&offset=" + str(gameOffset) + "&limit=10&region=us&country=US&shops=steam"
+        gameJSON = requests.get(apiRequest).json()
+        gen = (game for game in gameJSON.get('data').get('list') if gamesFetched < numGames)
+        for game in gen:
+            if "bundle" in game["urls"]["buy"]:
+                gameOffset += 10
+                continue
+            gameHTML = retrieveMeta(game["urls"]["buy"], "html", None)
+            if retrieveMeta(game["urls"]["buy"], "rating", gameHTML) == "SFW":
+                game["art"] = retrieveMeta(game["urls"]["buy"], "art", gameHTML)
+                JSONData.append(game)
+                gamesFetched += 1
+            gameOffset += 10
+    return JSONData
         
 """
 retrieveMeta - Multi-purpose function to retrieve specific info on a game.
@@ -120,13 +137,16 @@ def retrieveMeta(gameURL, dataType, HTMLdata):
         if "bundle" in gameURL:
             gameBund = re.findall(r"http.*\d+", str(soup.find_all("a", class_="tab_item_overlay")))
             for game in gameBund:
-                if retrieveMeta(game, "rating", HTMLdata) == "NSFW":
+                if retrieveMeta(game, "rating", retrieveMeta(game, "html", None)) == "NSFW":
                     return "NSFW"
                 else:
                     continue
             return "SFW"
         else:
-            return "NSFW" if str(soup).lower().find("mature content description") > 0 else "SFW"
+            if str(soup).lower().find("mature content description") > 0:
+                return "NSFW" 
+            else:
+                return "SFW"
     elif gameURL != None and dataType == "art":
         if "bundle" in gameURL:
             return re.findall(r"http.*\d+", str(soup.find("img", class_="package_header")))
@@ -143,14 +163,7 @@ class Deals(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('num', required=True)
         args = parser.parse_args()
-        rawData = currentDeals(API_KEY, args['num']).get('data').get('list')
-        for game in rawData:
-            html = retrieveMeta(game["urls"]["buy"], "html", None)
-            game["art"] = retrieveMeta(game["urls"]["buy"], "art", html)
-            game["rating"] = retrieveMeta(game["urls"]["buy"], "rating", html)
-        jsonData = json.dumps(rawData)
-        jsonObj = json.loads(jsonData)
-        return jsonObj, 200
+        return json.loads(json.dumps(currentDeals(API_KEY, int(args['num'])))), 200
     
 """
 Lowest - Outward API call to give lowest price for list of games
@@ -167,11 +180,10 @@ class Lowest(Resource):
             gameData = game[1].get('list')[0]
             html = retrieveMeta(gameData["url"], "html", None)
             gameData["art"] = retrieveMeta(gameData["url"], "art", html)
-            gameData["rating"] = retrieveMeta(gameData["url"], "rating", html)
         jsonData = json.dumps(rawData)
         jsonObj = json.loads(jsonData)
         return jsonObj, 200
-    
+
 api.add_resource(Deals, '/deals')
 api.add_resource(Lowest,'/lowest')
 app.run()
