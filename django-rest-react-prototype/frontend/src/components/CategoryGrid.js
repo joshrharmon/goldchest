@@ -31,7 +31,7 @@ export class CategoryGrid extends Component
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/adventure"> <i className="fas fa-mountain"></i> Adventure Games</Link></li>
+                            <li><Link className="row" to="/adventure"> <i className="fas fa-tree"></i> Adventure Games</Link></li>
                         </div>
 
                         <div className="column" >
@@ -43,7 +43,7 @@ export class CategoryGrid extends Component
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/childrens"> <i className="fas fa-baby-carriage"></i> Childrens Games</Link></li>
+                            <li><Link className="row" to="/childrens"> <i className="fas fa-cookie-bite"></i> Childrens Games</Link></li>
                         </div>
 
                         <div className="column" >
@@ -55,7 +55,7 @@ export class CategoryGrid extends Component
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/shooter"> <i className="fas fa-baseball"></i> Shooter Games</Link></li>
+                            <li><Link className="row" to="/shooter"> <i className="fas fa-fire"></i> Shooter Games</Link></li>
                         </div>
 
                         <div className="column" >
@@ -63,11 +63,11 @@ export class CategoryGrid extends Component
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/rpg"> <i className="fas fa-baseball"></i> RPG Games</Link></li>
+                            <li><Link className="row" to="/rpg"> <i className="fas fa-gamepad"></i> RPG Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/mystery"> <i className="fas fa-baseball"></i> Mystery Games</Link></li>
+                            <li><Link className="row" to="/mystery"> <i className="fas fa-envelope"></i> Mystery Games</Link></li>
                         </div>
 
                         <div className="column" >

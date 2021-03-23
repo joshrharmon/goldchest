@@ -11,14 +11,7 @@ export class BestDealsGrid extends Component
         return (
 
             <div className="col-md-4 product-grid">
-            
-            <div className="image">
-                <a href="#">                              
-                <div className="overlay">
-                    <div className="detail">View Details</div>
-                </div>
-                </a>
-            </div>
+
             <h5 className="text-center">{deal.title}</h5>
                 <img src={deal.art} alt="" className="w-100" />
 
