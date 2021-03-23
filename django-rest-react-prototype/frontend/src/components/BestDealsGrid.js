@@ -16,7 +16,7 @@ export class BestDealsGrid extends Component
                 <img src={deal.art} alt="" className="w-100" />
 
                 <h5 className="text-center">NOW ${deal.price_new} SAVE ${deal.price_cut}</h5>
-            <a href={deal.urls.buy} className="btn buy">BUY NOW</a>
+            <a href={deal.url} className="btn buy">BUY NOW</a>
             
         </div>
         );
