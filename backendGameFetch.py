@@ -200,7 +200,7 @@ def steamDeals(numGames):
     gameItems = numGames * 2
     while gamesFetched < gameItems:
         gameJSON = dict()
-        gameID = re.findall(r"app\/\d+|sub\/\d+", str(gameData[gamesFetched]))
+        gameID = re.findall(r"app\/\d+|sub\/\d+|bundle\/\d+", str(gameData[gamesFetched]))
         gamePlain = getPlains(API_KEY, gameID[0])
         gameInfo = gameGET(API_KEY, gamePlain).get('data').get(gamePlain)
         gamePriceData = gamePrices(API_KEY, gamePlain).get('data').get(gamePlain).get('list')
@@ -209,7 +209,12 @@ def steamDeals(numGames):
         gameJSON["price_new"] = gamePriceData[0].get('price_new')
         gameJSON["price_cut"] = gamePriceData[0].get('price_cut')
         gameJSON["url"] = gamePriceData[0].get('url')
-        gameJSON["art"] = gameInfo['image']
+        if gameInfo['image'] == None:
+            gameHTML = retrieveMeta(gameJSON["url"], "html", None)
+            print(gameHTML)
+            gameJSON["art"] = retrieveMeta(gameJSON["url"], "art", gameHTML)
+        else:
+            gameJSON["art"] = gameInfo['image']
         JSONData.append(gameJSON)
         gamesFetched += 2
     return JSONData
