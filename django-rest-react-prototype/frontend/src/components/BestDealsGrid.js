@@ -20,23 +20,26 @@ export class BestDealsGrid extends Component
                 </a>
             </div>
             <h5 className="text-center">{deal.title}</h5>
-            <h5 className="text-center">{deal.price_low}</h5>
-            <a href={deal.url} className="btn buy">VIEW DETAILS</a>
+                <img src={deal.art} alt="" className="w-100" />
+
+                <h5 className="text-center">NOW ${deal.price_new} SAVE ${deal.price_cut}</h5>
+            <a href={deal.urls.buy} className="btn buy">BUY NOW</a>
             
         </div>
         );
     }
-//<img src="images/sparklingwater.jpg" alt="description of picture" className="w-100"/>
 
 
     render()
     {
-        console.warn(this.props.bestDealsList);
-        const mapHTMLtoNrOfDeals = this.props.bestDealsList.map( deal => {
+        console.warn(this.props.items);
+        const mapHTMLtoNrOfDeals = this.props.items.map( deal => {
 
             return this.html(deal);
 
         } );
+
+
 
         return(
 
