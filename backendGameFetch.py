@@ -112,7 +112,7 @@ def currentDeals(apiKey, numGames):
         gen = (game for game in gameJSON.get('data').get('list') if gamesFetched < numGames)
         for game in gen:
             if "bundle" in game["urls"]["buy"]:
-                gameOffset += 10
+                gameOffset += 1
                 continue
             gameHTML = retrieveMeta(game["urls"]["buy"], "html", None)
             if retrieveMeta(game["urls"]["buy"], "rating", gameHTML) == "SFW":
