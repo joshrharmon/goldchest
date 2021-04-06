@@ -3,3 +3,5 @@ django-steam
 requests
 flask
 flask-RESTful
+beautifulsoup4
+schedule

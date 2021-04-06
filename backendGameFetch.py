@@ -1,9 +1,7 @@
-import requests
-import json
-import re
-import time
+import requests, json, re, schedule, time, sqlite3
 
 from flask import Flask
+from sqlite3 import Error
 from flask_restful import Resource, Api, reqparse
 from bs4 import BeautifulSoup
 
@@ -43,6 +41,16 @@ gameRelation = {
 }
 
 API_KEY='4ca42d11f7def3c9d0eea805aa48413a2c5ec7e6'
+GAMES_TO_FETCH = 10
+
+def create_conn(path):
+    connection = None
+    try:
+        connection = sqlite3.connect(path, check_same_thread=False)
+        print("DB connection successful.")
+    except Error as e:
+        print(f"An error '{e}' occurred during db connection")
+    return connection
 
 """
 apiStatus - Returns API response or error code
@@ -55,7 +63,7 @@ def apiStatus(status):
     else:
         returnMsg = ":: API fetch failed with error code: " + str(status)
         print(returnMsg)
-
+        
 """
 gameList - If string contains commas (indicating multiple game queries), replace with appropriate string
 param games: list of game(s)
@@ -121,30 +129,8 @@ def gamePrices(apiKey, gameTitle):
     return apiStatus(requests.get(apiRequest))
 
 """
-currentDeals - Will return the numGames amount of games most recently on sale that are SFW
-param apiKey: API key for making request
-param numGames: Number of games to return in list of deals
-"""
-def currentDeals(apiKey, numGames):
-    gamesFetched = -1
-    gameOffset = 0
-    JSONData = []
-    while gamesFetched < numGames:
-        apiRequest = "https://api.isthereanydeal.com/v01/deals/list/?key=" + apiKey + "&offset=" + str(gameOffset) + "&limit=10&region=us&country=US&shops=steam&sort="
-        gameJSON = requests.get(apiRequest).json()
-        gen = (game for game in gameJSON.get('data').get('list') if gamesFetched < numGames)
-        for game in gen:
-            if "bundle" in game["urls"]["buy"]:
-                continue
-            gameHTML = retrieveMeta(game["urls"]["buy"], "html", None)
-            if retrieveMeta(game["urls"]["buy"], "rating", gameHTML) == "SFW":
-                game["art"] = retrieveMeta(game["urls"]["buy"], "art", gameHTML)
-                JSONData.append(game)
-                gamesFetched += 1
-            gameOffset += 10
-    return JSONData
+OBSOLETE until isthereanydeals fixes NULL title field
 
-"""
 gameOverview - General information about the game
 param apiKey: API key for making request
 param title: game to search for
@@ -158,7 +144,7 @@ def gameOverview(apiKey, title):
 """
 retrieveMeta - Multi-purpose function to retrieve specific info on a game.
 param gameURL: Direct link to Steam game
-param dataType: "art" to get direct link to cover art or "rating" to get SFW/NSFW status
+param dataType: "art" to get direct link to cover art, "html" to retrieve html data
 """
 def retrieveMeta(gameURL, dataType, HTMLdata):
     if dataType == "html":
@@ -166,58 +152,121 @@ def retrieveMeta(gameURL, dataType, HTMLdata):
     else:
         htmldata = HTMLdata
     soup = BeautifulSoup(htmldata, 'html.parser')
-    if gameURL != None and dataType == "rating":
+    if gameURL != None and dataType == "art":
         if "bundle" in gameURL:
-            gameBund = re.findall(r"http.*\d+", str(soup.find_all("a", class_="tab_item_overlay")))
-            for game in gameBund:
-                if retrieveMeta(game, "rating", retrieveMeta(game, "html", None)) == "NSFW":
-                    return "NSFW"
-                else:
-                    continue
-            return "SFW"
-        else:
-            if str(soup).lower().find("mature content description") > 0:
-                return "NSFW" 
-            else:
-                return "SFW"
-    elif gameURL != None and dataType == "art":
-        if "bundle" in gameURL:
-            return re.findall(r"http.*\d+", str(soup.find("img", class_="package_header")))
+            artURL = re.findall(r"http.*\d+", str(soup.find("img", class_="package_header")))
+            if artURL == []:
+                artURL = re.findall(r"http.*\d+", str(soup.find("div", class_="img_ctn")))
+            return artURL
         else:
             return re.findall(r"http.*\d+", str(soup.find("img", class_="game_header_image_full")))
 
 """
-steamDeals - Returns numGames amount of Steam games in JSON
-param numGames: Amount of games to return
-return JSON: JSON response of games requested
+dbForm - Escapes special characters
+param text - Text to inspect
+return text - Escaped characters in string if applicable
 """
-def steamDeals(numGames):
-    gamesFetched = 0
-    JSONData = []
-    steamFetch = "https://store.steampowered.com/search/?filter=topsellers"
-    soup = BeautifulSoup(requests.get(steamFetch).content)
-    gameData = re.findall(r"http.*\d+\"", str(soup.find_all("a", class_="search_result_row ds_collapse_flag")))
-    gameItems = numGames * 2
-    while gamesFetched < gameItems:
-        gameJSON = dict()
-        gameID = re.findall(r"app\/\d+|sub\/\d+|bundle\/\d+", str(gameData[gamesFetched]))
-        gamePlain = getPlains(API_KEY, gameID[0])
-        gameInfo = gameGET(API_KEY, gamePlain).get('data').get(gamePlain)
-        gamePriceData = gamePrices(API_KEY, gamePlain).get('data').get(gamePlain).get('list')
-        gameJSON["title"] = gameInfo['title']
-        gameJSON["price_old"] = gamePriceData[0].get('price_old')
-        gameJSON["price_new"] = gamePriceData[0].get('price_new')
-        gameJSON["price_cut"] = gamePriceData[0].get('price_cut')
-        gameJSON["url"] = gamePriceData[0].get('url')
-        if gameInfo['image'] == None:
-            gameHTML = retrieveMeta(gameJSON["url"], "html", None)
-            gameJSON["art"] = retrieveMeta(gameJSON["url"], "art", gameHTML)
-        else:
-            gameJSON["art"] = gameInfo['image']
-        JSONData.append(gameJSON)
-        gamesFetched += 2
-    return JSONData
+def dbForm(text):
+    if "'" in text:
+        return text.replace("'","''")
+    else:
+        return text
         
+"""
+dbConn - Will start a db connection and return it
+"""
+def dbConn():
+    conn = create_conn("django-rest-react-prototype/db.sqlite3")
+    return conn
+
+"""
+dbInit - Will create and initialize tables
+"""
+def dbInit():
+    with dbConn() as con:
+        con.execute('''DROP TABLE IF EXISTS 'webpage';''')
+        con.execute('''CREATE TABLE 'webpage' (
+                        'title' VARCHAR(255) NOT NULL,
+                        'price_old' float NOT NULL,
+                        'price_new' float NOT NULL,
+                        'price_cut' smallint NOT NULL,
+                        'url' varchar(255) NOT NULL,
+                        'art' varchar(255) NOT NULL,
+                        PRIMARY KEY ('url')
+                        );''')
+
+"""
+showDB - Will print all db rows
+"""
+def showDB():
+    with dbConn() as con:
+        cursor = con.execute("SELECT * FROM webpage")
+        for row in cursor:
+            print("title: " + str(row[0]) + ", \nprice_old: " + str(row[1]) + ", \nprice_new: " + str(row[2]) + ", \nprice_cut: " + str(row[3]) + ", \nurl: " + str(row[4]) + ", \nart: " + str(row[5]))
+            print("\n")
+        
+"""
+steamDBFetch - Will fetch numGmaes from APIs and Steam and update DB every 6 hours
+param numGames: Amount of games to fetch from Steam and APIs
+"""
+def steamDBFetch(numGames=6):
+    with dbConn() as con:
+        gamesFetched = 0
+        steamFetch = "https://store.steampowered.com/search/?filter=topsellers"
+        soup = BeautifulSoup(requests.get(steamFetch).content)
+        gameData = re.findall(r"http.*\d+\"", str(soup.find_all("a", class_="search_result_row ds_collapse_flag")))
+        gameItems = numGames * 2
+        while gamesFetched < gameItems:
+            gameID = re.findall(r"app\/\d+|sub\/\d+|bundle\/\d+", str(gameData[gamesFetched]))
+            gamePlain = getPlains(API_KEY, gameID[0])
+            gameInfo = gameGET(API_KEY, gamePlain).get('data').get(gamePlain)
+            gamePriceData = gamePrices(API_KEY, gamePlain).get('data').get(gamePlain).get('list')
+            
+            if gamePriceData == []:
+                gameItems += 2
+                gamesFetched += 2
+                continue
+
+            url = gamePriceData[0].get('url')
+
+            # Fetch HTML for game page for scraping
+            gameHTML = retrieveMeta(url, "html", None)
+            soup = BeautifulSoup(gameHTML, 'html.parser')
+
+            title = re.findall(r"(?:<title>)(.+)(?:<\/title>)", str(soup.find("title")))[0]
+            price_old = gamePriceData[0].get('price_old')
+            price_new = gamePriceData[0].get('price_new')
+            price_cut = gamePriceData[0].get('price_cut')
+            art = None
+            if gameInfo['image'] == None:
+                art = retrieveMeta(url, "art", gameHTML)[0]
+            else:
+                art = gameInfo['image']
+
+            # Insert into db
+            con.execute("INSERT INTO webpage(title, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?)", (title, price_old, price_new, price_cut, url, art))
+            gamesFetched += 2
+"""
+steamDBResp - Will access the SQLite DB and form a JSON response for the frontend to fetch
+param numGames: Amount of games to fetch
+return: JSON response for numGames
+"""
+def steamDBResp(numGames=6):
+    with dbConn() as con:
+        JSONData = []
+        sqlFetch = "SELECT * FROM webpage LIMIT '{}'".format(numGames)
+        cursor = con.execute(sqlFetch)
+        for row in cursor:
+            gameJSON = dict()
+            gameJSON["title"] = row[0]
+            gameJSON["price_old"] = row[1]
+            gameJSON["price_new"] = row[2]
+            gameJSON["price_cut"] = row[3]
+            gameJSON["url"] = row[4]
+            gameJSON["art"] = row[5]
+            JSONData.append(gameJSON)
+        return JSONData
+
 """
 Deals - Outward API call to give all relevant game data to front-end
 param num: Number of games to return
@@ -228,7 +277,7 @@ class Deals(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('num', required=True)
         args = parser.parse_args()
-        return json.loads(json.dumps(steamDeals(int(args['num'])))), 200
+        return json.loads(json.dumps(steamDBResp(int(args['num'])))), 200
     
 """
 Lowest - Outward API call to give lowest price for list of games
@@ -248,7 +297,23 @@ class Lowest(Resource):
         jsonData = json.dumps(rawData)
         jsonObj = json.loads(jsonData)
         return jsonObj, 200
-    
+
+"""
+Main program:
+- Initialize DB with tables
+- Run initial fetch from Steam with 6 games by default
+- Start scheduler to refresh DB every hour with 6 games by default 
+- Start Flask server
+- Make sure scheduler continues to check for pending tasks if missed
+"""
+dbInit()
+steamDBFetch()
+schedule.every().hour.do(steamDBFetch)
+
 api.add_resource(Deals, '/deals')
 api.add_resource(Lowest,'/lowest')
 app.run()
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
