@@ -31,7 +31,7 @@ export class CategoryGrid extends Component
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/adventure"> <i className="fas fa-tree"></i> Adventure Games</Link></li>
+                            <li><Link className="row" to="/adventure"> <i className="fas fa-mountain"></i> Adventure Games</Link></li>
                         </div>
 
                         <div className="column" >
@@ -47,7 +47,7 @@ export class CategoryGrid extends Component
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/horror"> <i className="fas fa-baseball"></i> Horror Games</Link></li>
+                            <li><Link className="row" to="/horror"> <i className="fab fa-snapchat-ghost"></i> Horror Games</Link></li>
                         </div>
 
                         <div className="column" >
@@ -55,11 +55,11 @@ export class CategoryGrid extends Component
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/shooter"> <i className="fas fa-fire"></i> Shooter Games</Link></li>
+                            <li><Link className="row" to="/shooter"> <i className="far fa-sun"></i> Shooter Games</Link></li>
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/anime"> <i className="fas fa-baseball"></i> Anime Games</Link></li>
+                            <li><Link className="row" to="/anime"> <i className="fas fa-surprise"></i> Anime Games</Link></li>
                         </div>
 
                         <div className="column" >
@@ -67,7 +67,7 @@ export class CategoryGrid extends Component
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/mystery"> <i className="fas fa-envelope"></i> Mystery Games</Link></li>
+                            <li><Link className="row" to="/mystery"> <i className="fas fa-user-secret"></i> Mystery Games</Link></li>
                         </div>
 
                         <div className="column" >
