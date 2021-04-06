@@ -26,6 +26,7 @@ export class Home extends Component {
             .then(res => res.json())
             .then(json => {
                 this.setState({
+
                     isLoaded: true,
                     items: json,
                 })
