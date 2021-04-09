@@ -153,7 +153,7 @@ def retrieveMeta(gameURL, dataType, HTMLdata):
         htmldata = HTMLdata
     soup = BeautifulSoup(htmldata, 'html.parser')
     if gameURL != None and dataType == "art":
-        if "bundle" in gameURL:
+        if "bundle" in gameURL or "sub" in gameURL:
             artURL = re.findall(r"http.*\d+", str(soup.find("img", class_="package_header")))
             if artURL == []:
                 artURL = re.findall(r"http.*\d+", str(soup.find("div", class_="img_ctn")))
