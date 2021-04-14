@@ -15,7 +15,15 @@ To build the frontend, navigate to the frontend directory run
 
 <br/>
 
-Once that is done, with your environment activated, run
+First, start the backend server. To do so, go back to goldchest directory and run
+```python backendGameFetch.py```
+
+If you run into CORS error, please install this extention
+https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?hl=en-US
+
+<br/>
+
+Once that is done, go into django-rest-react-prototype folder, with your environment activated, run
 ```python manage.py runserver```
 
 <br/>
