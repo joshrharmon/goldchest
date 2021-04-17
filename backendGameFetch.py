@@ -47,7 +47,7 @@ def create_conn(path):
     connection = None
     try:
         connection = sqlite3.connect(path, check_same_thread=False)
-        print("DB connection successful.")
+        print("DB connection successfully.")
     except Error as e:
         print(f"An error '{e}' occurred during db connection")
     return connection
