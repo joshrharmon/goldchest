@@ -61,13 +61,14 @@ API_KEY='4ca42d11f7def3c9d0eea805aa48413a2c5ec7e6'
 GAMES_TO_FETCH = 10
 
 def create_conn(path):
-	connection = None
-	try:
-		connection = sqlite3.connect(path, check_same_thread=False)
-		print("DB connection successful.")
-	except Error as e:
-		print(f"An error '{e}' occurred during db connection")
-	return connection
+    connection = None
+    try:
+        connection = sqlite3.connect(path, check_same_thread = False)
+        print("DB connection successfully.")
+    except Error as e:
+       #for security purpose we do not send the exact reason why the Database failed
+        print(f" Sorry, an error occurred during Database connection")
+    return connection
 
 """
 apiStatus - Returns API response or error code
