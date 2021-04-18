@@ -9,13 +9,8 @@ export class Action extends Component {
     render() {
         return (
 
-
-
-
             <div>
-
                 <CategoryGrid/>
-
                 <div className="container-fluid padding">
                     <div className="row welcome text-center">
                         <div className="col-12">
@@ -76,15 +71,9 @@ export class Action extends Component {
                                 <h3>Read Dead Redemption</h3>
                                 <p>20% Discount NOW $49</p>
                             </li>
-
-
                         </ul>
                     </div>
                 </div>
-
-
-
-
             </div>
 
 
