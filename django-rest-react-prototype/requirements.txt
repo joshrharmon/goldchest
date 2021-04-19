@@ -5,3 +5,4 @@ flask
 flask-RESTful
 beautifulsoup4
 schedule
+lxml
