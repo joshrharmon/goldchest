@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     'frontend', # enable frontend app
     'corsheaders',
     'django_openid_auth',
-    # 'django_steam_api',
-    # 'django_steam',
 ]
 
 MIDDLEWARE = [
