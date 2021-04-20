@@ -11,7 +11,8 @@ export class Profile extends Component {
 
       steamName: "",
       displayName: "",
-      avatar: ""
+      avatar: "",
+      wishlist: ""
     }
   }
 
@@ -20,7 +21,6 @@ export class Profile extends Component {
 
     fetch('http://localhost:8000/steamid/')
       .then(res => {
-        console.log(res);
         return res.json();
       })
       .then(steamid => {
@@ -32,20 +32,34 @@ export class Profile extends Component {
             + '&steamids='
             + this.state.steamid)
             .then(res => {
-              console.log(res);
               return res.json();
             })
             .then(json => {
-              console.log(json);
               const player = json.response.players[0];
-              console.log(player);
               this.setState({
                 steamName: player.profileurl
                   .substring(30,player.profileurl.length - 1),
                 displayName: player.personaname,
                 avatar: player.avatarmedium
               });
+            });
+
+          // profile must be public
+          fetch('https://store.steampowered.com/wishlist/profiles/'
+            + steamid
+            + '/wishlistdata/')
+            .then(res => {
+              console.log(res);
+              return res.json();
             })
+            .then(json => {
+              const wishlist = Object.keys(json).map(function(k) {
+                return json[k];
+              });
+              console.log(wishlist);
+              this.setState({wishlist: wishlist});
+            })
+          ;
         });
       })
     ;
