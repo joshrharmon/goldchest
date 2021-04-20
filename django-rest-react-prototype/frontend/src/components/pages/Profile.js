@@ -21,7 +21,6 @@ export class Profile extends Component {
         this.setState({ steamid: steamid });
       })
     ;
-
     fetch('http://localhost:8000/current_user/')
       .then(res => {
         console.log(res);
