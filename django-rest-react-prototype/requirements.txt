@@ -5,3 +5,5 @@ flask
 flask-RESTful
 beautifulsoup4
 schedule
+djangorestframework-jwt
+django-cors-headers
