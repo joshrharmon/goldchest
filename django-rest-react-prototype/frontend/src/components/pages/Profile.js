@@ -4,38 +4,44 @@ import { Link } from "react-router-dom";
 
 //This is the Home component (aka startpage)
 export class Profile extends Component {
-    componentDidMount() {
-      fetch('http://localhost:8000/current_user/', {
-        headers: {
-          Authorization: `JWT ${localStorage.getItem('token')}`
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      steamid: ""
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:8000/steamid/')
+      .then(res => {
+        console.log(res);
+        return res.json();
       })
-        .then(res => {
-          console.log(res);
-          return res.json();
-        })
-        .then(json => {
-          console.log(json);
-        })
-        // .then(json => {
-        //   this.setState({ username: json.username });
-        // })
-      ;
-    }
+      .then(steamid => {
+        this.setState({ steamid: steamid });
+      })
+    ;
 
-    render() {
-        return (
+    fetch('http://localhost:8000/current_user/')
+      .then(res => {
+        console.log(res);
+        return res.json();
+      })
+      .then(json => {
+        console.log(json);
+        this.setState({ username: json.username });
+      })
+    ;
+  }
 
-            <div>
-                <h1> Welcome to your profile!</h1>
-
-
-
-
-            </div>
-
-
-
-        )
-    }
+  render() {
+      return (
+        <div>
+          <h1> Welcome to your profile!</h1>
+          <p>{this.state.username}</p>
+          <p>{this.state.steamid}</p>
+        </div>
+      )
+  }
 }
