@@ -11,13 +11,12 @@ export class BestDealsGrid extends Component
         return (
 
             <div className="col-md-4 product-grid">
-
             <h5 className="text-center">{deal.title}</h5>
                 <img src={deal.art} alt="" className="w-100" />
 
                 <h5 className="text-center">NOW ${deal.price_new} SAVE ${deal.price_cut}</h5>
             <a href={deal.url} className="btn buy">BUY NOW</a>
-            
+
         </div>
         );
     }
