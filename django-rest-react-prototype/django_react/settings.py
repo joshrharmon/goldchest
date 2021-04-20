@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'frontend', # enable frontend app
     'django_openid_auth',
-    'django_steam_api',
-    'django_steam',
+    # 'django_steam_api',
+    # 'django_steam',
 ]
 
 MIDDLEWARE = [
@@ -133,6 +133,7 @@ STATIC_URL = '/static/'
 
 AUTHENTICATION_BACKENDS = (
     'django_openid_auth.auth.OpenIDBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 LOGIN_URL = 'http://localhost:8000/openid/login/'
