@@ -80,4 +80,4 @@ def steamID(request):
 
   conn.close()
 
-  return Response(steamid)
+  return Response(steamid[37:])
