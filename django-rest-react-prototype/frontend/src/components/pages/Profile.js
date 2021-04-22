@@ -7,18 +7,60 @@ export class Profile extends Component {
     super(props);
     this.state = {
       username: "",
-      steamid: ""
+      steamid: "",
+
+      steamName: "",
+      displayName: "",
+      avatar: "",
+      wishlist: ""
     }
   }
 
   componentDidMount() {
+    const steamkey = 'B1C3A57FCE4FD0CBECBF1EE80507A691';
+
     fetch('http://localhost:8000/steamid/')
       .then(res => {
-        console.log(res);
         return res.json();
       })
       .then(steamid => {
-        this.setState({ steamid: steamid });
+        this.setState({ steamid: steamid }, function() {
+          fetch('http://api.steampowered.com/ISteamUser/'
+            + 'GetPlayerSummaries/v0002/'
+            + '?key='
+            + steamkey
+            + '&steamids='
+            + this.state.steamid)
+            .then(res => {
+              return res.json();
+            })
+            .then(json => {
+              const player = json.response.players[0];
+              this.setState({
+                steamName: player.profileurl
+                  .substring(30,player.profileurl.length - 1),
+                displayName: player.personaname,
+                avatar: player.avatarmedium
+              });
+            });
+
+          // profile must be public
+          fetch('https://store.steampowered.com/wishlist/profiles/'
+            + steamid
+            + '/wishlistdata/')
+            .then(res => {
+              console.log(res);
+              return res.json();
+            })
+            .then(json => {
+              const wishlist = Object.keys(json).map(function(k) {
+                return json[k];
+              });
+              console.log(wishlist);
+              this.setState({wishlist: wishlist});
+            })
+          ;
+        });
       })
     ;
 
@@ -32,12 +74,13 @@ export class Profile extends Component {
         this.setState({ username: json.username });
       })
     ;
+
+    ;
   }
 
   render() {
     return (
       <div>
-        <p>Steam ID: {this.state.steamid}</p>
         <div className="page-content page-container" id="page-content">
           <div className="padding">
             <div className="row container d-flex justify-content-center">
@@ -47,10 +90,10 @@ export class Profile extends Component {
                     <div className="col-sm-4 bg-c-lite-green user-profile">
                       <div className="card-block text-center text-white">
                         <div className="m-b-25"><img
-                          src="https://img.icons8.com/bubbles/100/000000/user.png"
+                          src={this.state.avatar}
                           className="img-radius" alt="User-Profile-Image"/></div>
-                        <h6 className="f-w-600">iLoveVideoGamez123</h6>
-                        <p>John Smith</p> <i
+                        <h6 className="f-w-600">{this.state.displayName}</h6>
+                        <p>{this.state.steamName}</p> <i
                           className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                       </div>
                     </div>
