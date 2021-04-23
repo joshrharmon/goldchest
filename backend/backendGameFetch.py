@@ -88,17 +88,6 @@ class gameFetch():
 		return pure
 
 	"""
-	gameGET - Returns basic metadata about game (does not include prices)
-	param apiKey: API key for making request
-	param gameTitle: single, non-spaced game titles or multiple game titles separated by commas
-		(e.g. dishonored OR amongus,dishonored,etc)
-	"""
-	def gameGET(self, api_key, gameTitle):
-		gameFormat = gameList(gameTitle)
-		apiRequest = "https://api.isthereanydeal.com/v01/game/info/?key=" + api_key + "&plains=" + gameFormat
-		return apiStatus(requests.get(apiRequest))
-
-	"""
 	gameLowest - Will return a game(s) lowest-ever price
 	param apiKey: API key for making request
 	param gameTitle: single, non-spaced game titles or multiple game titles separated by commas
@@ -108,37 +97,6 @@ class gameFetch():
 		gameFormat = gameList(gameTitle)
 		apiRequest = "https://api.isthereanydeal.com/v01/game/lowest/?key=" + api_key + "&plains=" + gameFormat + "&region=us&country=US&shops=steam"
 		return apiStatus(requests.get(apiRequest))
-
-	"""
-	getPlains - Will return a game(s) "plain" titles based on ID
-	param apiKey: API key for making request
-	param ids: ids in the format of app/12345
-	"""
-	def getPlains(self, api_key, ids):
-		idFormat = gameList(ids)
-		apiRequest = "https://api.isthereanydeal.com/v01/game/plain/id/?key=" + api_key + "&shop=steam&ids=" + idFormat
-		plainsDict = requests.get(apiRequest).json()
-		return plainsDict.get('data').get(ids)
-
-	"""
-	retrieveMeta - Multi-purpose function to retrieve specific info on a game.
-	param gameURL: Direct link to Steam game
-	param dataType: "art" to get direct link to cover art, "html" to retrieve html data
-	"""
-	def retrieveMeta(self, gameURL, dataType, HTMLdata):
-		if dataType == "html":
-			return requests.get(gameURL).content
-		else:
-			soup = BeautifulSoup(HTMLdata, 'html.parser').head
-			if gameURL != None and dataType == "art":
-				# TOFIX: Find specific image tag and get attribute
-				# If temporary HTML fetch error occurs, re-fetch
-				if soup == None:
-					tempHTML = self.retrieveMeta(gameURL, "html", None)
-					self.retrieveMeta(gameURL, "art", tempHTML)
-				else:
-					temp = soup.find_all("link")[-1]
-					return re.findall(r"http.*\d+", str(temp))[0]
 
 	"""
 	dbForm - Escapes special characters
