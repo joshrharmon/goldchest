@@ -24,7 +24,7 @@ frontend/node_modules and do
 ```npm install && npm run dev```
 <br/>
 
-First, start the backend server. To do so, go back to goldchest and into backend directory and run
+To start the backend server, go back to goldchest and into backend directory and run
 ```python backendStart.py```
 
 If you run into CORS error, please install this extention
