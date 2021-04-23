@@ -160,7 +160,7 @@ class gameFetch():
 			con.execute('''CREATE TABLE 'webpage' (
 							'gameID' int PRIMARY KEY,
 							'title' VARCHAR(255) NOT NULL,
-							'category' VARCHAR(32) NOT NULL,
+							'category' VARCHAR(255) NOT NULL,
 							'currency' CHAR(1) NOT NULL,
 							'price_old' float NOT NULL,
 							'price_new' float NOT NULL,
@@ -168,9 +168,22 @@ class gameFetch():
 							'url' VARCHAR(255) NOT NULL,
 							'art' VARCHAR(255)
 							);''')
+							
+	"""
+	dbOpti - Function to check for existing data entries in DB to optimize entry
+	param conn - DB connection object
+	param query - Game title to search for existence
+	"""
+	def dbOpti(self, conn, title):
+		sqlStmt = "SELECT * FROM webpage WHERE title = '{}'".format(title)
+		for cur in conn.execute(sqlStmt):
+			return True
+		else:
+			return False
+		
 
 	"""
-	steamDBFetch - Will fetch numGmaes from APIs and Steam and update DB every 6 hours
+	steamDBFetch - Will fetch numGames from APIs and Steam and update DB every 6 hours
 	param numGames: Amount of games to fetch from Steam and APIs
 	param category: Specify front, action, indie, adventure, etc. to get a narrowed result
 	"""
@@ -185,23 +198,33 @@ class gameFetch():
 			gameTitles = soup.find_all("span", class_="title")
 			gameOldPrices = soup.find_all("strike")
 			gameNewPrices = soup.find_all("div", class_="col search_price discounted responsive_secondrow")
+			gameArtURLS = soup.find_all("div", class_="col search_capsule")
 			while gamesFetched < gameItems:
+				
+				title = self.dbForm(gameTitles[gamesFetched].contents[0])
+				
+				# Check if it already exists, if so, just update category and move on
+				sqlUpdCat = "SELECT category FROM webpage WHERE title = '{}'".format(title)
+				if self.dbOpti(con, title):
+					existCat = ""
+					for row in con.execute(sqlUpdCat):
+						existCat = row[0]
+					catUpd = existCat + ", " + category
+					sqlUpd = "UPDATE webpage SET category = '{}' WHERE title = '{}'".format(catUpd, title)
+					con.execute(sqlUpd)
+					gamesFetched += 1
+					continue
+				
+				# Get all relevant data
 				url = gameData[gamesFetched]['href']
-
-				# Fetch HTML for game page for scraping
-				gameHTML = self.retrieveMeta(url, "html", None)
-				soup = BeautifulSoup(gameHTML, 'html.parser')
-
-				title = gameTitles[gamesFetched].contents[0]
 				currency = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[0]
 				price_old = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[1]
 				price_new = self.priceFormat(gameNewPrices[gamesFetched].contents[-1].strip())[1]
 				price_cut = round(100.00 - ((float(price_new) * 100) / (float(price_old))))
-
-				art = self.retrieveMeta(url, "art", gameHTML)
+				art = re.search(r"(https:\/\/cdn\.akamai\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
 				
-				# Insert into db
-				con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))
+				# Insert into DB
+				con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))				
 				gamesFetched += 1
 	"""
 	steamDBResp - Will access the SQLite DB and form a JSON response for the frontend to fetch
@@ -211,7 +234,7 @@ class gameFetch():
 	def steamDBResp(self, category, numGames=6):
 		with self.create_conn(self.db_path) as con:
 			JSONData = []
-			sqlFetch = "SELECT * FROM webpage WHERE category='{}' LIMIT '{}'".format(category, numGames)
+			sqlFetch = "SELECT * FROM webpage WHERE category LIKE '%{}%' LIMIT '{}'".format(category, numGames)
 			cursor = con.execute(sqlFetch)
 			for row in cursor:
 				gameJSON = dict()
