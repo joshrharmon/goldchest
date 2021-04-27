@@ -5,7 +5,7 @@
 		<state id="0" name="ac">
 			<x>1413.0</x>
 			<y>109.0</y>
-			<label>Action</label>
+			<label>Category</label>
 		</state>
 		<state id="1" name="ind">
 			<x>399.0</x>
@@ -91,7 +91,7 @@
 		<transition>
 			<from>9</from>
 			<to>0</to>
-			<read>Likes Action</read>
+			<read>Likes Category</read>
 		</transition>
 		<transition>
 			<from>0</from>
@@ -181,7 +181,7 @@
 		<transition>
 			<from>7</from>
 			<to>0</to>
-			<read>Likes Action</read>
+			<read>Likes Category</read>
 		</transition>
 		<transition>
 			<from>3</from>
@@ -221,7 +221,7 @@
 		<transition>
 			<from>11</from>
 			<to>0</to>
-			<read>Likes Action</read>
+			<read>Likes Category</read>
 		</transition>
 		<transition>
 			<from>10</from>

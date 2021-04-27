@@ -3,7 +3,7 @@ import backendGameFetch as fetch, backendGameSearch as search, backendGameRec as
 GENRE_ACTION = ["Violent", "Gore", "Platformer", "Fast-paced", "Roguelite", "Batman"]
 GENRE_INDIE = ["Point and click", "Crowdfunded", "Reboot", "8-bit Music"]
 GENRE_ADVENTURE = ["Atmospheric", "Story-Rich", "Sci-fi", "Fantasy", "Exploration", "Space", "Sandbox"]
-GENRE_RPG = ["Turn-based", "Building", "RPGMaker", "JRPG", "Action RPG", "Post-apocalyptic"]
+GENRE_RPG = ["Turn-based", "Building", "RPGMaker", "JRPG", "Category RPG", "Post-apocalyptic"]
 GENRE_HORROR = ["Violent", "Gore", "Psychological Horror", "Survival Horror"]
 GENRE_MYSTERY = ["Dark", "Detective", "Thriller", "Psychological Horror", "Crime"]
 GENRE_SIMULATION = ["VR", "Survival", "Physics", "Farming Sim", "Cooking", "Transportation"]

@@ -14,7 +14,7 @@ export class BestDealsGrid extends Component
             <h5 className="text-center">{deal.title}</h5>
                 <img src={deal.art} alt="" className="w-100" />
 
-                <h5 className="text-center">NOW ${deal.price_new} SAVE ${deal.price_cut}</h5>
+                <h5 className="text-center">NOW ${deal.price_new} SAVE {deal.price_cut}%</h5>
             <a href={deal.url} className="btn buy">BUY NOW</a>
 
         </div>
@@ -41,9 +41,8 @@ export class BestDealsGrid extends Component
                 <div className="container-fluid padding">
                     <div className="row welcome text-center">
                         <div className="col-12">
-                            <h1 className="display-4"> .</h1>
-                        </div>
 
+                        </div>
                         <div className="col-12">
                             <p className="lead">See our hottest deals right now!</p>
                         </div>
@@ -51,12 +50,7 @@ export class BestDealsGrid extends Component
                 </div>
 
                 <div className="row">
-
-
                     {mapHTMLtoNrOfDeals}
-
-
-
                 </div>
 
             </div>

@@ -222,6 +222,17 @@ a.btn.buy{
     border-radius: 10px;
 }
 
+a.category-list-href{
+    color: #343a40;
+    text-decoration: none;
+
+}
+
+a:hover {
+    color: #343a40!important;
+    text-decoration:none!important;
+    cursor:pointer;
+}
 
 
 
