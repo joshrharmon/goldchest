@@ -1,4 +1,4 @@
-import backendGameFetch as fetch, backendGameSearch as search
+import backendGameFetch as fetch, backendGameSearch as search, backendGameRec as rec
 
 GENRE_ACTION = ["Violent", "Gore", "Platformer", "Fast-paced", "Roguelite", "Batman"]
 GENRE_INDIE = ["Point and click", "Crowdfunded", "Reboot", "8-bit Music"]
@@ -33,9 +33,11 @@ gameRelation = {
 }
 
 backFetch = fetch.gameFetch(fetch.API_KEY, fetch.DB_PATH)
-backSearch = search.gameSearch(fetch.API_KEY, fetch.DB_PATH)
+backSearch = search.gameSearch()
+backRec = rec.gameRec()
 backFetch.start()
 backSearch.start()
+backRec.start()
 fetch.app.run()
 
 while True:
