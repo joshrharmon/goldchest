@@ -114,8 +114,7 @@ class gameFetch():
 	"""
 	def dbInit(self):
 		with self.create_conn(self.db_path) as con:
-			con.execute('''DROP TABLE IF EXISTS 'webpage';''')
-			con.execute('''CREATE TABLE 'webpage' (
+			con.execute('''CREATE TABLE IF NOT EXISTS 'webpage' (
 							'gameID' int PRIMARY KEY,
 							'title' VARCHAR(255) NOT NULL,
 							'category' VARCHAR(255) NOT NULL,
