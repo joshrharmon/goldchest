@@ -178,7 +178,7 @@ class gameFetch():
 				price_old = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[1]
 				price_new = self.priceFormat(gameNewPrices[gamesFetched].contents[-1].strip())[1]
 				price_cut = round(100.00 - ((float(price_new) * 100) / (float(price_old))))
-				art = re.search(r"(https:\/\/cdn\.akamai\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
+				art = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
 				
 				# Insert into DB
 				con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))				
