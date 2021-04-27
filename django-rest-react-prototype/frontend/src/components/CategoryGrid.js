@@ -8,9 +8,6 @@ export class CategoryGrid extends Component
         return(
             <div>
 
-
-
-
                 <div className="container-fluid padding">
                     <div className="row welcome text-center">
                         <div className="col-12">
@@ -23,10 +20,8 @@ export class CategoryGrid extends Component
                     </div>
                 </div>
 
-
                 <div className="best-deals-grid">
                     <ul>
-
 
                         <div className="column" >
                             <li>  <Link className="row" to="/sports"> <i className="fas fa-football-ball"></i> Sports Games</Link></li>
@@ -45,7 +40,7 @@ export class CategoryGrid extends Component
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/childrens"> <i className="fas fa-cookie-bite"></i> Childrens Games</Link></li>
+                            <li><Link className="row" to="/indie"> <i className="fas fa-cookie-bite"></i> Indie Games</Link></li>
                         </div>
 
                         <div className="column" >
@@ -73,10 +68,8 @@ export class CategoryGrid extends Component
                         </div>
 
                         <div className="column" >
-                            <li><Link className="row" to="/puzzle"> <i className="fas fa-puzzle-piece"></i> Puzzle Games</Link></li>
+                            <li><Link className="row" to="/simulation"> <i className="fas fa-puzzle-piece"></i> Simulation Games</Link></li>
                         </div>
-
-
                     </ul>
 
 
