@@ -88,17 +88,6 @@ class gameFetch():
 		return pure
 
 	"""
-	gameGET - Returns basic metadata about game (does not include prices)
-	param apiKey: API key for making request
-	param gameTitle: single, non-spaced game titles or multiple game titles separated by commas
-		(e.g. dishonored OR amongus,dishonored,etc)
-	"""
-	def gameGET(self, api_key, gameTitle):
-		gameFormat = gameList(gameTitle)
-		apiRequest = "https://api.isthereanydeal.com/v01/game/info/?key=" + api_key + "&plains=" + gameFormat
-		return apiStatus(requests.get(apiRequest))
-
-	"""
 	gameLowest - Will return a game(s) lowest-ever price
 	param apiKey: API key for making request
 	param gameTitle: single, non-spaced game titles or multiple game titles separated by commas
@@ -108,37 +97,6 @@ class gameFetch():
 		gameFormat = gameList(gameTitle)
 		apiRequest = "https://api.isthereanydeal.com/v01/game/lowest/?key=" + api_key + "&plains=" + gameFormat + "&region=us&country=US&shops=steam"
 		return apiStatus(requests.get(apiRequest))
-
-	"""
-	getPlains - Will return a game(s) "plain" titles based on ID
-	param apiKey: API key for making request
-	param ids: ids in the format of app/12345
-	"""
-	def getPlains(self, api_key, ids):
-		idFormat = gameList(ids)
-		apiRequest = "https://api.isthereanydeal.com/v01/game/plain/id/?key=" + api_key + "&shop=steam&ids=" + idFormat
-		plainsDict = requests.get(apiRequest).json()
-		return plainsDict.get('data').get(ids)
-
-	"""
-	retrieveMeta - Multi-purpose function to retrieve specific info on a game.
-	param gameURL: Direct link to Steam game
-	param dataType: "art" to get direct link to cover art, "html" to retrieve html data
-	"""
-	def retrieveMeta(self, gameURL, dataType, HTMLdata):
-		if dataType == "html":
-			return requests.get(gameURL).content
-		else:
-			soup = BeautifulSoup(HTMLdata, 'html.parser').head
-			if gameURL != None and dataType == "art":
-				# TOFIX: Find specific image tag and get attribute
-				# If temporary HTML fetch error occurs, re-fetch
-				if soup == None:
-					tempHTML = self.retrieveMeta(gameURL, "html", None)
-					self.retrieveMeta(gameURL, "art", tempHTML)
-				else:
-					temp = soup.find_all("link")[-1]
-					return re.findall(r"http.*\d+", str(temp))[0]
 
 	"""
 	dbForm - Escapes special characters
@@ -156,11 +114,10 @@ class gameFetch():
 	"""
 	def dbInit(self):
 		with self.create_conn(self.db_path) as con:
-			con.execute('''DROP TABLE IF EXISTS 'webpage';''')
-			con.execute('''CREATE TABLE 'webpage' (
+			con.execute('''CREATE TABLE IF NOT EXISTS 'webpage' (
 							'gameID' int PRIMARY KEY,
 							'title' VARCHAR(255) NOT NULL,
-							'category' VARCHAR(32) NOT NULL,
+							'category' VARCHAR(255) NOT NULL,
 							'currency' CHAR(1) NOT NULL,
 							'price_old' float NOT NULL,
 							'price_new' float NOT NULL,
@@ -168,9 +125,22 @@ class gameFetch():
 							'url' VARCHAR(255) NOT NULL,
 							'art' VARCHAR(255)
 							);''')
+							
+	"""
+	dbOpti - Function to check for existing data entries in DB to optimize entry
+	param conn - DB connection object
+	param query - Game title to search for existence
+	"""
+	def dbOpti(self, conn, title):
+		sqlStmt = "SELECT * FROM webpage WHERE title = '{}'".format(title)
+		for cur in conn.execute(sqlStmt):
+			return True
+		else:
+			return False
+		
 
 	"""
-	steamDBFetch - Will fetch numGmaes from APIs and Steam and update DB every 6 hours
+	steamDBFetch - Will fetch numGames from APIs and Steam and update DB every 6 hours
 	param numGames: Amount of games to fetch from Steam and APIs
 	param category: Specify front, action, indie, adventure, etc. to get a narrowed result
 	"""
@@ -185,23 +155,33 @@ class gameFetch():
 			gameTitles = soup.find_all("span", class_="title")
 			gameOldPrices = soup.find_all("strike")
 			gameNewPrices = soup.find_all("div", class_="col search_price discounted responsive_secondrow")
+			gameArtURLS = soup.find_all("div", class_="col search_capsule")
 			while gamesFetched < gameItems:
+				
+				title = self.dbForm(gameTitles[gamesFetched].contents[0])
+				
+				# Check if it already exists, if so, just update category and move on
+				sqlUpdCat = "SELECT category FROM webpage WHERE title = '{}'".format(title)
+				if self.dbOpti(con, title):
+					existCat = ""
+					for row in con.execute(sqlUpdCat):
+						existCat = row[0]
+					catUpd = existCat + ", " + category
+					sqlUpd = "UPDATE webpage SET category = '{}' WHERE title = '{}'".format(catUpd, title)
+					con.execute(sqlUpd)
+					gamesFetched += 1
+					continue
+				
+				# Get all relevant data
 				url = gameData[gamesFetched]['href']
-
-				# Fetch HTML for game page for scraping
-				gameHTML = self.retrieveMeta(url, "html", None)
-				soup = BeautifulSoup(gameHTML, 'html.parser')
-
-				title = gameTitles[gamesFetched].contents[0]
 				currency = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[0]
 				price_old = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[1]
 				price_new = self.priceFormat(gameNewPrices[gamesFetched].contents[-1].strip())[1]
 				price_cut = round(100.00 - ((float(price_new) * 100) / (float(price_old))))
-
-				art = self.retrieveMeta(url, "art", gameHTML)
+				art = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
 				
-				# Insert into db
-				con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))
+				# Insert into DB
+				con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))				
 				gamesFetched += 1
 	"""
 	steamDBResp - Will access the SQLite DB and form a JSON response for the frontend to fetch
@@ -211,7 +191,7 @@ class gameFetch():
 	def steamDBResp(self, category, numGames=6):
 		with self.create_conn(self.db_path) as con:
 			JSONData = []
-			sqlFetch = "SELECT * FROM webpage WHERE category='{}' LIMIT '{}'".format(category, numGames)
+			sqlFetch = "SELECT * FROM webpage WHERE category LIKE '%{}%' LIMIT '{}'".format(category, numGames)
 			cursor = con.execute(sqlFetch)
 			for row in cursor:
 				gameJSON = dict()
