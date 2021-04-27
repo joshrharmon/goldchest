@@ -40,7 +40,7 @@ class gameFetch():
 			connection = sqlite3.connect(path, check_same_thread=False)
 			print("DB connection successful.")
 		except Error as e:
-			print(f"Sorry, an error occurred during Database connection")
+			print(e, "Sorry, an error occurred during Database connection")
 		return connection
 
 	"""
@@ -71,7 +71,7 @@ class gameFetch():
 		else:
 			gameFormat = games
 		return gameFormat
-		
+
 	"""
 	priceFormat - Formats non-US prices to work with program
 	param price: String of price
@@ -125,7 +125,7 @@ class gameFetch():
 							'url' VARCHAR(255) NOT NULL,
 							'art' VARCHAR(255)
 							);''')
-							
+
 	"""
 	dbOpti - Function to check for existing data entries in DB to optimize entry
 	param conn - DB connection object
@@ -137,7 +137,7 @@ class gameFetch():
 			return True
 		else:
 			return False
-		
+
 
 	"""
 	steamDBFetch - Will fetch numGames from APIs and Steam and update DB every 6 hours
@@ -157,9 +157,9 @@ class gameFetch():
 			gameNewPrices = soup.find_all("div", class_="col search_price discounted responsive_secondrow")
 			gameArtURLS = soup.find_all("div", class_="col search_capsule")
 			while gamesFetched < gameItems:
-				
+
 				title = self.dbForm(gameTitles[gamesFetched].contents[0])
-				
+
 				# Check if it already exists, if so, just update category and move on
 				sqlUpdCat = "SELECT category FROM webpage WHERE title = '{}'".format(title)
 				if self.dbOpti(con, title):
@@ -171,7 +171,7 @@ class gameFetch():
 					con.execute(sqlUpd)
 					gamesFetched += 1
 					continue
-				
+
 				# Get all relevant data
 				url = gameData[gamesFetched]['href']
 				currency = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[0]
@@ -179,9 +179,9 @@ class gameFetch():
 				price_new = self.priceFormat(gameNewPrices[gamesFetched].contents[-1].strip())[1]
 				price_cut = round(100.00 - ((float(price_new) * 100) / (float(price_old))))
 				art = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
-				
+
 				# Insert into DB
-				con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))				
+				con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))
 				gamesFetched += 1
 	"""
 	steamDBResp - Will access the SQLite DB and form a JSON response for the frontend to fetch
@@ -205,7 +205,7 @@ class gameFetch():
 				gameJSON["art"] = row[8]
 				JSONData.append(gameJSON)
 			return JSONData
-			
+
 	"""
 	Main program:
 	- Initialize DB with tables
@@ -213,7 +213,7 @@ class gameFetch():
 	- Will fetch all categories on initial run, 10 games each
 	- Start Flask server
 	- Make sure scheduler continues to check for pending tasks if missed
-	"""		
+	"""
 	def start(self):
 		self.dbInit()
 		self.steamDBFetch("front")
