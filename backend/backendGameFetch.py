@@ -162,10 +162,11 @@ class gameFetch():
 
 				# Check if it already exists, if so, just update category and move on
 				sqlUpdCat = "SELECT category FROM webpage WHERE title = '{}'".format(title)
-				if self.dbOpti(con, title):
-					existCat = ""
-					for row in con.execute(sqlUpdCat):
-						existCat = row[0]
+				existCat = ""
+				for row in con.execute(sqlUpdCat):
+					existCat = row[0]
+					
+				if self.dbOpti(con, title) and category not in existCat) or self.dbOpti(con, title):
 					catUpd = existCat + ", " + category
 					sqlUpd = "UPDATE webpage SET category = '{}' WHERE title = '{}'".format(catUpd, title)
 					con.execute(sqlUpd)
@@ -195,14 +196,14 @@ class gameFetch():
 			cursor = con.execute(sqlFetch)
 			for row in cursor:
 				gameJSON = dict()
-				gameJSON["title"] = row[1]
-				gameJSON["category"] = row[2]
-				gameJSON["currency"] = row[3]
-				gameJSON["price_old"] = row[4]
-				gameJSON["price_new"] = row[5]
-				gameJSON["price_cut"] = row[6]
-				gameJSON["url"] = row[7]
-				gameJSON["art"] = row[8]
+				gameJSON["title"] = row[0]
+				gameJSON["category"] = row[1]
+				gameJSON["currency"] = row[2]
+				gameJSON["price_old"] = row[3]
+				gameJSON["price_new"] = row[4]
+				gameJSON["price_cut"] = row[5]
+				gameJSON["url"] = row[6]
+				gameJSON["art"] = row[7]
 				JSONData.append(gameJSON)
 			return JSONData
 
