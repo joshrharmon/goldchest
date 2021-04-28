@@ -166,7 +166,7 @@ class gameFetch():
 				for row in con.execute(sqlUpdCat):
 					existCat = row[0]
 					
-				if self.dbOpti(con, title) and category not in existCat) or self.dbOpti(con, title):
+				if (self.dbOpti(con, title) and category not in existCat) or self.dbOpti(con, title):
 					catUpd = existCat + ", " + category
 					sqlUpd = "UPDATE webpage SET category = '{}' WHERE title = '{}'".format(catUpd, title)
 					con.execute(sqlUpd)
