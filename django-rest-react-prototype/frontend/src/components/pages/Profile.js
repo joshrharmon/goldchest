@@ -12,7 +12,7 @@ export class Profile extends Component {
       steamName: "",
       displayName: "",
       avatar: "",
-      wishlist: ""
+      wishlist: []
     }
   }
 
@@ -78,6 +78,11 @@ export class Profile extends Component {
   }
 
   render() {
+    const wishlistGames = this.state.wishlist.map(game => {
+      // console.log(game);
+      return <Game key={game.name} name={game.name} image={game.capsule}/>;
+    });
+
     return (
       <div>
         <div className="page-content page-container" id="page-content">
@@ -129,7 +134,27 @@ export class Profile extends Component {
             </div>
           </div>
         </div>
+
+        <table>
+          <tbody>
+            {wishlistGames}
+          </tbody>
+        </table>
       </div>
+    )
+  }
+}
+
+class Game extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <tr>
+        <td><img src={this.props.image}/></td>
+      </tr>
     )
   }
 }
