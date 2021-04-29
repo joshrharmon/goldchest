@@ -10,7 +10,8 @@ Activate your virtual environment and run
 <br/>
 
 To build the frontend, navigate to the frontend directory run
-```npm install && npm run dev```
+```npm install```
+then run ```npm run dev```
 
 <br/>
 
@@ -20,8 +21,9 @@ Any time changes are made to the server, navigate to frontend directory and run
 <br/>
 
 Note: if you are encountering problems with installing the build, try deleting
-frontend/node_modules and do
-```npm install && npm run dev```
+frontend/node_modules and run
+```npm install```
+then run ```npm run dev```
 <br/>
 
 To start the backend server, go back to goldchest and into backend directory and run
