@@ -116,7 +116,7 @@ class gameFetch():
 		with self.create_conn(self.db_path) as con:
 			con.execute('''CREATE TABLE IF NOT EXISTS 'webpage' (
 							'title' VARCHAR(255) PRIMARY KEY,
-							'category' VARCHAR(255) PRIMARY KEY,
+							'category' VARCHAR(255),
 							'currency' CHAR(1) NOT NULL,
 							'price_old' float NOT NULL,
 							'price_new' float NOT NULL,
