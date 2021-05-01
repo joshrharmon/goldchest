@@ -22,6 +22,20 @@ Subject: Welcome to GoldChest
 Congrats on creating a new account with GoldChest!
 """
 
+def emailMessageBuilder_USERNAME(username):
+    return """\
+    Subject: Welcome to GoldChest! {}
+
+    Congrats on creating a new account with GoldChest!
+    """.format(username)
+
+def emailMessageBuilder(subject,message):
+    return """\
+    Subject: {}
+
+    {}
+    """.format(subject,message)
+
 
 def sendMail(address, Message):
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
