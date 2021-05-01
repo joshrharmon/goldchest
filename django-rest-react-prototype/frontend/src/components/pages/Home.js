@@ -22,6 +22,7 @@ export class Home extends Component {
     //AJAX Call Request to the Flask Server, get the API data so we
     //can display it on the frontend
     componentDidMount() {
+
         fetch('http://localhost:5000/deals?cat=front&num=6')
             .then(res => res.json())
             .then(json => {
