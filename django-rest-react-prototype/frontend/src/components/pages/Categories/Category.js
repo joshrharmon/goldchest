@@ -25,7 +25,6 @@ export class Category extends Component {
         );
     }
 
-
     //AJAX Call Request to the Flask Server, get the API data so we
     //can display it on the frontend
     fetchApiDynamicUrl(){
@@ -44,25 +43,36 @@ export class Category extends Component {
              });
         }}
 
+
+
+        //look at the bindings im making
+    //use props to get CategoryFromURL,
+    //console log
     componentDidMount() {
         this.fetchApiDynamicUrl();
     }
     render()
     {
+        console.log(this.props);
+        this.fetchApiDynamicUrl()
         let categoryFromUrl = window.location.pathname.replace("/", "");
         let isLoaded = this.state !== null ? this.state.isLoaded : false;
         if (!isLoaded)
         {
             return null
         }
+        //remove this else and move into lifecycle
+        //put this into componentDidUpdate
+        //componentShouldUpdate
         else {
             if(categoryFromUrl !== this.state.catItems[0].category){
-                this.fetchApiDynamicUrl();
+                //this.fetchApiDynamicUrl();
             }
 
             const mapHTMLtoNrOfGames = this.state.catItems.map( game => {
                 return this.htmlCatList(game);
             });
+
             return (
                 <div>
                     <CategoryGrid catItems={this.state.catItems}/>
@@ -75,12 +85,9 @@ export class Category extends Component {
                         <div className="col-12">
                             <h3>{categoryFromUrl}</h3>
                         </div>
-
                         <div className="col-12">
-
                         </div>
                     </div>
-
                     <div className="category">
                         <ul>
                                 {mapHTMLtoNrOfGames}

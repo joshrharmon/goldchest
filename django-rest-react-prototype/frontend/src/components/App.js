@@ -40,9 +40,6 @@ class App extends Component {
             <Route path="/signin" component={Signin}/>
             <Route path="/:category" component={Category}/>
             <Route path="/accounts/profile" component={Profile}/>
-
-
-
             <Footer/>
 
         </div>
