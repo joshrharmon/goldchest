@@ -12,7 +12,7 @@ class goldchestAccount:
 
     def createAccount(self, steamid, username, displayname):
         with backFetch.create_conn(fetch.DB_PATH) as con:
-            sql_InsertSteamID = "INSERT INTO users (steamid, username, displayname) VALUES ('{}');".format(steamid,username,displayname)
+            sql_InsertSteamID = "INSERT INTO users (steamid, username, displayname) VALUES ('{}','{}','{}');".format(steamid,username,displayname)
             con.execute(sql_InsertSteamID)
             print('inserted')
 
@@ -24,11 +24,11 @@ class goldchestAccount:
                 print("account already exists")
                 #def retrieveAccount()
             else:
-                sql_InsertSteamID = "INSERT INTO users (steamid, username, displayname) VALUES ('{}');".format(steamid,username,displayname)
+                sql_InsertSteamID = "INSERT INTO users (steamid, username, displayname) VALUES ('{}','{}','{}');".format(steamid,username,displayname)
         
         """
 
-    def add_Email(self, email, con, username):
+    def add_Email(self, email, username):
         #validates if the email is in the correct format.
         is_valid = validate_email(email_address=email, check_format=True, check_blacklist=True,
                                   check_dns=True, dns_timeout=10, check_smtp=True, smtp_timeout=10,
@@ -42,7 +42,7 @@ class goldchestAccount:
                 for cur in con.execute(sqlStmt): #Could we use an if statement or smthn else
                     print("error: this account already exists") #DO we want to update the email
                 else:
-                    sqlAddUser = "INSERT INTO users (email) VALUES ('{}');".format(email)
+                    sqlAddUser = "UPDATE users SET email = '{}' WHERE username = '{}'".format(email, username)
                     con.execute(sqlAddUser)
 
                     sendMail(username, message_newUser)  # message_newUser is in emailSystem.py
