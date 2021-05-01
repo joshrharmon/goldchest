@@ -2,7 +2,13 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 
 
+
 export class Profile extends Component {
+
+
+
+
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +21,7 @@ export class Profile extends Component {
       wishlist: []
     }
   }
+
 
   componentDidMount() {
     const steamkey = 'B1C3A57FCE4FD0CBECBF1EE80507A691';
@@ -136,12 +143,29 @@ export class Profile extends Component {
           </div>
         </div>
 
-        <table>
-          <tbody>
-            {wishlistGames}
-          </tbody>
-        </table>
+
+
+
+
+          <div className="container-fluid padding">
+              <div className="row welcome text-center">
+                  <div className="col-12">
+
+                  </div>
+                  <div className="col-12">
+                      <p className="lead"><b>Your current Steam wishlist</b></p>
+                  </div>
+              </div>
+          </div>
+
+          <div className="row">
+              {wishlistGames}
+          </div>
+
       </div>
+
+
+
     )
   }
 }
@@ -153,9 +177,14 @@ class Game extends React.Component {
 
   render() {
     return (
-      <tr>
-        <td><img src={this.props.image}/></td>
-      </tr>
+        <div className="col-md-4 product-grid">
+            <h5 className="text-center">{this.props.name}</h5>
+            <img src={this.props.image} alt="" className="w-100" />
+
+            <h5 className="text-center"></h5>
+            <a href="" className="btn buy">BUY NOW</a>
+
+        </div>
     )
   }
 }

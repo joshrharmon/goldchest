@@ -22,7 +22,6 @@ export class CategoryGrid extends Component
 
                 <div className="best-deals-grid">
                     <ul>
-
                         <div className="column" >
                             <li>  <Link className="row" to="/sports"> <i className="fas fa-football-ball"></i> Sports Games</Link></li>
                         </div>
