@@ -1,7 +1,7 @@
 import smtplib, ssl
 
 port = 465 #For SSL
-password = ""#input("password: ") #we can add the actual password here instead
+password = "" #input("password: ") #we can add the actual password here instead
 
 # Create a secure SSL context
 context = ssl.create_default_context()

@@ -1,4 +1,4 @@
-import emailSystem
+from emailSystem import *
 import bcrypt
 from validate_email import validate_email
 import backendGameFetch as fetch
@@ -30,11 +30,11 @@ class goldchestAccount:
 
     def add_Email(self, email, username):
         #validates if the email is in the correct format.
-        is_valid = validate_email(email_address=email, check_format=True, check_blacklist=True,
-                                  check_dns=True, dns_timeout=10, check_smtp=True, smtp_timeout=10,
+        is_valid = validate_email(email_address=email, check_format=True, check_blacklist=False,
+                                  check_dns=False, dns_timeout=3, check_smtp=False, smtp_timeout=3,
                                   smtp_helo_host='smtp.gmail.com', smtp_from_address='goldchest.steam@gmail.com',
                                   smtp_debug=False)
-
+        print(is_valid)
         #Check if the email is in DB
         with backFetch.create_conn(fetch.DB_PATH) as con:
             if is_valid: #copied from backendGameFetch.py need to verify if it works
@@ -45,7 +45,7 @@ class goldchestAccount:
                     sqlAddUser = "UPDATE users SET email = '{}' WHERE username = '{}'".format(email, username)
                     con.execute(sqlAddUser)
 
-                    sendMail(username, message_newUser)  # message_newUser is in emailSystem.py
+                    sendMail(email, message_newUser)  # message_newUser is in emailSystem.py
             else:
                 print("error: not a valid email address")
 
@@ -59,5 +59,16 @@ class goldchestAccount:
                         'steamid' int PRIMARY KEY,
                         'username' VARCHAR(255),
                         'displayname' VARCHAR(255),
-                        'email' VARCHAR(255),
+                        'email' VARCHAR(255)
                         );''')
+
+
+    def Test(self, steamid, username, displayname, email):
+        self.dbInit()
+        self.createAccount(steamid, username, displayname)
+        self.add_Email(email, username)
+
+
+test = goldchestAccount()
+test.Test(1,"testname","testname","my@gmail.com") #ENTER IN THE INFO YOU WANT
+#test.add_Email("samuel.jothimuthu@gmail.com", "Darkcut32")
