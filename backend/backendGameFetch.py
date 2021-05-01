@@ -40,7 +40,7 @@ class gameFetch():
 			connection = sqlite3.connect(path, check_same_thread=False)
 			print("DB connection successful.")
 		except Error as e:
-			print(e, "Sorry, an error occurred during Database connection")
+			print("Sorry, an error occurred during Database connection")
 		return connection
 
 	"""
@@ -115,15 +115,14 @@ class gameFetch():
 	def dbInit(self):
 		with self.create_conn(self.db_path) as con:
 			con.execute('''CREATE TABLE IF NOT EXISTS 'webpage' (
-							'gameID' int PRIMARY KEY,
-							'title' VARCHAR(255) NOT NULL,
-							'category' VARCHAR(255) NOT NULL,
+							'title' VARCHAR(255) PRIMARY KEY,
+							'category' VARCHAR(255),
 							'currency' CHAR(1) NOT NULL,
 							'price_old' float NOT NULL,
 							'price_new' float NOT NULL,
-							'price_cut' smallint NOT NULL,
+							'price_cut' SMALLINT NOT NULL,
 							'url' VARCHAR(255) NOT NULL,
-							'art' VARCHAR(255)
+							'art' VARCHAR(255) NOT NULL
 							);''')
 
 	"""
@@ -132,7 +131,7 @@ class gameFetch():
 	param query - Game title to search for existence
 	"""
 	def dbOpti(self, conn, title):
-		sqlStmt = "SELECT * FROM webpage WHERE title = '{}'".format(title)
+		sqlStmt = "SELECT * FROM webpage WHERE title = '{}'".format(self.dbForm(title))
 		for cur in conn.execute(sqlStmt):
 			return True
 		else:
@@ -162,26 +161,28 @@ class gameFetch():
 
 				# Check if it already exists, if so, just update category and move on
 				sqlUpdCat = "SELECT category FROM webpage WHERE title = '{}'".format(title)
-				if self.dbOpti(con, title):
-					existCat = ""
-					for row in con.execute(sqlUpdCat):
-						existCat = row[0]
+				existCat = ""
+				for row in con.execute(sqlUpdCat):
+					existCat = row[0]
+				
+				# Game already in db, categories not already fetched
+				if self.dbOpti(con, title) and category not in existCat:
 					catUpd = existCat + ", " + category
 					sqlUpd = "UPDATE webpage SET category = '{}' WHERE title = '{}'".format(catUpd, title)
 					con.execute(sqlUpd)
-					gamesFetched += 1
-					continue
+					
+				# First time game has been seen
+				elif not self.dbOpti(con, title):
+					# Get all relevant data
+					url = gameData[gamesFetched]['href']
+					currency = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[0]
+					price_old = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[1]
+					price_new = self.priceFormat(gameNewPrices[gamesFetched].contents[-1].strip())[1]
+					price_cut = round(100.00 - ((float(price_new) * 100) / (float(price_old))))
+					art = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
 
-				# Get all relevant data
-				url = gameData[gamesFetched]['href']
-				currency = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[0]
-				price_old = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[1]
-				price_new = self.priceFormat(gameNewPrices[gamesFetched].contents[-1].strip())[1]
-				price_cut = round(100.00 - ((float(price_new) * 100) / (float(price_old))))
-				art = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
-
-				# Insert into DB
-				con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))
+					# Insert into DB
+					con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))
 				gamesFetched += 1
 	"""
 	steamDBResp - Will access the SQLite DB and form a JSON response for the frontend to fetch
@@ -195,14 +196,14 @@ class gameFetch():
 			cursor = con.execute(sqlFetch)
 			for row in cursor:
 				gameJSON = dict()
-				gameJSON["title"] = row[1]
-				gameJSON["category"] = row[2]
-				gameJSON["currency"] = row[3]
-				gameJSON["price_old"] = row[4]
-				gameJSON["price_new"] = row[5]
-				gameJSON["price_cut"] = row[6]
-				gameJSON["url"] = row[7]
-				gameJSON["art"] = row[8]
+				gameJSON["title"] = row[0]
+				gameJSON["category"] = row[1]
+				gameJSON["currency"] = row[2]
+				gameJSON["price_old"] = row[3]
+				gameJSON["price_new"] = row[4]
+				gameJSON["price_cut"] = row[5]
+				gameJSON["url"] = row[6]
+				gameJSON["art"] = row[7]
 				JSONData.append(gameJSON)
 			return JSONData
 
@@ -237,7 +238,7 @@ class Deals(Resource):
 		parser.add_argument('num', required=True)
 		parser.add_argument('cat')
 		args = parser.parse_args()
-		return json.loads(json.dumps(gameFetch(API_KEY, DB_PATH).steamDBResp(args['cat'], int(args['num'])))), 200
+		return gameFetch(API_KEY, DB_PATH).steamDBResp(args['cat'], int(args['num'])), 200
 
 """
 OBSOLETE - Based on older code, not in use in this version.
@@ -247,14 +248,4 @@ return JSON, statuscode: The JSON response and status code
 """
 class Lowest(Resource):
 	def get(self):
-		parser = reqparse.RequestParser()
-		parser.add_argument('games', required=True)
-		args = parser.parse_args()
-		rawData = gameLowest(API_KEY, args['games']).get('data')
-		for game in rawData.items():
-			gameData = game[1].get('list')[0]
-			html = retrieveMeta(gameData["url"], "html", None)
-			gameData["art"] = retrieveMeta(gameData["url"], "art", html)
-		jsonData = json.dumps(rawData)
-		jsonObj = json.loads(jsonData)
-		return jsonObj, 200
+		pass
