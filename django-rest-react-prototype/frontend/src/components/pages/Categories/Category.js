@@ -17,8 +17,6 @@ import queryString from 'query-string';
 
 
 
-
-
 //This is the Sports category component page
 export class Category extends Component {
 
@@ -28,21 +26,31 @@ export class Category extends Component {
     }
 
 
-    componentDidUpdate() {
-        //get an object with the link to which url linker we are on
-        const categoryID = this.props.match.params
-        //get the first element in the categoryID object
-        const firstElementInCategoryID = Object.values(categoryID)[0]
-        console.log(firstElementInCategoryID)
-        console.log('Do something with it', categoryID);
-        console.log('http://localhost:5000/deals?cat='+firstElementInCategoryID+'&num=12')
-        fetch('http://localhost:5000/deals?cat='+firstElementInCategoryID+'&num=6')
-            .then((response) => response.json())
-            .then(gamesList => {
-                this.setState({ games: gamesList });
-                console.log(this.games)
-            });
+    componentDidMount() {
+            //get an object with the link to which url linker we are on
+            const categoryID = this.props.match.params
+            //get the first element in the categoryID object
+            const firstElementInCategoryID = Object.values(categoryID)[0]
+            console.log(firstElementInCategoryID)
+            console.log('Do something with it', categoryID);
+            //console.log('http://localhost:5000/deals?cat=' + firstElementInCategoryID + '&num=12')
+            fetch('http://localhost:5000/deals?cat=' + firstElementInCategoryID + '&num=6')
+                .then((response) => response.json())
+                .then(gamesList => {
+                    this.setState({games: gamesList});
+                    console.log(this.games)
+                });
+
     }
+
+
+    componentDidUpdate() {
+        if (this.props.games && !this.state.games) {
+            console.log('Games state has changed.')
+            this.componentDidMount()
+        }
+    }
+
 
 
 
@@ -73,10 +81,8 @@ render() {
 
                 <div className="row">
 
-
-
             {this.state.games.map((game) => (
-                <div>
+
                     <div className="col-md-4 product-grid">
                         <h5 className="text-center">{game.title}</h5>
                         <img src={game.art} alt="" className="w-100" />
@@ -85,7 +91,7 @@ render() {
                         <a href={game.url} className="btn buy">BUY NOW</a>
 
                     </div>
-                </div>
+
             ))}
         </div>
 
