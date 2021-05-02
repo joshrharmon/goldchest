@@ -1,101 +1,105 @@
 import React, {Component} from "react";
-import { Link } from "react-router-dom";
 import {CategoryGrid} from "../../CategoryGrid";
 import {BestDealsGrid} from "../../BestDealsGrid";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useParams
+} from "react-router-dom";
+import { withRouter } from "react-router";
+import queryString from 'query-string';
+
 
 
 //Query for search api
 //http://localhost:5000/search?query=val&limit=10
 
+
+
 //This is the Sports category component page
 export class Category extends Component {
 
-    //This is the HTML for 1 game (row) in the list displayed, we
-    //use this html later to map the nr of rows to nr of games we fetch from api
-    htmlCatList(game)
-    {
-        return (
-            <a href={game.url} className="category-list-href">
-            <li >
-                <img src={game.art} width="70" height="25"/>
-                <h3> {game.title}</h3>
-                <p>{game.price_cut}% Discount NOW ${game.price_new}</p>
-            </li>
-                </a>
-        );
+
+    state = {
+        games: []
     }
 
-    //AJAX Call Request to the Flask Server, get the API data so we
-    //can display it on the frontend
-    fetchApiDynamicUrl(){
-        if(window.location.pathname !== "/signin" && window.location.pathname !== "/accounts/profile/")
-        {
-            let categoryFromUrl = window.location.pathname.replace("/", "");
-            console.warn(categoryFromUrl);
-            fetch('http://localhost:5000/deals?cat='+categoryFromUrl+'&num=10')
-                .then(res => res.json())
-                .then(json => {
-                    this.setState({
-                        isLoaded: true,
-                        catItems: json,
-                    });
-                    console.log(this.catItems)
-             });
-        }}
 
-
-
-        //look at the bindings im making
-    //use props to get CategoryFromURL,
-    //console log
     componentDidMount() {
-        this.fetchApiDynamicUrl();
+            //get an object with the link to which url linker we are on
+            const categoryID = this.props.match.params
+            //get the first element in the categoryID object
+            const firstElementInCategoryID = Object.values(categoryID)[0]
+            console.log(firstElementInCategoryID)
+            console.log('Do something with it', categoryID);
+            //console.log('http://localhost:5000/deals?cat=' + firstElementInCategoryID + '&num=12')
+            fetch('http://localhost:5000/deals?cat=' + firstElementInCategoryID + '&num=6')
+                .then((response) => response.json())
+                .then(gamesList => {
+                    this.setState({games: gamesList});
+                    console.log(this.games)
+                });
+
     }
-    render()
-    {
-        console.log(this.props);
-        this.fetchApiDynamicUrl()
-        let categoryFromUrl = window.location.pathname.replace("/", "");
-        let isLoaded = this.state !== null ? this.state.isLoaded : false;
-        if (!isLoaded)
-        {
-            return null
+
+
+    componentDidUpdate() {
+        if (this.props.games && !this.state.games) {
+            console.log('Games state has changed.')
+            this.componentDidMount()
         }
-        //remove this else and move into lifecycle
-        //put this into componentDidUpdate
-        //componentShouldUpdate
-        else {
-            if(categoryFromUrl !== this.state.catItems[0].category){
-                //this.fetchApiDynamicUrl();
-            }
+    }
 
-            const mapHTMLtoNrOfGames = this.state.catItems.map( game => {
-                return this.htmlCatList(game);
-            });
 
-            return (
-                <div>
-                    <CategoryGrid catItems={this.state.catItems}/>
-                </div>,
+
+
+render() {
+
+    const categoryIDhej = this.props.match.params
+    //get the first element in the categoryID object
+    const catName = Object.values(categoryIDhej)[0]
+
+    return(
+        <div>
+            <CategoryGrid/>
+
 
             <div>
-                <CategoryGrid/>
+
+
                 <div className="container-fluid padding">
                     <div className="row welcome text-center">
                         <div className="col-12">
-                            <h3>{categoryFromUrl}</h3>
+
                         </div>
                         <div className="col-12">
+                            <p className="lead"><b>{catName}</b></p>
                         </div>
                     </div>
-                    <div className="category">
-                        <ul>
-                                {mapHTMLtoNrOfGames}
-                        </ul>
-                    </div>
                 </div>
-            </div>
-        )
-            }
-    }
+
+                <div className="row">
+
+            {this.state.games.map((game) => (
+
+                    <div className="col-md-4 product-grid">
+                        <h5 className="text-center">{game.title}</h5>
+                        <img src={game.art} alt="" className="w-100" />
+
+                        <h5 className="text-center">NOW ${game.price_new} SAVE {game.price_cut}%</h5>
+                        <a href={game.url} className="btn buy">BUY NOW</a>
+
+                    </div>
+
+            ))}
+        </div>
+
+        </div>
+        </div>
+
+    )
 }
+
+}
+

@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {Link, Route} from "react-router-dom";
 import {CategoryGrid} from "../CategoryGrid";
 import {BestDealsGrid} from "../BestDealsGrid";
+import {Navbar} from "../Navbar";
+
 
 import {BrowserRouter as Router} from "react-router-dom";
 
@@ -17,11 +19,17 @@ export class Home extends Component {
             items: [],
             isLoaded: false
         }
+
+
+        this.navbar = new Navbar();
+
     }
+
 
     //AJAX Call Request to the Flask Server, get the API data so we
     //can display it on the frontend
     componentDidMount() {
+
         fetch('http://localhost:5000/deals?cat=front&num=6')
             .then(res => res.json())
             .then(json => {
@@ -47,6 +55,7 @@ export class Home extends Component {
          <div>
                 <CategoryGrid/>
                 <BestDealsGrid items={items}/>
+             {this.navbar.renderSearchResults()};
          </div>
 
 
