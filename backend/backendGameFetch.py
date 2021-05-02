@@ -169,7 +169,7 @@ class gameFetch():
 				
 				# Insert into DB
 				try:
-					con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art, date_added) VALUES(?,?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))	
+					con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))	
 				
 				# Duplicate game! Skip it.
 				except Error as e:
