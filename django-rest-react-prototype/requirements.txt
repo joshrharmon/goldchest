@@ -8,3 +8,4 @@ djangorestframework-jwt
 django-cors-headers
 lxml
 py3-validate-email
+django_openid_auth
