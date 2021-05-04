@@ -38,6 +38,7 @@ export class Category extends Component {
         fetch('http://localhost:5000/deals?cat=' + firstElementInCategoryID + '&num=6')
             .then((response) => response.json())
             .then(gamesList => {
+                console.log('gameslist', gamesList);
                 this.setState({
                     games: gamesList
                     });
@@ -51,6 +52,7 @@ export class Category extends Component {
 
 
     componentDidUpdate(prevProps, prevState) {
+      if (this.state.games.length != 0) {
         //get an object with the link to which url linker we are on
         const categoryID = this.props.match.params
         //get the first element in the categoryID object
@@ -72,7 +74,8 @@ export class Category extends Component {
             console.log('State has changed.')
             this.fetchApiData()
         }
-        }
+      }
+    }
 
 
 
