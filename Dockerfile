@@ -17,6 +17,10 @@ USER root
 RUN python3 -m pip install -r ./django-rest-react-prototype/requirements.txt --target=/usr/local/lib/python3.8/dist-packages
 RUN python3 -m pip install django --target=/usr/local/lib/python3.8/dist-packages
 
+EXPOSE 8000
+EXPOSE 80
+EXPOSE 5000
+
 WORKDIR ./backend/
 RUN python3 backendStart.py &
 
@@ -24,8 +28,5 @@ WORKDIR /home/ubuntu/django-rest-react-prototype/frontend/
 RUN npm install && npm run dev &
 
 WORKDIR /home/ubuntu/django-rest-react-prototype/
-CMD ["python3", "manage.py", "runserver"]
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
 USER ubuntu
-EXPOSE 8000
-EXPOSE 80
-EXPOSE 5000
