@@ -25,8 +25,11 @@ export class Profile extends Component {
 
   componentDidMount() {
     const steamkey = 'B1C3A57FCE4FD0CBECBF1EE80507A691';
+    const address =
+      window.location.protocol + "//" + window.location.host + "/";
+    console.log(address);
 
-    fetch('http://localhost:8000/steamid/')
+    fetch(address + 'steamid/')
       .then(res => {
         return res.json();
       })
@@ -71,7 +74,7 @@ export class Profile extends Component {
       })
     ;
 
-    fetch('http://localhost:8000/current_user/')
+    fetch(address + 'current_user/')
       .then(res => {
         console.log(res);
         return res.json();
