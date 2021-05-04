@@ -22,7 +22,7 @@ EXPOSE 80
 EXPOSE 5000
 
 WORKDIR /home/ubuntu/django-rest-react-prototype/frontend/
-RUN npm install && npm run dev &
+RUN npm install && npm run dev
 
 WORKDIR /home/ubuntu/
 CMD ["./runServers.sh"]
