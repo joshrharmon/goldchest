@@ -14,5 +14,12 @@ Repository dedicated to Team Lightning's product "GoldChest".
 **Stack:**
 - Front-end: React, JavaScript, HTML, CSS, Bootstrap
 - Back-end and data: Python and MySQL (Potentially Firebase)
-- APIs: https://itad.docs.apiary.io/# 
-- Cloud provider: AWS 
+- APIs: https://itad.docs.apiary.io/#
+- Cloud provider: AWS
+
+# Docker
+In top level directory:<br/>
+Build image with: ```docker build -t goldchest .```
+<br/>
+Run with: ```docker run --rm -p 5478:8000 -p 5000:5000 -it goldchest```
+Access at ```localhost:5478```
