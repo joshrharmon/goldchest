@@ -38,7 +38,7 @@ backRec = rec.gameRec()
 backFetch.start()
 backSearch.start()
 backRec.start()
-fetch.app.run()
+fetch.app.run(host='0.0.0.0')
 
 while True:
 	fetch.schedule.run_pending()
