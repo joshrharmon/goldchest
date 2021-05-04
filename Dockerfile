@@ -28,9 +28,5 @@ WORKDIR /home/ubuntu/django-rest-react-prototype/frontend/
 RUN npm install && npm run dev &
 
 WORKDIR /home/ubuntu/django-rest-react-prototype/
-<<<<<<< HEAD
-CMD ["python3", "manage.py", "runserver"] 
-=======
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
->>>>>>> e2302b28696eccece36839ca59b950e7ac209185
 USER ubuntu
