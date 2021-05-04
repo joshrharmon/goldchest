@@ -79,6 +79,8 @@ class gameFetch():
 	"""
 	def priceFormat(self, price):
 		pure = []
+		if price == "Free to Play" or price == "Free":
+			return ["$", "00.00"];
 		priceDec = ""
 		repl = re.sub(",", ".", price)
 		strip = re.findall(r"""(\D?){1}(\d+)(.)(\d+)(\D?){1}""", repl)
