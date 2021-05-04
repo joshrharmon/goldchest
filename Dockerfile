@@ -25,5 +25,5 @@ WORKDIR /home/ubuntu/django-rest-react-prototype/frontend/
 RUN npm install && npm run dev &
 
 WORKDIR /home/ubuntu/
-CMD ["./runServers.sh"]
+CMD ["sh", "-c", "cd django-rest-react-prototype/frontend/ && npm install && npm run dev && cd ../.. && ./runServers.sh"]
 USER ubuntu
