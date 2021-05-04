@@ -56,7 +56,7 @@ export class Category extends Component {
     componentDidUpdate() {
         if(window.location.pathname !== "/signin" && window.location.pathname !== "/accounts/profile/")
         {
-            console.log('this is not signin or accounts')
+        console.log('this is not signin or accounts')
         //get an object with the link to which url linker we are on
         const categoryID = this.props.match.params
         //get the first element in the categoryID object
