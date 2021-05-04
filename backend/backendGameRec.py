@@ -111,6 +111,29 @@ class gameRec():
 							elif affList == "DISLIKE" in affList and row[entry] == DISLIKE:
 								affJSON[rowName[CUR_TAB_COLNAME][:-4]] = row[entry]
 		return affJSON
+	
+	"""
+	getPersonalRec - Returns a personalized list of games already present in the
+	database for a user based on their preferences
+	param user: username to lookup
+	param limit: amount of games to return
+	"""
+	def getPersonalRec(self, user, limit, verbose=False):
+		affJSON = [("\"" + genre + "\"") for genre in self.getAff("LIKE", user)]
+		perJSON = []
+		sqlStmt = """SELECT * FROM webpage 
+						WHERE category IN({}) 
+						GROUP BY title 
+						ORDER BY RANDOM()
+						LIMIT {}""".format(", ".join(affJSON), limit)
+		with backFetch.create_conn(fetch.DB_PATH) as con:
+			try:
+				cursor = con.execute(sqlStmt)
+				for row in cursor:
+					perJSON.append(backFetch.dbToJSON(row, cursor))	
+			except fetch.Error as e:
+				verbose and print(":: SELECT statement for personalized recommendations for user '{}' was not successful.".format(user))
+		return perJSON
 						
 	def start(self):
 		self.dbInit()
@@ -130,6 +153,7 @@ Examples:
 		args=anime,rpg,action (Will return affinities for these genres)
 		args=LIKE (Will return all liked genres)
 		args=DISLIKE (Will return all dislikes genres)
+		args=RECC (Will return personalized list of recommendations, limit is REQUIRED)
 		
 param user: User to look up
 """
@@ -139,7 +163,11 @@ class Recommendation(fetch.Resource):
 		parser.add_argument('op', required=True)
 		parser.add_argument('args', required=True)
 		parser.add_argument('user', required=True)
+		parser.add_argument('limit')
 		args = parser.parse_args()
+		
+		errMSG = dict()
+		
 		if args['op'] == "mod":
 			if(args['args'] == "RESET" or args['args'] == "HIDEALL"):
 				return gameRec().modAff(args['args'], args['user'])
@@ -151,7 +179,13 @@ class Recommendation(fetch.Resource):
 				return gameRec().modAff(argPass, args['user'])
 		elif args['op'] == "get":
 			if(args['args'] == "LIKE" or args['args'] == "DISLIKE"):
-				return gameRec().getAff(args['args'], args['user'])
+				return gameRec().getAff(str(args['args']), args['user'])
+			elif args['args'] == "RECC":
+				if not args['limit']:
+					errMSG["Message: "] = "Missing limit argument."
+					return errMSG
+				else:
+					return gameRec().getPersonalRec(args['user'], int(args['limit']))
 			else:
 				argList = args['args'].split(",")
 				argPass = []

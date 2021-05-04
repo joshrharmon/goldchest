@@ -1,5 +1,5 @@
 
-import requests, json, backendGameFetch as fetch
+import requests, json, re, backendGameFetch as fetch
 
 backFetch = fetch.gameFetch(fetch.API_KEY, fetch.DB_PATH)
 
@@ -12,11 +12,13 @@ class gameSearch():
         gameData = soup.find_all("a", class_="search_result_row ds_collapse_flag")
         gameTitles = soup.find_all("span", class_="title")
         gamePrices = soup.find_all("div", class_="col search_price responsive_secondrow")
+        gameArtURLS = soup.find_all("div", class_="col search_capsule")
         while gamesFetched < numResults:
             searchItem = dict()
             searchItem["title"] = gameTitles[gamesFetched].contents[0]
-            searchItem["price"] = backFetch.priceFormat(gamePrices[gamesFetched].contents[0])
+            searchItem["price"] = backFetch.priceFormat(gamePrices[gamesFetched].contents[0].strip()) if gamePrices[gamesFetched].contents[0].strip() != "Free to Play" else "$0.00"
             searchItem["url"] = gameData[gamesFetched]['href']
+            searchItem["art"] = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
             searchArr.append(searchItem)
             gamesFetched += 1
         return searchArr

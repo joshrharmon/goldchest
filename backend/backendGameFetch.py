@@ -25,6 +25,7 @@ steamCategoryID = {
 
 API_KEY='4ca42d11f7def3c9d0eea805aa48413a2c5ec7e6'
 DB_PATH='../django-rest-react-prototype/db.sqlite3'
+GAMES_TO_FETCH = 25
 
 app = Flask(__name__)
 api = Api(app)
@@ -40,7 +41,7 @@ class gameFetch():
 			connection = sqlite3.connect(path, check_same_thread=False)
 			print("DB connection successful.")
 		except Error as e:
-			print("Sorry, an error occurred during Database connection")
+			print(f"Sorry, an error occurred during Database connection")
 		return connection
 
 	"""
@@ -71,7 +72,7 @@ class gameFetch():
 		else:
 			gameFormat = games
 		return gameFormat
-
+		
 	"""
 	priceFormat - Formats non-US prices to work with program
 	param price: String of price
@@ -115,16 +116,17 @@ class gameFetch():
 	def dbInit(self):
 		with self.create_conn(self.db_path) as con:
 			con.execute('''CREATE TABLE IF NOT EXISTS 'webpage' (
-							'title' VARCHAR(255) PRIMARY KEY,
-							'category' VARCHAR(255),
+							'title' VARCHAR(255) NOT NULL,
+							'category' VARCHAR(255) NOT NULL,
 							'currency' CHAR(1) NOT NULL,
 							'price_old' float NOT NULL,
 							'price_new' float NOT NULL,
-							'price_cut' SMALLINT NOT NULL,
+							'price_cut' smallint NOT NULL,
 							'url' VARCHAR(255) NOT NULL,
-							'art' VARCHAR(255) NOT NULL
+							'art' VARCHAR(255),
+							PRIMARY KEY(title, category)
 							);''')
-
+							
 	"""
 	dbOpti - Function to check for existing data entries in DB to optimize entry
 	param conn - DB connection object
@@ -136,19 +138,19 @@ class gameFetch():
 			return True
 		else:
 			return False
-
+		
 
 	"""
 	steamDBFetch - Will fetch numGames from APIs and Steam and update DB every 6 hours
 	param numGames: Amount of games to fetch from Steam and APIs
 	param category: Specify front, action, indie, adventure, etc. to get a narrowed result
 	"""
-	def steamDBFetch(self, category, numGames=6):
+	def steamDBFetch(self, category, numGames=6, page=1):
 		print("Fetching " + str(numGames) + " games from category " + str(category) + "...")
 		with self.create_conn(self.db_path) as con:
 			gamesFetched = 0
 			gameItems = numGames
-			steamFetch = "https://store.steampowered.com/search/?specials=1" if "front" in category else "https://store.steampowered.com/search/?tags={}&specials=1".format(steamCategoryID.get(category))
+			steamFetch = "https://store.steampowered.com/search/?sort_order=ASC&specials=1&page={}".format(page) if "front" in category else "https://store.steampowered.com/search/?tags={}&specials=1&page={}".format(steamCategoryID.get(category), page)
 			soup = BeautifulSoup(requests.get(steamFetch).content, features="html.parser")
 			gameData = soup.find_all("a", class_="search_result_row ds_collapse_flag")
 			gameTitles = soup.find_all("span", class_="title")
@@ -156,34 +158,34 @@ class gameFetch():
 			gameNewPrices = soup.find_all("div", class_="col search_price discounted responsive_secondrow")
 			gameArtURLS = soup.find_all("div", class_="col search_capsule")
 			while gamesFetched < gameItems:
-
-				title = self.dbForm(gameTitles[gamesFetched].contents[0])
-
-				# Check if it already exists, if so, just update category and move on
-				sqlUpdCat = "SELECT category FROM webpage WHERE title = '{}'".format(title)
-				existCat = ""
-				for row in con.execute(sqlUpdCat):
-					existCat = row[0]
 				
-				# Game already in db, categories not already fetched
-				if self.dbOpti(con, title) and category not in existCat:
-					catUpd = existCat + ", " + category
-					sqlUpd = "UPDATE webpage SET category = '{}' WHERE title = '{}'".format(catUpd, title)
-					con.execute(sqlUpd)
-					
-				# First time game has been seen
-				elif not self.dbOpti(con, title):
-					# Get all relevant data
-					url = gameData[gamesFetched]['href']
-					currency = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[0]
-					price_old = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[1]
-					price_new = self.priceFormat(gameNewPrices[gamesFetched].contents[-1].strip())[1]
-					price_cut = round(100.00 - ((float(price_new) * 100) / (float(price_old))))
-					art = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
-
-					# Insert into DB
-					con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))
+				title = self.dbForm(gameTitles[gamesFetched].contents[0])
+				url = gameData[gamesFetched]['href']
+				currency = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[0]
+				price_old = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[1]
+				price_new = self.priceFormat(gameNewPrices[gamesFetched].contents[-1].strip())[1]
+				price_cut = round(100.00 - ((float(price_new) * 100) / (float(price_old))))
+				art = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
+				
+				# Insert into DB
+				try:
+					con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))	
+				
+				# Duplicate game! Skip it.
+				except Error as e:
+					pass
 				gamesFetched += 1
+	
+	"""
+	dbToJSON - Helper function to transfer records from db to JSON entry
+	param row - row object from db cursor
+	"""
+	def dbToJSON(self, row, cursor):
+		tempJSON = dict()
+		for colname, elem, item in zip(cursor.description, row, range(len(row))):
+			tempJSON["{}".format(colname[0])] = row[item]
+		return tempJSON
+				
 	"""
 	steamDBResp - Will access the SQLite DB and form a JSON response for the frontend to fetch
 	param numGames: Amount of games to fetch
@@ -192,21 +194,12 @@ class gameFetch():
 	def steamDBResp(self, category, numGames=6):
 		with self.create_conn(self.db_path) as con:
 			JSONData = []
-			sqlFetch = "SELECT * FROM webpage WHERE category LIKE '%{}%' LIMIT '{}'".format(category, numGames)
+			sqlFetch = "SELECT * FROM webpage WHERE category = '{}' LIMIT '{}'".format(category, numGames)
 			cursor = con.execute(sqlFetch)
 			for row in cursor:
-				gameJSON = dict()
-				gameJSON["title"] = row[0]
-				gameJSON["category"] = row[1]
-				gameJSON["currency"] = row[2]
-				gameJSON["price_old"] = row[3]
-				gameJSON["price_new"] = row[4]
-				gameJSON["price_cut"] = row[5]
-				gameJSON["url"] = row[6]
-				gameJSON["art"] = row[7]
-				JSONData.append(gameJSON)
+				JSONData.append(self.dbToJSON(row, cursor))
 			return JSONData
-
+			
 	"""
 	Main program:
 	- Initialize DB with tables
@@ -214,7 +207,7 @@ class gameFetch():
 	- Will fetch all categories on initial run, 10 games each
 	- Start Flask server
 	- Make sure scheduler continues to check for pending tasks if missed
-	"""
+	"""		
 	def start(self):
 		self.dbInit()
 		self.steamDBFetch("front")
@@ -235,9 +228,9 @@ return JSON, statuscode: The JSON response and status code
 class Deals(Resource):
 	def get(self):
 		parser = reqparse.RequestParser()
+		parser.add_argument('cat', required=True)
 		parser.add_argument('num', required=True)
-		parser.add_argument('cat')
-		args = parser.parse_args()
+		args = parser.parse_args() 
 		return gameFetch(API_KEY, DB_PATH).steamDBResp(args['cat'], int(args['num'])), 200
 
 """
