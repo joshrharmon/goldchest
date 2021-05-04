@@ -7,3 +7,4 @@ schedule
 djangorestframework-jwt
 django-cors-headers
 lxml
+django-openid-auth
