@@ -28,8 +28,8 @@ export class Navbar extends Component {
 
     //21:48
     fetchSearchResults = (query) =>{
-        const searchUrl = 'https://pixabay.com/api/?key=21433317-73a0029f8286b31255959139d&q='+query+'&image_type=photo'
-
+        //const searchUrl = 'https://pixabay.com/api/?key=21433317-73a0029f8286b31255959139d&q='+query+'&image_type=photo'
+        const searchUrl = 'http://localhost:5000/search?query='+query+'&limit=3'
         //check if cancel has any value
         if(this.cancel){
             //if it has value then go ahead and cancel that request
@@ -43,12 +43,12 @@ export class Navbar extends Component {
         })
             .then(res => {
                 //if the length of the hits array is 0, then no results found
-                const resultNotFoundMsg = !res.data.hits.length ? 'No more search results' : '';
+                const resultNotFoundMsg = !res.data.length ? 'No more search results' : '';
                 console.warn(res.data);
 
                 //Set the state for all the data fetched
                 this.setState({
-                    results: res.data.hits,
+                    results: res.data,
                     message: resultNotFoundMsg,
                     loading: false
                 })
@@ -83,9 +83,9 @@ export class Navbar extends Component {
                     { results.map( result => {
                         return (
                             <div className="col-md-4 product-grid">
-                                <h5 className="text-center">{result.user}</h5>
-                                <img src={result.previewURL} alt="" className="w-100" />
-                                <h5 className="text-center">NOW ${result.username} SAVE MONEY%</h5>
+                                <h5 className="text-center">{result.title}</h5>
+                                <img src={result.art} alt="" className="w-100" />
+                                <h5 className="text-center">PRICE {result.price[0]}{result.price[1]}</h5>
                                 <a href={result.url} className="btn buy">BUY NOW</a>
                             </div>
                         )
@@ -122,9 +122,7 @@ export class Navbar extends Component {
             <div className="col-12">
 
             </div>
-            <div className="col-12">
-                <p className="lead">Search Results</p>
-            </div>
+
         </div>
     </div>
     <div className="row">

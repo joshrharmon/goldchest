@@ -16,7 +16,7 @@ class gameSearch():
         while gamesFetched < numResults:
             searchItem = dict()
             searchItem["title"] = gameTitles[gamesFetched].contents[0]
-            searchItem["price"] = backFetch.priceFormat(gamePrices[gamesFetched].contents[0].strip()) if gamePrices[gamesFetched].contents[0].strip() != "Free to Play" else "$0.00"
+            searchItem["price"] = backFetch.priceFormat(gamePrices[gamesFetched].contents[0].strip())
             searchItem["url"] = gameData[gamesFetched]['href']
             searchItem["art"] = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
             searchArr.append(searchItem)
