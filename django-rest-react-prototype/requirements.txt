@@ -7,9 +7,5 @@ schedule
 djangorestframework-jwt
 django-cors-headers
 lxml
-<<<<<<< HEAD
 py3-validate-email
 django_openid_auth
-=======
-django-openid-auth
->>>>>>> 3df884ff2a1b0db0dcd36a61b7d353c0abbaef2a
