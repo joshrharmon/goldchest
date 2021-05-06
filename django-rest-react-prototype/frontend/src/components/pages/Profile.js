@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 
 
@@ -59,14 +60,14 @@ export class Profile extends Component {
             + steamid
             + '/wishlistdata/')
             .then(res => {
-              console.log(res);
+              // console.log(res);
               return res.json();
             })
             .then(json => {
               const wishlist = Object.keys(json).map(function(k) {
                 return json[k];
               });
-              console.log(wishlist);
+              // console.log(wishlist);
               this.setState({wishlist: wishlist});
             })
           ;
@@ -76,11 +77,11 @@ export class Profile extends Component {
 
     fetch(address + 'current_user/')
       .then(res => {
-        console.log(res);
+        // console.log(res);
         return res.json();
       })
       .then(json => {
-        console.log(json);
+        // console.log(json);
         this.setState({ username: json.username });
       })
     ;
@@ -88,14 +89,47 @@ export class Profile extends Component {
     ;
   }
 
+
   render() {
     const wishlistGames = this.state.wishlist.map(game => {
       // console.log(game);
       return <Game key={game.name} name={game.name} image={game.capsule}/>;
     });
 
+    const wishlist = this.state.wishlist;
+    const steamid = this.state.steamid;
+
+    function processWishlist(e) {
+      e.preventDefault();
+      const address =
+        window.location.protocol + "//" + window.location.host + "/";
+
+      const csrftoken = Cookies.get('csrftoken');
+
+      console.log('This is wishlist', wishlist);
+      const data = {
+        wishlist: wishlist,
+        steamid: steamid
+      }
+      console.log(data);
+
+      fetch(address + 'processWishlist/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken
+        },
+        body: JSON.stringify(data)
+      });
+      console.log('button was clicked yo');
+    }
+
     return (
       <div>
+        <button onClick={processWishlist}>
+          Import wishlist
+        </button>
+
         <div className="page-content page-container" id="page-content">
           <div className="padding">
             <div className="row container d-flex justify-content-center">
