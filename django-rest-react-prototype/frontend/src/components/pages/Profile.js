@@ -106,12 +106,12 @@ export class Profile extends Component {
 
       const csrftoken = Cookies.get('csrftoken');
 
-      console.log('This is wishlist', wishlist);
+      // console.log('This is wishlist', wishlist);
       const data = {
         wishlist: wishlist,
         steamid: steamid
       }
-      console.log(data);
+      // console.log(data);
 
       fetch(address + 'processWishlist/', {
         method: 'POST',
@@ -121,7 +121,6 @@ export class Profile extends Component {
         },
         body: JSON.stringify(data)
       });
-      console.log('button was clicked yo');
     }
 
     return (

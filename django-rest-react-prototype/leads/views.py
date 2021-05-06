@@ -163,6 +163,7 @@ def processWishlist(request):
 
 
   with create_conn("db.sqlite3") as conn:
+    conn.execute("DELETE FROM gc_userData WHERE username=?", (steamid,))
     conn.execute("INSERT INTO gc_userData VALUES"
       + "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
       , (steamid, affinities['action'], affinities['indie']
