@@ -54,6 +54,7 @@ export class Category extends Component {
 
 
     componentDidUpdate() {
+      if (this.state.games.length > 0) {
         if(window.location.pathname !== "/signin" && window.location.pathname !== "/accounts/profile/")
         {
         console.log('this is not signin or accounts')
@@ -82,6 +83,7 @@ export class Category extends Component {
             this.fetchApiData()
         }
         }
+      }
     }
 
 

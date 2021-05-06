@@ -6,4 +6,5 @@ urlpatterns = [
   path('current_user/', views.current_user),
   path('users/', views.UserList.as_view()),
   path('steamid/', views.steamID),
+  path('processWishlist/', views.processWishlist),
 ]
