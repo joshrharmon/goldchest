@@ -47,7 +47,7 @@ class goldchestAccount:
 
                     sendMail(email, message_newUser)  # message_newUser is in emailSystem.py
             else:
-                print("error: not a valid email address")
+                print("error:This  not a valid email address")
 
     """
     dbInit - Will create and initialize tables
