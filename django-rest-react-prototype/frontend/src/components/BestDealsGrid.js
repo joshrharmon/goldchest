@@ -36,8 +36,6 @@ export class BestDealsGrid extends Component
         return(
 
             <div>
-
-
                 <div className="container-fluid padding">
                     <div className="row welcome text-center">
                         <div className="col-12">

@@ -78,6 +78,7 @@ class gameFetch():
 	param price: String of price
 	"""
 	def priceFormat(self, price):
+		print(price)
 		pure = []
 		if price == "Free to Play" or price == "Free":
 			return ["$", "00.00"];

@@ -20,11 +20,7 @@ export class Home extends Component {
             isLoaded: false
         }
 
-
-        this.navbar = new Navbar();
-
     }
-
 
     //AJAX Call Request to the Flask Server, get the API data so we
     //can display it on the frontend
@@ -41,7 +37,6 @@ export class Home extends Component {
             });
     }
 
-
         render()
         {
             var {isLoaded, items} = this.state;
@@ -55,10 +50,8 @@ export class Home extends Component {
          <div>
                 <CategoryGrid/>
                 <BestDealsGrid items={items}/>
-             {this.navbar.renderSearchResults()};
+
          </div>
-
-
 
         )
             }
