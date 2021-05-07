@@ -159,7 +159,8 @@ def processWishlist(request):
   for game in wishlist:
     tags = game['tags']
     genre = getGenre(tags)
-    affinities[genre] += 1
+    # affinities[genre] += 1
+    affinities[genre] = 1
 
 
   with create_conn("db.sqlite3") as conn:
