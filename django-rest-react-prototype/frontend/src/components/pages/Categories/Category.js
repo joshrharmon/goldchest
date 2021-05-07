@@ -72,7 +72,6 @@ export class Category extends Component {
         console.log('hello7' , this.state)
         console.log(window.location.pathname)
         console.log('this.state.games[0].category = /' + this.state.games[0].category)
-        console.log('The typeof categorystate is ' + typeof categoryState);
         console.log('this.state.games[0] = ' , this.state.games[0])
         //compare current category with the category state from the games list
         // (when you change state clicking on a different category)
@@ -118,6 +117,7 @@ render() {
                         </div>
                     </div>
                     <div className="row">
+
                         {this.state.games.map((game) => (
                             <div className="col-md-4 product-grid">
                                 <h5 className="text-center">{game.title}</h5>
