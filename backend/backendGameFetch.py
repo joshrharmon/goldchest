@@ -72,7 +72,7 @@ class gameFetch():
 		else:
 			gameFormat = games
 		return gameFormat
-		
+
 	"""
 	priceFormat - Formats non-US prices to work with program
 	param price: String of price
@@ -129,7 +129,7 @@ class gameFetch():
 							'art' VARCHAR(255),
 							PRIMARY KEY(title, category)
 							);''')
-							
+
 	"""
 	dbOpti - Function to check for existing data entries in DB to optimize entry
 	param conn - DB connection object
@@ -141,7 +141,7 @@ class gameFetch():
 			return True
 		else:
 			return False
-		
+
 
 	"""
 	steamDBFetch - Will fetch numGames from APIs and Steam and update DB every 6 hours
@@ -161,24 +161,27 @@ class gameFetch():
 			gameNewPrices = soup.find_all("div", class_="col search_price discounted responsive_secondrow")
 			gameArtURLS = soup.find_all("div", class_="col search_capsule")
 			while gamesFetched < gameItems:
-				
+
 				title = self.dbForm(gameTitles[gamesFetched].contents[0])
 				url = gameData[gamesFetched]['href']
 				currency = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[0]
 				price_old = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[1]
 				price_new = self.priceFormat(gameNewPrices[gamesFetched].contents[-1].strip())[1]
-				price_cut = round(100.00 - ((float(price_new) * 100) / (float(price_old))))
+				if float(price_old) == 0:
+					price_cut = 0
+				else:
+					price_cut = round(100.00 - ((float(price_new) * 100) / (float(price_old))))
 				art = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
-				
+
 				# Insert into DB
 				try:
-					con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))	
-				
+					con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))
+
 				# Duplicate game! Skip it.
 				except Error as e:
 					pass
 				gamesFetched += 1
-	
+
 	"""
 	dbToJSON - Helper function to transfer records from db to JSON entry
 	param row - row object from db cursor
@@ -188,7 +191,7 @@ class gameFetch():
 		for colname, elem, item in zip(cursor.description, row, range(len(row))):
 			tempJSON["{}".format(colname[0])] = row[item]
 		return tempJSON
-				
+
 	"""
 	steamDBResp - Will access the SQLite DB and form a JSON response for the frontend to fetch
 	param numGames: Amount of games to fetch
@@ -202,7 +205,7 @@ class gameFetch():
 			for row in cursor:
 				JSONData.append(self.dbToJSON(row, cursor))
 			return JSONData
-			
+
 	"""
 	Main program:
 	- Initialize DB with tables
@@ -210,7 +213,7 @@ class gameFetch():
 	- Will fetch all categories on initial run, 10 games each
 	- Start Flask server
 	- Make sure scheduler continues to check for pending tasks if missed
-	"""		
+	"""
 	def start(self):
 		self.dbInit()
 		self.steamDBFetch("front")
@@ -233,7 +236,7 @@ class Deals(Resource):
 		parser = reqparse.RequestParser()
 		parser.add_argument('cat', required=True)
 		parser.add_argument('num', required=True)
-		args = parser.parse_args() 
+		args = parser.parse_args()
 		return gameFetch(API_KEY, DB_PATH).steamDBResp(args['cat'], int(args['num'])), 200
 
 """
