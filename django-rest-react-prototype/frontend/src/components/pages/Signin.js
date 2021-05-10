@@ -8,8 +8,6 @@ export class Signin extends Component {
         return (
 
             <div>
-
-
                 <div className="container-fluid padding">
                     <div className="row welcome text-center">
 
@@ -18,7 +16,6 @@ export class Signin extends Component {
                         </div>
                     </div>
                 </div>
-
 
                 <div className="container px-4 py-5 mx-auto">
                     <div className="card card0">
@@ -57,14 +54,6 @@ export class Signin extends Component {
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
 
             </div>
 

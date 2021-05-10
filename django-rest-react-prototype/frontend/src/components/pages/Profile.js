@@ -4,10 +4,11 @@ import Cookies from "js-cookie";
 
 
 
+
 export class Profile extends Component {
 
-
-
+//TODO: Make ajax call to this fetch point
+//http://localhost:5000/rec?op=get&args=RECC&user=76561198130300609&limit=5
 
 
   constructor(props) {
@@ -19,9 +20,16 @@ export class Profile extends Component {
       steamName: "",
       displayName: "",
       avatar: "",
-      wishlist: []
+      wishlist: [],
+        items: [],
+        isLoaded: false
+
     }
   }
+
+
+
+
 
 
   componentDidMount() {
@@ -55,6 +63,18 @@ export class Profile extends Component {
               });
             });
 
+
+            //Recommendation fetch
+            fetch('http://localhost:5000/rec?op=get&args=RECC&user=' + this.state.steamid + '&limit=6')
+                .then(res => res.json())
+                .then(json => {
+                    this.setState({
+                        isLoaded: true,
+                        items: json,
+                    })
+                    console.log('This is items in fetch array', this.state.items)
+                });
+
           // profile must be public
           fetch('https://store.steampowered.com/wishlist/profiles/'
             + steamid
@@ -87,10 +107,20 @@ export class Profile extends Component {
     ;
 
     ;
+
+
   }
 
 
   render() {
+
+
+    console.log('ITEMS array in RENDER', this.state.items);
+
+    //for recomendation fetch
+    var {isLoaded, items} = this.state;
+      console.log(items.title)
+    //for wishlist map html
     const wishlistGames = this.state.wishlist.map(game => {
       // console.log(game);
       return <Game key={game.name} name={game.name} image={game.capsule}/>;
@@ -125,9 +155,7 @@ export class Profile extends Component {
 
     return (
       <div>
-        <button onClick={processWishlist}>
-          Import wishlist
-        </button>
+
 
         <div className="page-content page-container" id="page-content">
           <div className="padding">
@@ -165,9 +193,9 @@ export class Profile extends Component {
                             <h6 className="text-muted f-w-400">1460 Balboa Park Sunnyvale CA</h6>
                           </div>
                           <div className="col-sm-6">
-                            <p className="m-b-10 f-w-600">Wishlist</p>
-                            <h6 className="text-muted f-w-400">Red Dead Redemption 2</h6>
-                            <h6 className="text-muted f-w-400">Valheim</h6>
+                            <p className="m-b-10 f-w-600"></p>
+                            <h6 className="text-muted f-w-400"></h6>
+                            <h6 className="text-muted f-w-400"></h6>
                           </div>
                         </div>
                       </div>
@@ -194,6 +222,38 @@ export class Profile extends Component {
           <div className="row">
               {wishlistGames}
           </div>
+
+
+
+          <div className="container-fluid padding">
+              <div className="row welcome text-center">
+                  <div className="col-12">
+
+                  </div>
+                  <div className="col-12">
+                      <p className="lead"><b>Recommended Games for YOU</b></p>
+
+                      <button type="button" class="btn btn-outline-dark"
+                              onClick={processWishlist}>Import wishlist recommendations
+                      </button>
+
+                  </div>
+              </div>
+          </div>
+
+
+            <div className="row">
+                {this.state.items.map((recGame) => (
+                  <div className="col-md-4 product-grid">
+                      <h5 className="text-center">{recGame.title}</h5>
+                      <img src={recGame.art} alt="" className="w-100"/>
+                      <h5 className="text-center"></h5>
+                      <a href={recGame.url} className="btn buy">BUY NOW</a>
+                  </div>
+              ))}
+
+                </div>
+
 
       </div>
 
