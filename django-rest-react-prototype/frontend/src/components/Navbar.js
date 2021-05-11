@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import {GameInfo} from "./GameInfo";
 
 //In javascript you dont need to specify folders in this server
 // just write name of nameofhtml to find href
@@ -81,14 +82,14 @@ export class Navbar extends Component {
             return (
                 <div className="results-container">
                     { results.map( result => {
-                        return (
-                            <div className="col-md-4 product-grid">
-                                <h5 className="text-center">{result.title}</h5>
-                                <img src={result.art} alt="" className="w-100" />
-                                <h5 className="text-center">PRICE {result.price[0]}{result.price[1]}</h5>
-                                <a href={result.url} className="btn buy">BUY NOW</a>
-                            </div>
-                        )
+                        return <GameInfo
+                          key={result.title}
+                          title={result.title}
+                          art={result.art}
+                          currency={result.price[0]}
+                          price={result.price[1]}
+                          url={result.url}
+                        />
                     } ) }
 
                 </div>
