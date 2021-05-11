@@ -27,7 +27,7 @@
 
 
 .menu-area ul li a{
-    width: 110px;
+    width: 90px;
     display: block;
     padding: 15px;
     color: #b9b9b9;
@@ -45,6 +45,7 @@
 
 #search-bar
 {
+
     width: 390px;
     padding: 5px;
     -webkit-border-radius: 25px;
@@ -418,7 +419,7 @@ h6 {
 
 input,
 textarea {
-    padding: 12px 15px 12px 15px !important;
+    padding: 10px 15px 8px 15px !important;
     width: 100%;
     box-sizing: border-box;
     border: none !important;
@@ -588,15 +589,29 @@ a:hover {
 
 
 
+.logo-signinJS img{
+    max-width: 40%;
+    height: auto;
+    align-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 
 
 
+.logo-navbar img{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 60%;
+    height: auto;
+    align-content: center;
+    display: block;
 
 
-
-
+}
 
 
 
