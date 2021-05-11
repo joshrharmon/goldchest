@@ -122,7 +122,7 @@ render() {
                             <div className="col-md-4 product-grid">
                                 <h5 className="text-center">{game.title}</h5>
                                 <img src={game.art} alt="" className="w-100"/>
-                                <h5 className="text-center">NOW {game.currency}{game.price_new} SAVE {game.price_cut}%</h5>
+                                <h5 className="text-center">NOW {game.currency}{game.price_new} SAVE {game.price_cut}</h5>
                                 <a href={game.url} className="btn buy">BUY NOW</a>
                             </div>
                         ))}
