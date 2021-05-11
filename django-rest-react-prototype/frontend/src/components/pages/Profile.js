@@ -57,8 +57,8 @@ export class Profile extends Component {
             .then(json => {
               const player = json.response.players[0];
               this.setState({
-                steamName: player.profileurl
-                  .substring(30,player.profileurl.length - 1),
+                // steamName: player.profileurl
+                //   .substring(30,player.profileurl.length - 1),
                 displayName: player.personaname,
                 avatar: player.avatarmedium
               });
@@ -73,7 +73,7 @@ export class Profile extends Component {
                         isLoaded: true,
                         items: json,
                     })
-                    console.log('This is items in fetch array', this.state.items)
+                    // console.log('This is items in fetch array', this.state.items)
                 });
 
           // profile must be public
@@ -88,7 +88,7 @@ export class Profile extends Component {
               const wishlist = Object.keys(json).map(function(k) {
                 return json[k];
               });
-              console.log(wishlist);
+              // console.log(wishlist);
               this.setState({wishlist: wishlist});
             })
           ;
@@ -116,11 +116,11 @@ export class Profile extends Component {
   render() {
 
 
-    console.log('ITEMS array in RENDER', this.state.items);
+    // console.log('ITEMS array in RENDER', this.state.items);
 
     //for recomendation fetch
     var {isLoaded, items} = this.state;
-      console.log(items.title)
+      // console.log(items.title)
     //for wishlist map html
     const wishlistGames = this.state.wishlist.map(game => {
       // console.log(game);
@@ -128,6 +128,7 @@ export class Profile extends Component {
         key={game.name}
         title={game.name}
         art={game.capsule}
+        tags={game.tags}
       />;
     });
 
