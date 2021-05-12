@@ -11,6 +11,7 @@ import { withRouter } from "react-router";
 import queryString from 'query-string';
 import {Signin} from "../Signin";
 import {Profile} from "../Profile";
+import {GameInfo} from "../../GameInfo";
 
 //Query for search api
 //http://localhost:5000/search?query=val&limit=10
@@ -119,12 +120,15 @@ render() {
                     <div className="row">
 
                         {this.state.games.map((game) => (
-                            <div className="col-md-4 product-grid">
-                                <h5 className="text-center">{game.title}</h5>
-                                <img src={game.art} alt="" className="w-100"/>
-                                <h5 className="text-center">NOW {game.currency}{game.price_new} SAVE {game.price_cut}</h5>
-                                <a href={game.url} className="btn buy">BUY NOW</a>
-                            </div>
+                          <GameInfo
+                            key={game.title}
+                            title={game.title}
+                            art={game.art}
+                            currency={game.currency}
+                            price={game.price_new}
+                            price_cut={game.price_cut}
+                            url={game.url}
+                          />
                         ))}
                     </div>
                 </div>

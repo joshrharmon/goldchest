@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import {GameInfo} from "../GameInfo";
 
 
 
@@ -21,8 +22,8 @@ export class Profile extends Component {
       displayName: "",
       avatar: "",
       wishlist: [],
-        items: [],
-        isLoaded: false
+      items: [],
+      isLoaded: false
 
     }
   }
@@ -87,7 +88,7 @@ export class Profile extends Component {
               const wishlist = Object.keys(json).map(function(k) {
                 return json[k];
               });
-              // console.log(wishlist);
+              console.log(wishlist);
               this.setState({wishlist: wishlist});
             })
           ;
@@ -123,7 +124,11 @@ export class Profile extends Component {
     //for wishlist map html
     const wishlistGames = this.state.wishlist.map(game => {
       // console.log(game);
-      return <Game key={game.name} name={game.name} image={game.capsule}/>;
+      return <GameInfo
+        key={game.name}
+        title={game.name}
+        art={game.capsule}
+      />;
     });
 
     const wishlist = this.state.wishlist;
@@ -233,7 +238,7 @@ export class Profile extends Component {
                   <div className="col-12">
                       <p className="lead"><b>Recommended Games for YOU</b></p>
 
-                      <button type="button" class="btn btn-outline-dark"
+                      <button type="button" className="btn btn-outline-dark"
                               onClick={processWishlist}>Import wishlist recommendations
                       </button>
 
@@ -244,12 +249,15 @@ export class Profile extends Component {
 
             <div className="row">
                 {this.state.items.map((recGame) => (
-                  <div className="col-md-4 product-grid">
-                      <h5 className="text-center">{recGame.title}</h5>
-                      <img src={recGame.art} alt="" className="w-100"/>
-                      <h5 className="text-center"></h5>
-                      <a href={recGame.url} className="btn buy">BUY NOW</a>
-                  </div>
+                  <GameInfo
+                    key={recGame.title}
+                    title={recGame.title}
+                    art={recGame.art}
+                    currency={recGame.currency}
+                    price={recGame.price_new}
+                    price_cut={recGame.price_cut}
+                    url={recGame.url}
+                  />
               ))}
 
                 </div>
@@ -259,25 +267,6 @@ export class Profile extends Component {
 
 
 
-    )
-  }
-}
-
-class Game extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-        <div className="col-md-4 product-grid">
-            <h5 className="text-center">{this.props.name}</h5>
-            <img src={this.props.image} alt="" className="w-100" />
-
-            <h5 className="text-center"></h5>
-            <a href="" className="btn buy">BUY NOW</a>
-
-        </div>
     )
   }
 }

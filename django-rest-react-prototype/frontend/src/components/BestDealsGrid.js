@@ -1,7 +1,5 @@
-
-
-
 import React, {Component} from "react";
+import {GameInfo} from "./GameInfo";
 
 export class BestDealsGrid extends Component
 {
@@ -27,7 +25,15 @@ export class BestDealsGrid extends Component
         console.warn(this.props.items);
         const mapHTMLtoNrOfDeals = this.props.items.map( deal => {
 
-            return this.html(deal);
+          return <GameInfo
+            key={deal.title}
+            title={deal.title}
+            art={deal.art}
+            currency={deal.currency}
+            price={deal.price_new}
+            price_cut={deal.price_cut}
+            url={deal.url}
+          />
 
         } );
 
