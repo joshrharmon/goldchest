@@ -172,7 +172,6 @@ class gameFetch():
 				price_new = self.priceFormat((gameNewPrices[gamesFetched]))[1]
 				price_cut = re.search(r"-\d+%", str(gameCuts[gamesFetched])).group() if re.search(r"-\d+%", str(gameCuts[gamesFetched])) != None else "-0%"
 				art = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
-				print(currency, price_old, price_new, price_cut)
 				
 				# Insert into DB
 				try:
