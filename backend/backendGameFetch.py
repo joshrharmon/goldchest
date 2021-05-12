@@ -78,18 +78,20 @@ class gameFetch():
 	param price: String of price
 	"""
 	def priceFormat(self, price):
-		print(price)
-		pure = []
-		if price == "Free to Play" or price == "Free":
-			return ["$", "00.00"];
-		priceDec = ""
-		repl = re.sub(",", ".", price)
-		strip = re.findall(r"""(\D?){1}(\d+)(.)(\d+)(\D?){1}""", repl)
-		pure.append(strip[0][0]) if strip[0][0] != '' else pure.append(strip[0][len(strip[0]) - 1])
-		for elem in range(1, len(strip[0]) - 1):
-			priceDec += strip[0][elem]
-		pure.append(priceDec)
-		return pure
+		if price == "Free" or price == "Free to Play":
+			return ["", "Free to Play"]
+		elif price == '':
+			return ["-", "--"]
+		else:
+			pure = []
+			priceDec = ""
+			repl = re.sub(",", ".", price)
+			strip = re.findall(r"""(\D?){1}(\d+)(.)(\d+)(\D?){1}""", repl)
+			pure.append(strip[0][0]) if strip[0][0] != '' else pure.append(strip[0][len(strip[0]) - 1])
+			for elem in range(1, len(strip[0]) - 1):
+				priceDec += strip[0][elem]
+			pure.append(priceDec)
+			return pure
 
 	"""
 	gameLowest - Will return a game(s) lowest-ever price
@@ -148,7 +150,7 @@ class gameFetch():
 	param numGames: Amount of games to fetch from Steam and APIs
 	param category: Specify front, action, indie, adventure, etc. to get a narrowed result
 	"""
-	def steamDBFetch(self, category, numGames=6, page=1):
+	def steamDBFetch(self, category, numGames=10, page=1):
 		print("Fetching " + str(numGames) + " games from category " + str(category) + "...")
 		with self.create_conn(self.db_path) as con:
 			gamesFetched = 0
@@ -156,23 +158,21 @@ class gameFetch():
 			steamFetch = "https://store.steampowered.com/search/?sort_order=ASC&specials=1&page={}".format(page) if "front" in category else "https://store.steampowered.com/search/?tags={}&specials=1&page={}".format(steamCategoryID.get(category), page)
 			soup = BeautifulSoup(requests.get(steamFetch).content, features="html.parser")
 			gameData = soup.find_all("a", class_="search_result_row ds_collapse_flag")
+			gamePrices = re.findall(r"col search_price.*\n.*\n<\/div", str(gameData))
 			gameTitles = soup.find_all("span", class_="title")
-			gameOldPrices = soup.find_all("strike")
-			gameNewPrices = soup.find_all("div", class_="col search_price discounted responsive_secondrow")
+			gameNewPrices = re.findall(r"(?:<br\/>)(\D?\d+\.\d+)|(?:secondrow\">\\n<\/div')", str(gamePrices))
+			gameOldPrices = re.findall(r"(?:(?:secondrow\">\\n)(?:<span style=\"color: #888888;\"><strike>)(\D?\d+\.\d+)*(?:<\/strike>)?)|((?:secondrow\">\\n<\/div>\\n<\/div))", str(gamePrices))
+			gameCuts = soup.find_all("div", class_="col search_discount responsive_secondrow")
 			gameArtURLS = soup.find_all("div", class_="col search_capsule")
 			while gamesFetched < gameItems:
-
 				title = self.dbForm(gameTitles[gamesFetched].contents[0])
 				url = gameData[gamesFetched]['href']
-				currency = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[0]
-				price_old = self.priceFormat(gameOldPrices[gamesFetched].contents[0])[1]
-				price_new = self.priceFormat(gameNewPrices[gamesFetched].contents[-1].strip())[1]
-				if float(price_old) == 0:
-					price_cut = 0
-				else:
-					price_cut = round(100.00 - ((float(price_new) * 100) / (float(price_old))))
+				currency = self.priceFormat((gameOldPrices[gamesFetched])[0])[0]
+				price_old = self.priceFormat((gameOldPrices[gamesFetched])[0])[1]
+				price_new = self.priceFormat((gameNewPrices[gamesFetched]))[1]
+				price_cut = re.search(r"-\d+%", str(gameCuts[gamesFetched])).group() if re.search(r"-\d+%", str(gameCuts[gamesFetched])) != None else "-0%"
 				art = re.search(r"(https:\/\/cdn\.(akamai|cloudflare)\.steamstatic\.com\/steam\/)(apps\/\d+\/|subs\/\d+\/|bundles\/\d+\/\w+\/)", str(gameArtURLS[gamesFetched].contents[0])).group() + "header.jpg"
-
+				
 				# Insert into DB
 				try:
 					con.execute("INSERT INTO webpage(title, category, currency, price_old, price_new, price_cut, url, art) VALUES(?,?,?,?,?,?,?,?)", (title, category, currency, price_old, price_new, price_cut, url, art))
@@ -220,8 +220,8 @@ class gameFetch():
 		schedule.every().hour.do(self.steamDBFetch, "front")
 
 		for key in steamCategoryID:
-			self.steamDBFetch(key, 10)
-			schedule.every().hour.do(self.steamDBFetch, key, 10)
+			self.steamDBFetch(key, 20)
+			schedule.every().hour.do(self.steamDBFetch, key, 20)
 
 		api.add_resource(Deals, '/deals')
 		api.add_resource(Lowest,'/lowest')

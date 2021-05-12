@@ -104,9 +104,19 @@ export class Navbar extends Component {
         return (
 <div className="menu-area">
     <ul>
+
+        <li>
+
+            <Link className="logo-navbar" to="/">
+                <img  src="https://cdn.discordapp.com/attachments/687798557138616390/841584406056402964/GoldChestLogo.png"
+                />
+             </Link>
+        </li>
+
         <li><Link className="nav-link" to="/">Home</Link></li>
         <li><Link className="nav-link" to="/signin">Sign in</Link></li>
         <li><input
+            autocomplete="off"
             type="text"
             value={query}
             name="query"

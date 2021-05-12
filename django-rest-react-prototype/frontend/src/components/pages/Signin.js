@@ -24,7 +24,10 @@ export class Signin extends Component {
                                 <div className="row justify-content-center my-auto">
                                     <div className="col-md-8 col-10 my-5">
                                         <div className="row justify-content-center px-3 mb-3">
-                                            <h3><i className="far fa-gem"></i></h3>
+                                                <div className="logo-signinJS">
+                                                    <img  src="https://cdn.discordapp.com/attachments/687798557138616390/841584406056402964/GoldChestLogo.png"
+                                                    />
+                                                </div>
                                         </div>
                                         <h3 className="mb-5 text-center heading">We are Goldchest</h3>
                                         <h6 className="msg-info">Please login to your account using Steam</h6>

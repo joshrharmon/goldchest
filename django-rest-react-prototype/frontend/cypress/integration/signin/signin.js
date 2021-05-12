@@ -17,11 +17,11 @@ describe('Sign in', () => {
     cy.get('input[id=steamAccountName]').type('goldchest161')
     cy.get('input[id=steamPassword]').type('Teamlightning161')
     cy.get('input[id=imageLogin]').click()
-    cy.wait(500)
-    cy.get('input[id=imageLogin]').click()
-    cy.wait(500)
-    cy.url().should('include', '/accounts/profile')
-    cy.contains('goldchestcs161@gmail.com')
+    cy.wait(2000)
+
+    cy.visit('http://localhost:8000/accounts/profile')
+
+    cy.contains('iLoveVideoGamez123@gmail.com')
 
   })
 })
