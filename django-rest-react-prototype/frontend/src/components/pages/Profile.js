@@ -3,15 +3,8 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import {GameInfo} from "../GameInfo";
 
-
-
-
+// Profile component
 export class Profile extends Component {
-
-//TODO: Make ajax call to this fetch point
-//http://localhost:5000/rec?op=get&args=RECC&user=76561198130300609&limit=5
-
-
   constructor(props) {
     super(props);
     this.state = {
@@ -27,11 +20,6 @@ export class Profile extends Component {
 
     }
   }
-
-
-
-
-
 
   componentDidMount() {
     const steamkey = 'B1C3A57FCE4FD0CBECBF1EE80507A691';
@@ -56,6 +44,8 @@ export class Profile extends Component {
             })
             .then(json => {
               const player = json.response.players[0];
+
+              // set profile info for this user
               this.setState({
                 // steamName: player.profileurl
                 //   .substring(30,player.profileurl.length - 1),
@@ -73,22 +63,19 @@ export class Profile extends Component {
                         isLoaded: true,
                         items: json,
                     })
-                    // console.log('This is items in fetch array', this.state.items)
                 });
 
-          // profile must be public
+          // profile and wishlist data must be public for this to work
           fetch('https://store.steampowered.com/wishlist/profiles/'
             + steamid
             + '/wishlistdata/')
             .then(res => {
-              // console.log(res);
               return res.json();
             })
             .then(json => {
               const wishlist = Object.keys(json).map(function(k) {
                 return json[k];
               });
-              // console.log(wishlist);
               this.setState({wishlist: wishlist});
             })
           ;
@@ -98,11 +85,9 @@ export class Profile extends Component {
 
     fetch(address + 'current_user/')
       .then(res => {
-        // console.log(res);
         return res.json();
       })
       .then(json => {
-        // console.log(json);
         this.setState({ username: json.username });
       })
     ;
@@ -114,16 +99,10 @@ export class Profile extends Component {
 
 
   render() {
-
-
-    // console.log('ITEMS array in RENDER', this.state.items);
-
     //for recomendation fetch
     var {isLoaded, items} = this.state;
-      // console.log(items.title)
     //for wishlist map html
     const wishlistGames = this.state.wishlist.map(game => {
-      // console.log(game);
       return <GameInfo
         key={game.name}
         title={game.name}
@@ -135,6 +114,7 @@ export class Profile extends Component {
     const wishlist = this.state.wishlist;
     const steamid = this.state.steamid;
 
+    // handle a request to process the wishlist for the recomendation engine
     function processWishlist(e) {
       e.preventDefault();
       const address =
@@ -142,12 +122,10 @@ export class Profile extends Component {
 
       const csrftoken = Cookies.get('csrftoken');
 
-      // console.log('This is wishlist', wishlist);
       const data = {
         wishlist: wishlist,
         steamid: steamid
       }
-      // console.log(data);
 
       fetch(address + 'processWishlist/', {
         method: 'POST',

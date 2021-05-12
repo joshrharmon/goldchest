@@ -7,4 +7,5 @@ urlpatterns = [
   path('users/', views.UserList.as_view()),
   path('steamid/', views.steamID),
   path('processWishlist/', views.processWishlist),
+  path('like/', views.like),
 ]

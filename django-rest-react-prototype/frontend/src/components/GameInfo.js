@@ -1,18 +1,17 @@
 import React, {Component} from "react";
+import Cookies from "js-cookie";
 
+// Game Infographic component with optional price and optional deal information
 export class GameInfo extends Component {
   constructor(props) {
     super(props);
-    this.state =
-      { tags: ''
-      , username: ''
-      , steamid: ''
-      };
-
+    this.state = { tags: '' };
     this.like = this.like.bind(this);
   }
 
   componentDidMount() {
+    // get tags from either category, props.tags, or the url in that order of
+    // priority, depending on what we have.
     if (this.props.category != undefined) {
       // prefer category if we have it
       this.setState({tags: [this.props.category]});
@@ -31,11 +30,12 @@ export class GameInfo extends Component {
   }
 
 
+  // handle a like request
   like(e) {
     e.preventDefault();
-    console.log(this.state.tags);
     const address =
       window.location.protocol + "//" + window.location.host + "/";
+    const csrftoken = Cookies.get('csrftoken');
 
     fetch(address + 'current_user/')
       .then(res => {
@@ -49,20 +49,31 @@ export class GameInfo extends Component {
             })
             .then(steamid => {
               console.log('steamid:', steamid);
+              const data = {
+                tags: this.state.tags,
+                steamid: steamid
+              }
+
+              fetch(address + 'like/', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRFToken': csrftoken
+                },
+                body: JSON.stringify(data)
+              });
             });
-          // TODO:
-          // IF they are logged in, call REST endpoint to update database with
-          // these tags and steam ID (I'll need to create this REST endpoint)
         }
       })
     ;
   };
 
   render() {
+    // display appropriate info if this is a deal
     const isDeal = this.props.price_cut != undefined;
-    const hasPrice = this.props.price != undefined;
-    const tags = this.state.tags;
 
+    // display appropriate info if we have the price
+    const hasPrice = this.props.price != undefined;
 
     return (
       <div className="col-md-4 product-grid">

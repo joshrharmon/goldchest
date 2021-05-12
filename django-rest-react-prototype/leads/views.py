@@ -22,6 +22,7 @@ class LeadListCreate(generics.ListCreateAPIView):
   serializer_class = LeadSerializer
 
 
+# get the current username and return it (note this is not the steam name)
 @api_view(['GET'])
 def current_user(request):
   """
@@ -55,6 +56,7 @@ class UserList(APIView):
       return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# connect to the database
 def create_conn(path):
   connection = None
   try:
@@ -64,6 +66,7 @@ def create_conn(path):
     print(f"An error '{e}' occurred during db connection")
   return connection
 
+# get the steamID of the current user and return it
 @api_view(['GET'])
 def steamID(request):
   username = request.user
@@ -81,54 +84,11 @@ def steamID(request):
 
   return Response(steamid[37:])
 
+# REST endpoint for liking a game
 @api_view(['POST'])
-def processWishlist(request):
-  wishlist = request.data['wishlist'];
+def like(request):
+  tags = request.data['tags'];
   steamid = request.data['steamid'];
-  genreMap = {
-      'Adventure': 'adventure'
-    , 'Exploration': 'adventure'
-    , 'Open World': 'adventure'
-    , '4X': 'strategy'
-    , 'Grand Strategy': 'strategy'
-    , 'Tactical RPG': 'rpg'
-    , 'City Builder': 'simulation'
-    , 'Action': 'action'
-    , 'Roguelike': 'rpg'
-    , 'RPG': 'rpg'
-    , 'Strategy': 'strategy'
-    , 'Simulation': 'simulation'
-    , 'Indie': 'indie'
-    , 'Racing': 'racing'
-    , 'Sports': 'sports'
-    , 'Horror': 'horror'
-    , 'Retro': 'retro'
-    , 'Fighting': 'fighting'
-    , 'Third-Person Shooter': 'shooter'
-    , 'Top-Down Shooter': 'shooter'
-    , 'Shooter': 'shooter'
-    , 'Anime': 'anime'
-    , 'Mystery': 'mystery'
-    , 'Action-Adventure': 'action'
-    , 'Psychological Horror': 'horror'
-  }
-
-  supportedGenres = [
-      'action'
-    , 'indie'
-    , 'adventure'
-    , 'rpg'
-    , 'horror'
-    , 'mystery'
-    , 'simulation'
-    , 'sports'
-    , 'racing'
-    , 'shooter'
-    , 'strategy'
-    , 'fighting'
-    , 'retro'
-    , 'anime'
-  ]
 
   affinities = {
       'action': 0
@@ -148,20 +108,70 @@ def processWishlist(request):
     , 'other': 0
   }
 
-  def getGenre(tags):
-    for tag in tags:
-      if tag in genreMap.keys():
-        genre = genreMap[tag]
-        if genre in supportedGenres:
-          return genre
-    return 'other'
+  # update database
+  with create_conn("db.sqlite3") as conn:
+    row = conn.execute("SELECT * FROM gc_userData WHERE username=?"
+        , (steamid,)).fetchone()
+
+    if row:
+      affinities['action'] = row[1]
+      affinities['indie'] = row[2]
+      affinities['adventure'] = row[3]
+      affinities['rpg'] = row[4]
+      affinities['horro'] = row[5]
+      affinities['mystery'] = row[6]
+      affinities['simulation'] = row[7]
+      affinities['sports'] = row[8]
+      affinities['racing'] = row[9]
+      affinities['shooter'] = row[10]
+      affinities['strategy'] = row[11]
+      affinities['fighting'] = row[12]
+      affinities['retro'] = row[13]
+      affinities['anime'] = row[14]
+
+    affinities[getGenre(tags)] = 1
+
+    conn.execute("DELETE FROM gc_userData WHERE username=?", (steamid,))
+    conn.execute("INSERT INTO gc_userData VALUES"
+      + "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+      , (steamid, affinities['action'], affinities['indie']
+      , affinities['adventure'], affinities['rpg'], affinities['horror']
+      , affinities['mystery'], affinities['simulation'], affinities['sports']
+      , affinities['racing'], affinities['shooter'], affinities['strategy']
+      , affinities['fighting'], affinities['retro'], affinities['anime']))
+
+  return Response()
+
+
+# REST endpoint for processing the wishlist for the recommendations engine
+@api_view(['POST'])
+def processWishlist(request):
+  wishlist = request.data['wishlist'];
+  steamid = request.data['steamid'];
+
+  affinities = {
+      'action': 0
+    , 'indie': 0
+    , 'adventure': 0
+    , 'rpg': 0
+    , 'horror': 0
+    , 'mystery': 0
+    , 'simulation': 0
+    , 'sports': 0
+    , 'racing': 0
+    , 'shooter': 0
+    , 'strategy': 0
+    , 'fighting': 0
+    , 'retro': 0
+    , 'anime': 0
+    , 'other': 0
+  }
 
   for game in wishlist:
     tags = game['tags']
     genre = getGenre(tags)
     # affinities[genre] += 1
     affinities[genre] = 1
-
 
   with create_conn("db.sqlite3") as conn:
     conn.execute("DELETE FROM gc_userData WHERE username=?", (steamid,))
@@ -173,5 +183,64 @@ def processWishlist(request):
       , affinities['racing'], affinities['shooter'], affinities['strategy']
       , affinities['fighting'], affinities['retro'], affinities['anime']))
 
-
   return Response()
+
+genreMap = {
+    'Adventure': 'adventure'
+  , 'Exploration': 'adventure'
+  , 'Open World': 'adventure'
+  , '4X': 'strategy'
+  , 'Grand Strategy': 'strategy'
+  , 'Tactical RPG': 'rpg'
+  , 'City Builder': 'simulation'
+  , 'Action': 'action'
+  , 'Roguelike': 'rpg'
+  , 'RPG': 'rpg'
+  , 'Strategy': 'strategy'
+  , 'Simulation': 'simulation'
+  , 'Indie': 'indie'
+  , 'Racing': 'racing'
+  , 'Sports': 'sports'
+  , 'Horror': 'horror'
+  , 'Retro': 'retro'
+  , 'Fighting': 'fighting'
+  , 'Third-Person Shooter': 'shooter'
+  , 'Top-Down Shooter': 'shooter'
+  , 'Shooter': 'shooter'
+  , 'Anime': 'anime'
+  , 'Mystery': 'mystery'
+  , 'Action-Adventure': 'action'
+  , 'Psychological Horror': 'horror'
+}
+
+supportedGenres = [
+    'action'
+  , 'indie'
+  , 'adventure'
+  , 'rpg'
+  , 'horror'
+  , 'mystery'
+  , 'simulation'
+  , 'sports'
+  , 'racing'
+  , 'shooter'
+  , 'strategy'
+  , 'fighting'
+  , 'retro'
+  , 'anime'
+]
+
+# get the first supported genre from this list of tags, or 'other' if none were
+# supported
+def getGenre(tags):
+  for tag in tags:
+    # we need to check which form it is to get around this somewhat awkward
+    # capitalization problem.
+    if tag[:1].isupper():
+      if tag in genreMap.keys():
+        genre = genreMap[tag]
+        if genre in supportedGenres:
+          return genre
+    else:
+      return tag
+  return 'other'
