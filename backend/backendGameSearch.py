@@ -12,7 +12,6 @@ class gameSearch():
         gameData = soup.find_all("a", class_="search_result_row ds_collapse_flag")
         gamePrices = re.findall(r"col search_price.*\n.*\n<\/div", str(gameData))
         gameNewPrices = re.findall(r"(?:col search_price responsive_secondrow\">\\r\\n\s+)(Free to Play|\D?\d+\.\d+)\s+", str(gamePrices))
-        print(gameNewPrices)
         gameTitles = soup.find_all("span", class_="title")
         gameArtURLS = soup.find_all("div", class_="col search_capsule")
         while gamesFetched < numResults:
