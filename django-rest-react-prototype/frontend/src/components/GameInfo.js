@@ -21,7 +21,7 @@ export class GameInfo extends Component {
       this.setState({tags: this.props.tags});
     } else {
       // get the genres using game steam ID
-      const gameID = "57690"; // TODO: regex match on url
+      const gameID = "57690"; // TODO: extract ID from url
       fetch("https://store.steampowered.com/api/appdetails?appids=" + gameID)
         .then(res => res.json()).then(json => {
           const tags = json[gameID].data.genres.map(obj => obj.description);
