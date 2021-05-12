@@ -24,12 +24,12 @@ describe('Navigate Categories Routing', () => {
         cy.url().should('include', '/action')
     })
 
-    it('clicks the link: children games', () => {
+    it('clicks the link: Indie games', () => {
         cy.visit('http://localhost:8000')
-        cy.contains('Childrens Games')
+        cy.contains('Indie Games')
         cy.wait(500)
-        cy.get('a[href*="/childrens"]').click()
-        cy.url().should('include', '/childrens')
+        cy.get('a[href*="/indie"]').click()
+        cy.url().should('include', '/indie')
     })
 
     it('clicks the link: horror games', () => {
@@ -80,12 +80,12 @@ describe('Navigate Categories Routing', () => {
         cy.url().should('include', '/mystery')
     })
 
-    it('clicks the link: puzzle games', () => {
+    it('clicks the link: simulation games', () => {
         cy.visit('http://localhost:8000')
-        cy.contains('Puzzle Games')
+        cy.contains('Simulation Games')
         cy.wait(500)
-        cy.get('a[href*="/puzzle"]').click()
-        cy.url().should('include', '/puzzle')
+        cy.get('a[href*="/simulation"]').click()
+        cy.url().should('include', '/simulation')
     })
 
 
