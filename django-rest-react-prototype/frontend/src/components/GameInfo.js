@@ -12,7 +12,7 @@ export class GameInfo extends Component {
 
         { hasPrice &&
           ( isDeal
-          ? <h5 className="text-center">NOW {this.props.currency}{this.props.price} SAVE {this.props.price_cut}%</h5>
+          ? <h5 className="text-center">NOW {this.props.currency}{this.props.price} {this.props.price_cut} OFF </h5>
           : <h5 className="text-center">PRICE {this.props.currency}{this.props.price}</h5>
           )
         }
