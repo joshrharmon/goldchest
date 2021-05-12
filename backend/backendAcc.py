@@ -71,4 +71,3 @@ class goldchestAccount:
 
 test = goldchestAccount()
 test.Test(1,"testname","testname","my@gmail.com") #ENTER IN THE INFO YOU WANT
-#test.add_Email("samuel.jothimuthu@gmail.com", "Darkcut32")

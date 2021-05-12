@@ -8,7 +8,7 @@ context = ssl.create_default_context()
 
 #EMAIL
 sender_email = "goldchest.steam@gmail.com" #our email needs to be changed
-reciever_email = "samuel.jothimuthu@gmail.com" #sender email will need to be updated
+reciever_email = "my@gmail.com" #sender email will need to be updated
 message_test = """\
 Subject: Steam Recommendations
 
