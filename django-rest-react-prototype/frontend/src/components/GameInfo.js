@@ -20,7 +20,15 @@ export class GameInfo extends Component {
       this.setState({tags: this.props.tags});
     } else {
       // get the genres using game steam ID
-      const gameID = "57690"; // TODO: extract ID from url
+      //const gameID = "57690"; // TODO: extract ID from url
+      //Trying to extract gameID from this.props.url
+      console.log(this.props.url);
+      var steam_url = this.props.url;
+      //https://store.steampowered.com/app/{id}/othershit
+      var steam_gameID = steam_url.split('/')[4]
+      console.log(steam_gameID);
+      const gameID = steam_gameID;
+
       fetch("https://store.steampowered.com/api/appdetails?appids=" + gameID)
         .then(res => res.json()).then(json => {
           const tags = json[gameID].data.genres.map(obj => obj.description);
