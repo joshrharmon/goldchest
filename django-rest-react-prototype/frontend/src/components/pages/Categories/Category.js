@@ -128,6 +128,7 @@ render() {
                             price={game.price_new}
                             price_cut={game.price_cut}
                             url={game.url}
+                            category={game.category}
                           />
                         ))}
                     </div>
