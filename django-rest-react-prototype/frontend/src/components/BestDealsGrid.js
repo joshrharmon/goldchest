@@ -37,22 +37,17 @@ export class BestDealsGrid extends Component
 
         } );
 
-
-
         return(
-
             <div>
                 <div className="container-fluid padding">
                     <div className="row welcome text-center">
                         <div className="col-12">
-
                         </div>
                         <div className="col-12">
                             <p className="lead">See our hottest deals right now!</p>
                         </div>
                     </div>
                 </div>
-
                 <div className="row">
                     {mapHTMLtoNrOfDeals}
                 </div>

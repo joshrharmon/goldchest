@@ -89,8 +89,10 @@ export class GameInfo extends Component {
         }
 
       <a href={this.props.url} className="btn buy">BUY NOW</a>
-      <button onClick={this.like}>Like</button>
+          <a href="" className="btn buy" onClick={this.like}>Like</a>
+
       </div>
+
     );
   }
 

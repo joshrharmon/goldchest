@@ -116,7 +116,7 @@ a.btn.buy{
     color: #434444;
     border-radius: 0;
     border: 1px solid #434444;
-    width: 100%;
+    width: 50%;
     margin-top: 20px;
 }
 .buy:hover{
@@ -517,8 +517,8 @@ button:focus {
 
 .btn-white:hover {
     color: #fff;
-
 }
+
 
 a {
     color: #000
@@ -609,8 +609,6 @@ a:hover {
     height: auto;
     align-content: center;
     display: block;
-
-
 }
 
 
@@ -619,5 +617,8 @@ a:hover {
 
 
 
-
+.like-btn{
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
 
