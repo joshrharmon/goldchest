@@ -17,6 +17,10 @@ Repository dedicated to Team Lightning's product "GoldChest".
 - APIs: https://itad.docs.apiary.io/#
 - Cloud provider: AWS
 
+# Requirements
+For Google Chrome:
+Before running the project download and have enabled Moesif Origin & CORS Changer
+
 # Docker
 In top level directory:<br/>
 Build image with: ```docker build -t goldchest .```
