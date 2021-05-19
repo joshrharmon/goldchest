@@ -8,7 +8,7 @@ Repository dedicated to Team Lightning's product "GoldChest".
 - Jake Rosen (Front-end, Back-end)
 - Samuel Jothimuthu (Front-end, Back-end)
 - Max Garcia (UI/UX design, Back-end)
-- Hoang Nguyen (Project Manager, Tester)
+- Hoang Nguyen (Tester)
 - Gricelda Isabel Tecun (Back-end, Tester)
 
 **Stack:**
